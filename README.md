@@ -1,3 +1,3 @@
-# template-ts
+# Vite Plugin Vue Preview
 
-a universal template for typescript
+a vite plugin for vue preview
