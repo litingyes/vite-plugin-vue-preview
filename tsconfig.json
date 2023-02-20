@@ -3,4 +3,16 @@
   "include": [
     "./src/**/*"
   ],
+  "exclude": ["./dist"],
+  "compilerOptions": {
+    "declaration": true,
+    "removeComments": true,
+    "baseUrl": ".",
+    "outDir": "./dist",
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "strict": true,
+    "lib": ["ESNext", "DOM"]
+  }
 }
