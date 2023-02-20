@@ -6,7 +6,6 @@ import type {
   SFCTemplateCompileOptions,
 } from 'vue/compiler-sfc'
 import { compileFile } from './transform'
-import type { OutputModes } from './output/types'
 
 const defaultMainFile = 'App.vue'
 
@@ -63,18 +62,11 @@ export interface Store {
   compiler: typeof defaultCompiler
   vueVersion?: string
   init: () => void
-  setActive: (filename: string) => void
-  addFile: (filename: string | File) => void
-  deleteFile: (filename: string) => void
   getImportMap: () => any
-  initialShowOutput: boolean
-  initialOutputMode: OutputModes
 }
 
 export interface StoreOptions {
-  showOutput?: boolean
   // loose type to allow getting from the URL without inducing a typing error
-  outputMode?: OutputModes | string
   defaultVueRuntimeURL?: string
   defaultVueServerRendererURL?: string
 }
@@ -84,8 +76,6 @@ export class ReplStore implements Store {
   compiler = defaultCompiler
   vueVersion?: string
   options?: SFCOptions
-  initialShowOutput: boolean
-  initialOutputMode: OutputModes
 
   private defaultVueRuntimeURL: string
   private defaultVueServerRendererURL: string
@@ -94,8 +84,6 @@ export class ReplStore implements Store {
   constructor({
     defaultVueRuntimeURL = `https://unpkg.com/@vue/runtime-dom@${version}/dist/runtime-dom.esm-browser.js`,
     defaultVueServerRendererURL = `https://unpkg.com/@vue/server-renderer@${version}/dist/server-renderer.esm-browser.js`,
-    showOutput = false,
-    outputMode = 'preview',
   }: StoreOptions = {}) {
     const files: StoreState['files'] = {
       [defaultMainFile]: new File(defaultMainFile, welcomeCode),
@@ -103,8 +91,6 @@ export class ReplStore implements Store {
 
     this.defaultVueRuntimeURL = defaultVueRuntimeURL
     this.defaultVueServerRendererURL = defaultVueServerRendererURL
-    this.initialShowOutput = showOutput
-    this.initialOutputMode = outputMode as OutputModes
 
     let mainFile = defaultMainFile
     if (!files[mainFile])
@@ -130,55 +116,6 @@ export class ReplStore implements Store {
       if (file !== defaultMainFile)
         compileFile(this, this.state.files[file])
     }
-  }
-
-  setActive(filename: string) {
-    this.state.activeFile = this.state.files[filename]
-  }
-
-  addFile(fileOrFilename: string | File): void {
-    const file
-      = typeof fileOrFilename === 'string'
-        ? new File(fileOrFilename)
-        : fileOrFilename
-    this.state.files[file.filename] = file
-    if (!file.hidden)
-      this.setActive(file.filename)
-  }
-
-  deleteFile(filename: string) {
-    if (confirm(`Are you sure you want to delete ${filename}?`)) {
-      if (this.state.activeFile.filename === filename)
-        this.state.activeFile = this.state.files[this.state.mainFile]
-
-      delete this.state.files[filename]
-    }
-  }
-
-  getFiles() {
-    const exported: Record<string, string> = {}
-    for (const filename in this.state.files)
-      exported[filename] = this.state.files[filename].code
-
-    return exported
-  }
-
-  async setFiles(newFiles: Record<string, string>, mainFile = defaultMainFile) {
-    const files: Record<string, File> = {}
-    if (mainFile === defaultMainFile && !newFiles[mainFile])
-      files[mainFile] = new File(mainFile, welcomeCode)
-
-    for (const filename in newFiles)
-      files[filename] = new File(filename, newFiles[filename])
-
-    for (const file in files)
-      await compileFile(this, files[file])
-
-    this.state.mainFile = mainFile
-    this.state.files = files
-    this.initImportMap()
-    this.setActive(mainFile)
-    this.forceSandboxReset()
   }
 
   private forceSandboxReset() {

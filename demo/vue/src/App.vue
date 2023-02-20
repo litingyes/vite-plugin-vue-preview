@@ -1,23 +1,17 @@
 <script setup lang="ts">
-import { provide } from 'vue'
-
-import 'vite-plugin-vue-preview/dist/style.css'
-import { Repl, ReplStore } from 'vite-plugin-vue-preview'
-
-const store = new ReplStore({
-  showOutput: true
-});
-
-provide('store', store)
-provide('clear-console', true)
+import DemoSfc from './DemoSfc.vue';
 </script>
 
 <template>
   <div class="test-vue">
-    <Repl :store="store" ssr></Repl>
+    <DemoSfc></DemoSfc>
   </div>
 </template>
 
 <style scoped lang="scss">
-.test-vue {}
+.test-vue {
+  width: 720px;
+  margin: 0 auto;
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
+}
 </style>

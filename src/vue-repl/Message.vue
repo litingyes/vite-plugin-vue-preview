@@ -45,7 +45,7 @@ function formatMessage(err: string | Error): string {
   z-index: 10;
   border: 2px solid transparent;
   border-radius: 6px;
-  font-family: var(--font-code);
+  font-family: Menlo, Monaco, Consolas, 'Courier New', monospace;
   white-space: pre-wrap;
   margin-bottom: 8px;
   max-height: calc(100% - 300px);

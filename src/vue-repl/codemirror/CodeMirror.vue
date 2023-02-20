@@ -4,8 +4,9 @@
 
 <script setup lang="ts">
 import { ref, onMounted, watchEffect, inject } from 'vue'
-import { debounce } from '../utils'
 import CodeMirror from './codemirror'
+import { useDebounceFn } from '@vueuse/core'
+
 
 export interface Props {
   value?: string
@@ -58,7 +59,7 @@ onMounted(() => {
   if (needAutoResize) {
     window.addEventListener(
       'resize',
-      debounce(() => {
+      useDebounceFn(() => {
         editor.refresh()
       })
     )
@@ -66,7 +67,7 @@ onMounted(() => {
 })
 </script>
 
-<style>
+<style lang="scss">
 .editor {
   position: relative;
   height: 100%;
@@ -75,7 +76,7 @@ onMounted(() => {
 }
 
 .CodeMirror {
-  font-family: var(--font-code);
+  font-family: Menlo, Monaco, Consolas, 'Courier New', monospace;
   line-height: 1.5;
   height: 100%;
 }

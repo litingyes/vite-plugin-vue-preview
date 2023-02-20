@@ -163,7 +163,7 @@ async function updatePreview() {
   let isSSR = props.ssr
   if (store.vueVersion) {
     const [_, minor, patch] = store.vueVersion.split('.')
-    if (parseInt(minor, 10) < 2 || parseInt(patch, 10) < 27) {
+    if (parseInt(minor!, 10) < 2 || parseInt(patch!, 10) < 27) {
       alert(
         `The selected version of Vue (${store.vueVersion}) does not support in-browser SSR.` +
         ` Rendering in client mode instead.`

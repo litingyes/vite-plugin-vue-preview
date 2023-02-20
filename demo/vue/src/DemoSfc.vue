@@ -1,0 +1,15 @@
+<script lang="ts" setup>
+import { provide } from 'vue'
+
+// import 'vite-plugin-vue-preview/dist/style.css'
+import { VuePreview, ReplStore } from '../../../src/vue-repl'
+
+const store = new ReplStore();
+
+provide('store', store)
+provide('clear-console', true)
+</script>
+
+<template>
+    <VuePreview :store="store" ssr></VuePreview>
+</template>
