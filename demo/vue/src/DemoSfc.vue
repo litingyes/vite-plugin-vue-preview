@@ -4,7 +4,7 @@ import { provide } from 'vue'
 // import 'vite-plugin-vue-preview/dist/style.css'
 import { VuePreview, ReplStore } from '../../../src/vue-repl'
 
-const store = new ReplStore();
+const store = new ReplStore({ code: '<template><div>TEST</div></template>' });
 
 provide('store', store)
 provide('clear-console', true)

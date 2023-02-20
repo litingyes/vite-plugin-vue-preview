@@ -66,6 +66,7 @@ export interface Store {
 }
 
 export interface StoreOptions {
+  code?: string
   // loose type to allow getting from the URL without inducing a typing error
   defaultVueRuntimeURL?: string
   defaultVueServerRendererURL?: string
@@ -82,11 +83,12 @@ export class ReplStore implements Store {
   private pendingCompiler: Promise<any> | null = null
 
   constructor({
+    code = null,
     defaultVueRuntimeURL = `https://unpkg.com/@vue/runtime-dom@${version}/dist/runtime-dom.esm-browser.js`,
     defaultVueServerRendererURL = `https://unpkg.com/@vue/server-renderer@${version}/dist/server-renderer.esm-browser.js`,
   }: StoreOptions = {}) {
     const files: StoreState['files'] = {
-      [defaultMainFile]: new File(defaultMainFile, welcomeCode),
+      [defaultMainFile]: new File(defaultMainFile, code ?? welcomeCode),
     }
 
     this.defaultVueRuntimeURL = defaultVueRuntimeURL
