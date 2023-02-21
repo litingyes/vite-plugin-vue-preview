@@ -1,0 +1,16 @@
+{
+  "name": "test-vitepress",
+  "version": "0.0.0",
+  "description": "",
+  "author": "liting <luz.liting@gmail.com>",
+  "license": "MIT",
+  "keywords": [],
+  "main": "index.js",
+  "scripts": {
+    "dev": "vitepress dev ."
+  },
+  "devDependencies": {
+    "vite-plugin-vue-preview": "workspace:^0.1.0",
+    "vitepress": "1.0.0-alpha.47"
+  }
+}

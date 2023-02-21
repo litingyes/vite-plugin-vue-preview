@@ -22,6 +22,11 @@
       "require": "./dist/index.cjs",
       "import": "./dist/index.js"
     },
+    "./plugin": {
+      "types": "./dist/plugin.d.ts",
+      "require": "./dist/plugin.cjs",
+      "import": "./dist/plugin.js"
+    },
     "./dist/style.css": "./dist/style.css",
     "./style.css": "./dist/style.css"
   },
@@ -42,7 +47,8 @@
     "release": "release-it",
     "build": "vite build",
     "prepare": "git config core.hooksPath .git/hooks/ && npx simple-git-hooks",
-    "test-vue:dev": "pnpm run -C demo/vue dev"
+    "test-vue": "pnpm run -C demo/vue dev",
+    "test-vitepress": "pnpm run -C demo/vitepress dev"
   },
   "peerDependencies": {
     "@vitejs/plugin-vue": "^4.0.0",

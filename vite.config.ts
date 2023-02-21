@@ -6,10 +6,10 @@ import dts from 'vite-plugin-dts'
 export default defineConfig({
   plugins: [vue(), dts()],
   build: {
-    target: 'esnext',
+    sourcemap: true,
+    minify: false,
     lib: {
-      entry: resolve(__dirname, 'src/index.ts'),
-      fileName: 'index',
+      entry: [resolve(__dirname, 'src/index.ts'), resolve(__dirname, 'src/plugin.ts')],
       formats: ['es', 'cjs'],
     },
     rollupOptions: {
