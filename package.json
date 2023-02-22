@@ -1,7 +1,7 @@
 {
   "name": "vite-plugin-vue-preview",
   "type": "module",
-  "version": "0.1.0",
+  "version": "0.0.0",
   "private": false,
   "description": "a vite plugin for vue preview",
   "author": "liting <luz.liting@gmail.com>",
@@ -14,7 +14,10 @@
   "keywords": [
     "vite",
     "vue",
-    "preview"
+    "vitepress",
+    "preview",
+    "repl",
+    "demo"
   ],
   "exports": {
     ".": {
@@ -153,7 +156,7 @@
       }
     },
     "hooks": {
-      "after:bump": "npx unbuild",
+      "after:bump": "npx vite build",
       "after:git:release": "git push origin HEAD"
     }
   }
