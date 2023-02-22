@@ -22,7 +22,7 @@
   --cursor: #000;
 
   direction: ltr;
-  font-family: Menlo, Monaco, Consolas, 'Courier New', monospace;
+  font-family: var(--font-code);
   height: auto;
 }
 
@@ -62,7 +62,7 @@
 /* GUTTER */
 
 .CodeMirror-gutters {
-  border-right: 1px solid #ddd;
+  border-right: 1px solid var(--border);
   background-color: transparent;
   white-space: nowrap;
 }

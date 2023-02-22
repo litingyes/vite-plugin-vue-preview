@@ -14,7 +14,6 @@ const props = defineProps<{
 
 <style scoped>
 .output-container {
-  height: calc(100% - 38px);
   overflow: hidden;
   position: relative;
 }

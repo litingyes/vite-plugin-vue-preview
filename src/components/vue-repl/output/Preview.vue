@@ -254,8 +254,6 @@ async function updatePreview() {
 .iframe-container,
 .iframe-container :deep(iframe) {
   width: 100%;
-  height: 100%;
   border: none;
-  background-color: #fff;
 }
 </style>
