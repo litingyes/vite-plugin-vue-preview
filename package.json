@@ -50,8 +50,12 @@
     "release": "release-it",
     "build": "vite build",
     "prepare": "git config core.hooksPath .git/hooks/ && npx simple-git-hooks",
-    "test-vue": "pnpm run -C demo/vue dev",
-    "test-vitepress": "pnpm run -C demo/vitepress dev"
+    "test-vue": "vite test/vue",
+    "test-vue:build": "vite build test/vue",
+    "test-vue:preview": "vite preview test/vue",
+    "test-vitepress": "vitepress dev test/vitepress",
+    "test-vitepress:build": "vitepress build test/vitepress",
+    "test-vitepress:preview": "vitepress preview test/vitepress"
   },
   "peerDependencies": {
     "@vitejs/plugin-vue": "^4.0.0",
@@ -88,8 +92,10 @@
     "sass": "^1.58.3",
     "simple-git-hooks": "^2.8.1",
     "sucrase": "^3.29.0",
+    "typescript": "^4.9.5",
     "vite": "^4.1.2",
     "vite-plugin-dts": "2.0.0-beta.1",
+    "vitepress": "1.0.0-alpha.47",
     "vue": "^3.2.47"
   },
   "config": {

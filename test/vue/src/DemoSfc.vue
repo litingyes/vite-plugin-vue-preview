@@ -1,8 +1,8 @@
 <script lang="ts" setup>
 import { provide } from 'vue'
 
-import 'vite-plugin-vue-preview/dist/style.css'
-import { VuePreview, ReplStore, VuePreviewWrapper } from '../../../src/index'
+import '../../../dist/style.css'
+import { VuePreview, ReplStore, VuePreviewWrapper } from '../../../dist'
 
 const store = new ReplStore({ code: '<template><div>TEST</div></template>' });
 
