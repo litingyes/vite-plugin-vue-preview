@@ -36,7 +36,7 @@ export default defineConfig({
   plugins: [vuePreview()],
 })
 
-// .vitepress/theme/index.js
+// .vitepress/theme/index.ts
 import DefaultTheme from 'vitepress/theme'
 import { VuePreviewWrapper } from 'vite-plugin-vue-preview'
 
