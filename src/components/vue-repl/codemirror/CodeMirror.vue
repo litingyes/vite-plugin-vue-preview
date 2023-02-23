@@ -3,81 +3,75 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, watchEffect, inject } from 'vue'
-import CodeMirror from './codemirror'
-import { useDebounceFn } from '@vueuse/core'
-
+import { ref, onMounted, watchEffect } from 'vue'
+// import { useDebounceFn } from '@vueuse/core'
+import { EditorState, Compartment } from "@codemirror/state"
+import { EditorView, keymap, drawSelection, highlightActiveLine, lineNumbers, highlightActiveLineGutter } from "@codemirror/view"
+import type { ViewUpdate } from '@codemirror/view'
+import { vue } from '@codemirror/lang-vue'
+import { defaultKeymap, history } from '@codemirror/commands'
+import { closeBrackets } from '@codemirror/autocomplete'
+import { codeFolding, bracketMatching, foldGutter } from '@codemirror/language'
+import { oneDark } from '@codemirror/theme-one-dark'
 
 export interface Props {
   value?: string
   readonly?: boolean
 }
-
 const props = withDefaults(defineProps<Props>(), {
-  value: '',
-  readonly: false
+  value: ''
 })
 
 const emit = defineEmits<(e: 'change', value: string) => void>()
 
 const el = ref()
-const needAutoResize = inject('autoresize')
+
+
+const language = new Compartment
+
+let state = EditorState.create({
+  doc: props.value,
+  extensions: [
+    language.of(vue()),
+    EditorState.tabSize.of(2),
+    EditorView.updateListener.of((update: ViewUpdate) => {
+      emit('change', update.state.doc.toString())
+    }),
+    keymap.of(defaultKeymap),
+    drawSelection(),
+    highlightActiveLine(),
+    lineNumbers(),
+    highlightActiveLineGutter(),
+    EditorView.lineWrapping,
+    history(),
+    closeBrackets(),
+    codeFolding(),
+    bracketMatching({
+      afterCursor: true
+    }),
+    foldGutter(),
+    oneDark,
+  ]
+})
 
 onMounted(() => {
-  const addonOptions = {
-    autoCloseBrackets: true,
-    autoCloseTags: true,
-    foldGutter: true,
-    gutters: ['CodeMirror-linenumbers', 'CodeMirror-foldgutter']
-  }
-
-  const editor = CodeMirror(el.value!, {
-    value: '',
-    mode: 'htmlmixed',
-    readOnly: props.readonly,
-    tabSize: 2,
-    lineWrapping: true,
-    lineNumbers: true,
-    ...addonOptions
-  })
-
-  editor.on('change', () => {
-    emit('change', editor.getValue())
+  const editor = new EditorView({
+    state,
+    parent: el.value,
   })
 
   watchEffect(() => {
-    const cur = editor.getValue()
+    const cur = editor.state.doc.toString()
     if (props.value !== cur) {
-      editor.setValue(props.value)
+      editor.dispatch({ changes: { from: 0, to: editor.state.doc.length, insert: props.value } })
     }
   })
-
-  setTimeout(() => {
-    editor.refresh()
-  }, 50)
-
-  if (needAutoResize) {
-    window.addEventListener(
-      'resize',
-      useDebounceFn(() => {
-        editor.refresh()
-      })
-    )
-  }
 })
 </script>
 
 <style lang="scss">
 .editor {
   position: relative;
-  width: 100%;
-  height: 100%;
   overflow: hidden;
-}
-
-.CodeMirror {
-  font-family: Menlo, Monaco, Consolas, 'Courier New', monospace;
-  line-height: 1.5;
-  height: 100%;
 }
 </style>

@@ -38,26 +38,27 @@ function formatMessage(err: string | Error): string {
 
 <style scoped>
 .msg {
-  position: absolute;
+  /* position: fixed;
   bottom: 0;
   left: 8px;
-  right: 8px;
+  right: 8px; */
   z-index: 10;
-  border: 2px solid transparent;
-  border-radius: 6px;
+  /* border: 2px solid transparent; */
+  /* border-radius: 6px; */
   font-family: Menlo, Monaco, Consolas, 'Courier New', monospace;
   white-space: pre-wrap;
-  margin-bottom: 8px;
+  /* margin-bottom: 8px; */
   max-height: calc(100% - 300px);
-  min-height: 40px;
+  /* min-height: 40px; */
   display: flex;
   align-items: stretch;
 }
 
 pre {
   margin: 0;
-  padding: 12px 20px;
-  overflow: auto;
+  padding: 4px 8px;
+  /* overflow: auto; */
+  white-space: pre-wrap;
 }
 
 .dismiss {
@@ -67,13 +68,16 @@ pre {
   width: 18px;
   height: 18px;
   line-height: 18px;
-  border-radius: 9px;
+  border-radius: 50%;
   text-align: center;
-  display: block;
-  font-size: 9px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   padding: 0;
   background-color: red;
   color: #fff;
+  border: none;
+  cursor: pointer;
 }
 
 @media (max-width: 720px) {
