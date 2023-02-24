@@ -4,7 +4,7 @@ const end = '```'
 const getCode = (code: string) => {
   code = code.replace(start, '')
   code = code.replace(end, '')
-  return ` <VuePreviewWrapper code="${code}"></VuePreviewWrapper>\n`
+  return ` <VuePreview code="${code}"></VuePreview>\n`
 }
 
 export default function VuePreviewPlugin() {

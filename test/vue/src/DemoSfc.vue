@@ -2,12 +2,7 @@
 import { provide } from 'vue'
 
 import '../../../dist/style.css'
-import { VuePreview, ReplStore, VuePreviewWrapper } from '../../../dist'
-
-const store = new ReplStore({ code: '<template><div>TEST</div></template>' });
-
-provide('store', store)
-provide('clear-console', true)
+import { VuePreview } from '../../../dist'
 
 const code = '<template><div>TEST VuePreviewWrapper</div></template>'
 </script>
@@ -15,10 +10,7 @@ const code = '<template><div>TEST VuePreviewWrapper</div></template>'
 <template>
     <div class="demo-sfc">
         <div class="demo-sfc__item">
-            <VuePreview :store="store" ssr></VuePreview>
-        </div>
-        <div class="demo-sfc__item">
-            <VuePreviewWrapper :code="code"></VuePreviewWrapper>
+            <VuePreview :code="code"></VuePreview>
         </div>
     </div>
 </template>
@@ -29,11 +21,6 @@ const code = '<template><div>TEST VuePreviewWrapper</div></template>'
     padding-top: 100px;
     width: 1000px;
     display: flex;
-    gap: 100px;
     justify-content: center;
-
-    &__item {
-        width: 400px;
-    }
 }
 </style>

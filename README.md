@@ -39,14 +39,14 @@ export default defineConfig({
 
 // .vitepress/theme/index.ts
 import DefaultTheme from 'vitepress/theme'
-import { VuePreviewWrapper } from 'vite-plugin-vue-preview'
+import { VuePreview } from 'vite-plugin-vue-preview'
 import 'vite-plugin-vue-preview/dist/style.css'
 
 export default {
   ...DefaultTheme,
   enhanceApp(ctx) {
     DefaultTheme.enhanceApp(ctx)
-    ctx.app.component('VuePreviewWrapper', VuePreviewWrapper)
+    ctx.app.component('VuePreview', VuePreview)
   },
 }
 ```

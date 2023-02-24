@@ -1,9 +1,9 @@
 <template>
-    <VuePreview :store="store"></VuePreview>
+    <Repl :store="store"></Repl>
 </template>
 
 <script lang="ts" setup>
-import { ReplStore, VuePreview } from './vue-repl'
+import { ReplStore, Repl } from './vue-repl'
 import { provide, watch } from 'vue'
 
 export interface Props {
