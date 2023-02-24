@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.0](https://github.com/liting-yes/vite-plugin-vue-preview/compare/0.1.0...0.2.0) (2023-02-24)
+
+
+### Features
+
+* hot update ([a24f11e](https://github.com/liting-yes/vite-plugin-vue-preview/commit/a24f11eb177f4d91222f5ef11df598e027a7b231))
+
 ## 0.1.0 (2023-02-22)
 
 
