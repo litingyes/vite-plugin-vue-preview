@@ -1,15 +1,11 @@
 <script lang="ts" setup>
-import { provide } from 'vue'
-
 import '../../../dist/style.css'
 import { VuePreview } from '../../../src/index'
-
-const code = '<template><div>TEST VuePreviewWrapper</div></template>'
 </script>
 
 <template>
     <div class="demo-sfc">
-        <VuePreview :code="code"></VuePreview>
+        <VuePreview></VuePreview>
     </div>
 </template>
 

@@ -7,10 +7,12 @@ import { ReplStore, Repl } from './vue-repl'
 import { provide, watch } from 'vue'
 
 export interface Props {
-    code: string
+    code?: string
 }
 
-const props = defineProps<Props>()
+const props = withDefaults(defineProps<Props>(), {
+    code: '<template>Hello, vite-plugin-vue-preview !</template>'
+})
 
 const store = new ReplStore({ code: props.code });
 provide('store', store)
