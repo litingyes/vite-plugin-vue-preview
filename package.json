@@ -6,18 +6,20 @@
   "description": "a vite plugin for vue preview",
   "author": "liting <luz.liting@gmail.com>",
   "license": "MIT",
-  "homepage": "https://github.com/liting-yes/vite-plugin-vue-preview#readme",
+  "homepage": "https://vite-plugin-vue-preview.netlify.app",
   "repository": {
     "type": "git",
     "url": "https://github.com/liting-yes/vite-plugin-vue-preview.git"
   },
   "keywords": [
     "vite",
+    "plugin",
     "vue",
     "vitepress",
     "preview",
-    "repl",
-    "demo"
+    "editor",
+    "demo",
+    "code-preview"
   ],
   "exports": {
     ".": {
