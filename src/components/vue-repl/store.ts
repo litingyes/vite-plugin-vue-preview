@@ -9,19 +9,6 @@ import { compileFile } from './transform'
 
 const defaultMainFile = 'App.vue'
 
-const welcomeCode = `
-<script setup>
-import { ref } from 'vue'
-
-const msg = ref('Hello World!')
-</script>
-
-<template>
-  <h1>{{ msg }}</h1>
-  <input v-model="msg">
-</template>
-`.trim()
-
 export class File {
   filename: string
   code: string
@@ -67,9 +54,6 @@ export interface Store {
 
 export interface StoreOptions {
   code?: string
-  // loose type to allow getting from the URL without inducing a typing error
-  defaultVueRuntimeURL?: string
-  defaultVueServerRendererURL?: string
 }
 
 export class ReplStore implements Store {
@@ -84,15 +68,13 @@ export class ReplStore implements Store {
 
   constructor({
     code = '',
-    defaultVueRuntimeURL = `https://unpkg.com/@vue/runtime-dom@${version}/dist/runtime-dom.esm-browser.js`,
-    defaultVueServerRendererURL = `https://unpkg.com/@vue/server-renderer@${version}/dist/server-renderer.esm-browser.js`,
   }: StoreOptions = {}) {
     const files: StoreState['files'] = {
-      [defaultMainFile]: new File(defaultMainFile, code ?? welcomeCode),
+      [defaultMainFile]: new File(defaultMainFile, code),
     }
 
-    this.defaultVueRuntimeURL = defaultVueRuntimeURL
-    this.defaultVueServerRendererURL = defaultVueServerRendererURL
+    this.defaultVueRuntimeURL = `https://unpkg.com/@vue/runtime-dom@${version}/dist/runtime-dom.esm-browser.js`
+    this.defaultVueServerRendererURL = `https://unpkg.com/@vue/server-renderer@${version}/dist/server-renderer.esm-browser.js`
 
     let mainFile = defaultMainFile
     if (!files[mainFile])
