@@ -35,9 +35,9 @@ const { copy, copied, isSupported } = useClipboard()
 </script>
 
 <template>
-  <div class="vue-preview">
+  <div class="vue-repl">
     <Output showCompileOutput :ssr="!!props.ssr" />
-    <div class="vue-preview__btns">
+    <div class="vue-repl__btns">
       <template v-if="isSupported">
         <Icon v-if="copied" icon="material-symbols:content-copy" />
         <Icon v-else icon="material-symbols:content-copy-outline" @click="copy(store!.state.activeFile.code)" />
@@ -50,7 +50,8 @@ const { copy, copied, isSupported } = useClipboard()
 </template>
 
 <style lang="scss" scoped>
-.vue-preview {
+.vue-repl {
+  width: 100%;
   font-size: 14px;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
     Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;

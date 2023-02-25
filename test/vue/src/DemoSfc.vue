@@ -9,9 +9,7 @@ const code = '<template><div>TEST VuePreviewWrapper</div></template>'
 
 <template>
     <div class="demo-sfc">
-        <div class="demo-sfc__item">
-            <VuePreview :code="code"></VuePreview>
-        </div>
+        <VuePreview :code="code"></VuePreview>
     </div>
 </template>
 
