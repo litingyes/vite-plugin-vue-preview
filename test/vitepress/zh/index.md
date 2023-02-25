@@ -7,32 +7,32 @@
   <a href="https://www.npmjs.com/package/vite-plugin-vue-preview"><img src="https://img.shields.io/npm/l/vite-plugin-vue-preview" alt="License"></a>
 </p>
 
-## Demo
+## 演示
 
 ```vue preview
 <template>
-    <div>Demo: vite-plugin-vue-preview</div>
+    <div>演示 vite-plugin-vue-preview</div>
 </template>
 ```
 
-## Install
+## 下载
 
 ```bash
 pnpm add vue-plugin-vue-preview
 ```
 
-## Features
+## 特征
 
-- Support for Vue/Vitepress applications
-- Support online editing
+- 支持 Vue/Vitepress 应用
+- 支持在线编辑
 
-## Usage
+## 用法
 
-### Vue
+### Vue 应用
 
-> Import the VuePreview component and style
+> 导入 VuePreview 组件及样式
 >
-> The VuePreview component supports prop code, which can be passed in as a string initialization code
+> VuePreview 组件支持 prop code, 可传入字符串初始化代码
 
 ```TS
 import { createApp } from 'vue'
@@ -44,15 +44,14 @@ const app = createApp({})
 app.component('VuePreview', VuePreview)
 ```
 
-### Vitepress
+### Vitepress 应用
 
-> Import the VuePreview component / style and plugin
+> 导入 VuePreview 组件及样式，同时配置插件设置
 
 ```TS
 // vite.config.ts
 import { defineConfig } from 'vite'
 import vuePreview from 'vite-plugin-vue-preview/plugin'
-
 
 export default defineConfig({
   plugins: [vuePreview()],
@@ -72,6 +71,6 @@ export default {
 }
 ```
 
-## Statement
+## 声明
 
-- Core code from [@vue/repl](https://github.com/vuejs/repl)
+- 核心代码来源于 [@vue/repl](https://github.com/vuejs/repl)

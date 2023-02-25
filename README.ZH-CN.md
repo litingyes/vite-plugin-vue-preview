@@ -26,6 +26,8 @@ pnpm add vue-plugin-vue-preview
 ### Vue 应用
 
 > 导入 VuePreview 组件及样式
+>
+> VuePreview 组件支持 prop code, 可传入字符串初始化代码
 
 ```TS
 import { createApp } from 'vue'
