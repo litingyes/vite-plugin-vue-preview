@@ -163,13 +163,13 @@ export async function compileFile(
       source: style.content,
       filename,
       id,
-      scoped: style.scoped,
+      scoped: !!style.scoped,
       modules: !!style.module,
     })
     if (styleResult.errors.length) {
       // postcss uses pathToFileURL which isn't polyfilled in the browser
       // ignore these errors for now
-      if (!styleResult.errors[0].message.includes('pathToFileURL'))
+      if (!styleResult.errors[0]?.message.includes('pathToFileURL'))
         store.state.errors = styleResult.errors
 
       // proceed even if css compile errors
@@ -194,12 +194,12 @@ async function doCompileScript(
   id: string,
   ssr: boolean,
   isTS: boolean,
-): Promise<[string, BindingMetadata | undefined] | undefined> {
+): Promise<[string, BindingMetadata] | undefined> {
   if (descriptor.script || descriptor.scriptSetup) {
     try {
       const expressionPlugins: CompilerOptions['expressionPlugins'] = isTS
         ? ['typescript']
-        : undefined
+        : []
       const compiledScript = store.compiler.compileScript(descriptor, {
         inlineTemplate: true,
         ...store.options?.script,
@@ -233,6 +233,7 @@ async function doCompileScript(
       if ((descriptor.script || descriptor.scriptSetup)!.lang === 'ts')
         code = await transformTS(code)
 
+      // @ts-expect-error BindingMetadata
       return [code, compiledScript.bindings]
     }
     catch (e: any) {
@@ -240,6 +241,7 @@ async function doCompileScript(
     }
   }
   else {
+    // @ts-expect-error BindingMetadata
     return [`\nconst ${COMP_IDENTIFIER} = {}`, undefined]
   }
 }
@@ -248,7 +250,7 @@ async function doCompileTemplate(
   store: Store,
   descriptor: SFCDescriptor,
   id: string,
-  bindingMetadata: BindingMetadata | undefined,
+  bindingMetadata: BindingMetadata,
   ssr: boolean,
   isTS: boolean,
 ) {
@@ -265,7 +267,7 @@ async function doCompileTemplate(
     compilerOptions: {
       ...store.options?.template?.compilerOptions,
       bindingMetadata,
-      expressionPlugins: isTS ? ['typescript'] : undefined,
+      expressionPlugins: isTS ? ['typescript'] : [],
     },
   })
   if (templateResult.errors.length) {

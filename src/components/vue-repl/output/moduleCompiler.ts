@@ -1,4 +1,4 @@
-import { File, Store } from '../store'
+import type { File, Store } from '../store'
 import {
   babelParse,
   MagicString,

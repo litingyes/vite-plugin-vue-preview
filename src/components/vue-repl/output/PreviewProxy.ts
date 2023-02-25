@@ -70,19 +70,19 @@ export class PreviewProxy {
       case 'cmd_ok':
         return this.handle_command_message(event.data)
       case 'fetch_progress':
-        return this.handlers.on_fetch_progress(args.remaining)
+        return this.handlers['on_fetch_progress']!(args.remaining)
       case 'error':
-        return this.handlers.on_error(event.data)
+        return this.handlers['on_error']!(event.data)
       case 'unhandledrejection':
-        return this.handlers.on_unhandled_rejection(event.data)
+        return this.handlers['on_unhandled_rejection']!(event.data)
       case 'console':
-        return this.handlers.on_console(event.data)
+        return this.handlers['on_console']!(event.data)
       case 'console_group':
-        return this.handlers.on_console_group(event.data)
+        return this.handlers['on_console_group']!(event.data)
       case 'console_group_collapsed':
-        return this.handlers.on_console_group_collapsed(event.data)
+        return this.handlers['on_console_group_collapsed']!(event.data)
       case 'console_group_end':
-        return this.handlers.on_console_group_end(event.data)
+        return this.handlers['on_console_group_end']!(event.data)
     }
   }
 

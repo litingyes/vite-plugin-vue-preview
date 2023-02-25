@@ -40,7 +40,7 @@ const { copy, copied, isSupported } = useClipboard()
     <div class="vue-preview__btns">
       <template v-if="isSupported">
         <Icon v-if="copied" icon="material-symbols:content-copy" />
-        <Icon v-else icon="material-symbols:content-copy-outline" @click="copy(store.state.activeFile.code)" />
+        <Icon v-else icon="material-symbols:content-copy-outline" @click="copy(store!.state.activeFile.code)" />
       </template>
       <Icon v-if="hideCode" icon="mdi:code-tags" @click="hideCode = false" />
       <Icon v-else icon="mdi:xml" @click="hideCode = true" />

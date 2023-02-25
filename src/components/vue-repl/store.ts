@@ -83,7 +83,7 @@ export class ReplStore implements Store {
   private pendingCompiler: Promise<any> | null = null
 
   constructor({
-    code = null,
+    code = '',
     defaultVueRuntimeURL = `https://unpkg.com/@vue/runtime-dom@${version}/dist/runtime-dom.esm-browser.js`,
     defaultVueServerRendererURL = `https://unpkg.com/@vue/server-renderer@${version}/dist/server-renderer.esm-browser.js`,
   }: StoreOptions = {}) {
@@ -96,12 +96,12 @@ export class ReplStore implements Store {
 
     let mainFile = defaultMainFile
     if (!files[mainFile])
-      mainFile = Object.keys(files)[0]
+      mainFile = Object.keys(files)[0]!
 
     this.state = reactive({
       mainFile,
       files,
-      activeFile: files[mainFile],
+      activeFile: files[mainFile]!,
       errors: [],
       vueRuntimeURL: this.defaultVueRuntimeURL,
       vueServerRendererURL: this.defaultVueServerRendererURL,
@@ -159,7 +159,7 @@ export class ReplStore implements Store {
 
   getImportMap() {
     try {
-      return JSON.parse(this.state.files['import-map.json'].code)
+      return JSON.parse(this.state.files['import-map.json']?.code ?? '')
     }
     catch (e) {
       this.state.errors = [
