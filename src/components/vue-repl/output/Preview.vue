@@ -244,7 +244,7 @@ async function updatePreview() {
   }
 
   const iframe = container.value.querySelector('iframe')
-  const height = iframe.contentDocument.querySelector('#app').offsetHeight
+  const height = iframe.contentDocument.querySelector('html').offsetHeight
   iframe.height = height + 'px'
   nextTick(() => {
     container.value.style.maxHeight = height + 'px'
