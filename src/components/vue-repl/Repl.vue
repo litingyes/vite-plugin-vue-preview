@@ -28,7 +28,7 @@ provide('store', props.store)
 provide('autoresize', props.autoResize)
 provide('clear-console', toRef(props, 'clearConsole'))
 
-const hideCode = ref(false)
+const collapse = ref(false)
 
 const { copy, copied, isSupported, text } = useClipboard()
 
@@ -43,12 +43,12 @@ const { copy, copied, isSupported, text } = useClipboard()
         <Icon v-else icon="material-symbols:content-copy-outline" @click="copy(store!.state.activeFile.code)" />
       </button>
       <button class="vue-repl__btns-item">
-        <Icon v-if="hideCode" icon="mdi:code-tags" @click="hideCode = false" />
-        <Icon v-else icon="mdi:xml" @click="hideCode = true" />
+        <Icon v-if="collapse" icon="mdi:code-tags" @click="collapse = false" />
+        <Icon v-else icon="mdi:xml" @click="collapse = true" />
       </button>
 
     </div>
-    <Editor :class="{ hide: hideCode }" />
+    <Editor class="vue-repl__editor" :class="{ collapse }" />
   </div>
 </template>
 
@@ -85,8 +85,17 @@ const { copy, copied, isSupported, text } = useClipboard()
     }
   }
 
-  .hide {
-    display: none;
+
+  &__editor {
+    max-height: 10000px;
+    overflow: hidden;
+    transition-property: max-height;
+    transition-duration: 0.3s;
+
+    &.collapse {
+      max-height: 0;
+    }
   }
+
 }
 </style>
