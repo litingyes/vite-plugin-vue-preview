@@ -30,7 +30,7 @@ provide('clear-console', toRef(props, 'clearConsole'))
 
 const hideCode = ref(false)
 
-const { copy, copied, isSupported } = useClipboard()
+const { copy, copied, isSupported, text } = useClipboard()
 
 </script>
 
@@ -38,12 +38,15 @@ const { copy, copied, isSupported } = useClipboard()
   <div class="vue-repl">
     <Output showCompileOutput :ssr="!!props.ssr" />
     <div class="vue-repl__btns">
-      <template v-if="isSupported">
-        <Icon v-if="copied" icon="material-symbols:content-copy" />
+      <button class="vue-repl__btns-item" v-if="isSupported">
+        <Icon v-if="copied || text" icon="material-symbols:content-copy" />
         <Icon v-else icon="material-symbols:content-copy-outline" @click="copy(store!.state.activeFile.code)" />
-      </template>
-      <Icon v-if="hideCode" icon="mdi:code-tags" @click="hideCode = false" />
-      <Icon v-else icon="mdi:xml" @click="hideCode = true" />
+      </button>
+      <button class="vue-repl__btns-item">
+        <Icon v-if="hideCode" icon="mdi:code-tags" @click="hideCode = false" />
+        <Icon v-else icon="mdi:xml" @click="hideCode = true" />
+      </button>
+
     </div>
     <Editor :class="{ hide: hideCode }" />
   </div>
@@ -69,10 +72,16 @@ const { copy, copied, isSupported } = useClipboard()
     gap: 4px;
     padding: 4px;
 
+    &-item {
+      padding: 0;
+      border: none;
+      cursor: pointer;
+      background: transparent;
+    }
+
     .iconify {
       width: 24px;
       height: 24px;
-      cursor: pointer;
     }
   }
 
