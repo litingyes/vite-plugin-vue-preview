@@ -51,10 +51,10 @@ app.component('VuePreview', VuePreview)
 ```TS
 // vite.config.ts
 import { defineConfig } from 'vite'
-import vuePreview from 'vite-plugin-vue-preview/plugin'
+import { VuePreviewPlugin } from 'vite-plugin-vue-preview'
 
 export default defineConfig({
-  plugins: [vuePreview()],
+  plugins: [VuePreviewPlugin()],
 })
 
 // .vitepress/theme/index.ts

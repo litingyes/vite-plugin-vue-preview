@@ -7,7 +7,7 @@ export default defineConfig({
   plugins: [vue(), dts()],
   build: {
     lib: {
-      entry: [resolve(__dirname, 'src/index.ts'), resolve(__dirname, 'src/plugin.ts')],
+      entry: [resolve(__dirname, 'src/index.ts')],
       formats: ['es', 'cjs'],
     },
     rollupOptions: {

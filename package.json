@@ -30,12 +30,6 @@
       "require": "./dist/index.cjs",
       "import": "./dist/index.js"
     },
-    "./plugin": {
-      "types": "./dist/plugin.d.ts",
-      "require": "./dist/plugin.cjs",
-      "import": "./dist/plugin.js"
-    },
-    "./dist/style.css": "./dist/style.css",
     "./style.css": "./dist/style.css"
   },
   "main": "dist/index.cjs",
