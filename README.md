@@ -1,6 +1,20 @@
-# vite-plugin-vue-preview
+<h1 align="center">vite-plugin-vue-preview</h1>
 
-[简体中文](./README.ZH-CN.md)
+<p align="center">
+  <a href="https://www.npmjs.com/package/vite-plugin-vue-preview"><img src="https://img.shields.io/npm/dm/vite-plugin-vue-preview" alt="Downloads"></a>
+  <a href="https://www.npmjs.com/package/vite-plugin-vue-preview"><img src="https://img.shields.io/npm/v/vite-plugin-vue-preview" alt="Version"></a>
+  <a href="https://www.npmjs.com/package/vite-plugin-vue-preview"><img src="https://img.shields.io/npm/l/vite-plugin-vue-preview" alt="License"></a>
+</p>
+
+<p align="center">
+  <a href="./README.ZH-CN.md">简体中文</a>
+</p>
+
+## Install
+
+```bash
+pnpm add vue-plugin-vue-preview
+```
 
 ## Features
 
@@ -11,7 +25,7 @@
 
 ### Vue
 
-> Just introduce the **VuePreview** component and style
+> Import the VuePreview component and style
 
 ```TS
 import { createApp } from 'vue'
@@ -25,7 +39,7 @@ app.component('VuePreview', VuePreview)
 
 ### Vitepress
 
-> Introduction the plugin / component / style
+> Import the VuePreview component / style and plugin
 
 ```TS
 // vite.config.ts

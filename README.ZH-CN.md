@@ -1,6 +1,20 @@
-# vite-plugin-vue-preview
+<h1 align="center">vite-plugin-vue-preview</h1>
 
-[English](./README.md)
+<p align="center">
+  <a href="https://www.npmjs.com/package/vite-plugin-vue-preview"><img src="https://img.shields.io/npm/dm/vite-plugin-vue-preview" alt="Downloads"></a>
+  <a href="https://www.npmjs.com/package/vite-plugin-vue-preview"><img src="https://img.shields.io/npm/v/vite-plugin-vue-preview" alt="Version"></a>
+  <a href="https://www.npmjs.com/package/vite-plugin-vue-preview"><img src="https://img.shields.io/npm/l/vite-plugin-vue-preview" alt="License"></a>
+</p>
+
+<p align="center">
+  <a href="./README.md">English</a>
+</p>
+
+## 下载
+
+```bash
+pnpm add vue-plugin-vue-preview
+```
 
 ## 特征
 
@@ -11,7 +25,7 @@
 
 ### Vue 应用
 
-> 引入 VuePreview 组件及样式即可
+> 导入 VuePreview 组件及样式
 
 ```TS
 import { createApp } from 'vue'
@@ -25,7 +39,7 @@ app.component('VuePreview', VuePreview)
 
 ### Vitepress 应用
 
-> 引入插件及组件
+> 导入 VuePreview 组件及样式，同时配置插件设置
 
 ```TS
 // vite.config.ts
@@ -38,13 +52,14 @@ export default defineConfig({
 
 // .vitepress/theme/index.ts
 import DefaultTheme from 'vitepress/theme'
-import { VuePreviewWrapper } from 'vite-plugin-vue-preview'
+import { VuePreview } from 'vite-plugin-vue-preview'
+import 'vite-plugin-vue-preview/dist/style.css'
 
 export default {
   ...DefaultTheme,
   enhanceApp(ctx) {
     DefaultTheme.enhanceApp(ctx)
-    ctx.app.component('VuePreviewWrapper', VuePreviewWrapper)
+    ctx.app.component('VuePreview', VuePreview)
   },
 }
 ```
