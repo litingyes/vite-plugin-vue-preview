@@ -7,7 +7,7 @@
 </p>
 
 <p align="center">
-  <a href="./README.ZH-CN.md">简体中文</a>
+  <a href="./README.zh-CN.md">简体中文</a>
 </p>
 
 ## Install
