@@ -2,7 +2,7 @@
 import { provide } from 'vue'
 
 import '../../../dist/style.css'
-import { VuePreview } from '../../../dist'
+import { VuePreview } from '../../../src/index'
 
 const code = '<template><div>TEST VuePreviewWrapper</div></template>'
 </script>

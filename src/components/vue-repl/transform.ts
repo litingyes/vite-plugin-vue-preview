@@ -30,7 +30,7 @@ export async function compileFile(
     sourceMap: true,
   })
   if (errors.length) {
-    store.state.errors = errors
+    filename.endsWith('.vue') && (store.state.errors = errors)
     return
   }
 
@@ -113,7 +113,6 @@ export async function compileFile(
     )
     if (!clientTemplateResult)
       return
-
     clientCode += clientTemplateResult
 
     const ssrTemplateResult = await doCompileTemplate(
@@ -124,6 +123,7 @@ export async function compileFile(
       true,
       isTS,
     )
+
     if (ssrTemplateResult) {
       // ssr compile failure is fine
       ssrCode += ssrTemplateResult
@@ -153,7 +153,7 @@ export async function compileFile(
   for (const style of descriptor.styles) {
     if (style.module) {
       store.state.errors = [
-        '<style module> is not supported in the playground.',
+        '<style module> is not supported',
       ]
       return
     }

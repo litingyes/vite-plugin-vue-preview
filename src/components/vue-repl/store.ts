@@ -116,7 +116,7 @@ export class ReplStore implements Store {
     watchEffect(() => compileFile(this, this.state.activeFile))
     for (const file in this.state.files) {
       if (file !== defaultMainFile)
-        compileFile(this, this.state.files[file])
+        compileFile(this, this.state.files[file]!)
     }
   }
 
@@ -139,6 +139,7 @@ export class ReplStore implements Store {
           null,
           2,
         ),
+        true,
       )
     }
     else {
@@ -195,6 +196,7 @@ export class ReplStore implements Store {
   }
 
   resetVueVersion() {
+    // @ts-expect-error type
     this.vueVersion = undefined
     this.compiler = defaultCompiler
     this.state.vueRuntimeURL = this.defaultVueRuntimeURL
