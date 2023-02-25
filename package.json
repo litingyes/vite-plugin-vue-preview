@@ -11,6 +11,9 @@
     "type": "git",
     "url": "https://github.com/liting-yes/vite-plugin-vue-preview.git"
   },
+  "bugs": {
+    "url": "https://github.com/liting-yes/vite-plugin-vue-preview/issues"
+  },
   "keywords": [
     "vite",
     "plugin",
