@@ -8,7 +8,8 @@ import {
   watch,
   WatchStopHandle,
   inject,
-  Ref
+  Ref,
+  nextTick
 } from 'vue'
 import srcdoc from './srcdoc.html?raw'
 import { PreviewProxy } from './PreviewProxy'
@@ -241,6 +242,13 @@ async function updatePreview() {
   } catch (e: any) {
     runtimeError.value = (e as Error).message
   }
+
+  const iframe = container.value.querySelector('iframe')
+  const height = iframe.contentDocument.querySelector('#app').offsetHeight
+  iframe.height = height + 'px'
+  nextTick(() => {
+    container.value.style.maxHeight = height + 'px'
+  })
 }
 </script>
 
@@ -250,10 +258,17 @@ async function updatePreview() {
   <Message v-if="!runtimeError" :warn="runtimeWarning" />
 </template>
 
-<style scoped>
-.iframe-container,
-.iframe-container :deep(iframe) {
-  width: 100%;
-  border: none;
+<style lang="scss" scoped>
+.iframe-container {
+  box-sizing: content-box;
+  padding: 8px;
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.3s;
+
+  :deep(iframe) {
+    width: 100%;
+    border: none;
+  }
 }
 </style>

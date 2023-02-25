@@ -82,6 +82,11 @@ const { copy, copied, isSupported, text } = useClipboard()
     .iconify {
       width: 24px;
       height: 24px;
+      color: #939094;
+
+      &:hover {
+        color: #484649;
+      }
     }
   }
 
