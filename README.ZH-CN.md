@@ -13,7 +13,7 @@
 ## 下载
 
 ```bash
-pnpm add vue-plugin-vue-preview
+pnpm add vite-plugin-vue-preview
 ```
 
 ## 特征
@@ -31,7 +31,7 @@ pnpm add vue-plugin-vue-preview
 
 ```TS
 import { createApp } from 'vue'
-import { VuePreview } from 'vue-plugin-vue-preview'
+import { VuePreview } from 'vite-plugin-vue-preview'
 import 'vite-plugin-vue-preview/dist/style.css'
 
 const app = createApp({})
