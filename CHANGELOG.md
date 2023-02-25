@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.2.3](https://github.com/liting-yes/vite-plugin-vue-preview/compare/0.2.2...0.2.3) (2023-02-25)
+
+
+### Features
+
+* **VuePreview:** auto height ([bbf6105](https://github.com/liting-yes/vite-plugin-vue-preview/commit/bbf610517420d10618a6236324a2c92a258e3589))
+
+
+### Bug Fixes
+
+* **VuePreview:** parse error in vitepress ([c214742](https://github.com/liting-yes/vite-plugin-vue-preview/commit/c214742a1a40d7f4f510f32581ac713294ae750b))
+
 ## [0.2.2](https://github.com/liting-yes/vite-plugin-vue-preview/compare/0.2.1...0.2.2) (2023-02-25)
 
 ## [0.2.1](https://github.com/liting-yes/vite-plugin-vue-preview/compare/0.2.0...0.2.1) (2023-02-25)
