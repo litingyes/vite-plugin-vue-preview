@@ -89,7 +89,6 @@
     "hash-sum": "^2.0.0",
     "inquirer": "8",
     "lint-staged": "^13.1.0",
-    "lodash-es": "^4.17.21",
     "release-it": "^15.6.0",
     "sass": "^1.58.3",
     "simple-git-hooks": "^2.8.1",
