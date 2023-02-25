@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.2.1](https://github.com/liting-yes/vite-plugin-vue-preview/compare/0.2.0...0.2.1) (2023-02-25)
+
+
+### Features
+
+* **VuePreview:** set code prop optional ([a1ddda4](https://github.com/liting-yes/vite-plugin-vue-preview/commit/a1ddda4e507691a746a182d451a4d9f842d7b256))
+
+
+### Bug Fixes
+
+* **tramsform:** rm errors for import-map.json ([035ba58](https://github.com/liting-yes/vite-plugin-vue-preview/commit/035ba58e8e7e930f1cba9cb16fefceaec480620e))
+
 ## [0.2.0](https://github.com/liting-yes/vite-plugin-vue-preview/compare/0.1.0...0.2.0) (2023-02-24)
 
 
