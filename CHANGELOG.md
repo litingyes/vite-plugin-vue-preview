@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.1](https://github.com/liting-yes/vite-plugin-vue-preview/compare/0.3.0...0.3.1) (2023-02-25)
+
+
+### Bug Fixes
+
+* **plugin:** transform error ([8c02fe8](https://github.com/liting-yes/vite-plugin-vue-preview/commit/8c02fe8083ee73b04ac895fb4dec2b72304634af))
+
 ## [0.3.0](https://github.com/liting-yes/vite-plugin-vue-preview/compare/0.2.3...0.3.0) (2023-02-25)
 
 ## [0.2.3](https://github.com/liting-yes/vite-plugin-vue-preview/compare/0.2.2...0.2.3) (2023-02-25)

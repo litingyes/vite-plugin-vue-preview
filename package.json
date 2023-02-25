@@ -1,7 +1,7 @@
 {
   "name": "vite-plugin-vue-preview",
   "type": "module",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "private": false,
   "description": "a vite plugin for vue preview",
   "author": "liting <luz.liting@gmail.com>",
