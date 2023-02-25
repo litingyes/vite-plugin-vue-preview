@@ -60,6 +60,7 @@ const { copy, copied, isSupported } = useClipboard()
   background-color: #FFFBFE;
   border-radius: 8px;
   box-shadow: inset 0 0 1px 1px hsla(0, 50%, 50%, 0.1);
+  user-select: none;
 
   &__btns {
     display: flex;
