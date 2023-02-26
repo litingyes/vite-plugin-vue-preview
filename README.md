@@ -10,6 +10,12 @@
   <a href="./README.zh-CN.md">简体中文</a>
 </p>
 
+## Demo
+
+<p align="center">
+  <img src="./public/demo.gif" />
+</p>
+
 ## Install
 
 ```bash

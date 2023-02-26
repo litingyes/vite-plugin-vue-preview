@@ -10,6 +10,12 @@
   <a href="./README.md">English</a>
 </p>
 
+## 演示
+
+<p align="center">
+  <img src="./public/demo.gif" />
+</p>
+
 ## 下载
 
 ```bash
