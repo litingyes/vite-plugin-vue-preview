@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.2](https://github.com/liting-yes/vite-plugin-vue-preview/compare/0.3.1...0.3.2) (2023-02-26)
+
+
+### Bug Fixes
+
+* **Preview:** preview height ([12a9eb3](https://github.com/liting-yes/vite-plugin-vue-preview/commit/12a9eb34e74c4cd0725f532938c198498d3e8365))
+
 ## [0.3.1](https://github.com/liting-yes/vite-plugin-vue-preview/compare/0.3.0...0.3.1) (2023-02-25)
 
 
