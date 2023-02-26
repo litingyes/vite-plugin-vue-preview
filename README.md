@@ -26,8 +26,6 @@ pnpm add vite-plugin-vue-preview
 ### Vue
 
 > Import the VuePreview component and style
->
-> The VuePreview component supports prop code, which can be passed in as a string initialization code
 
 ```TS
 import { createApp } from 'vue'
