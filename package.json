@@ -49,7 +49,7 @@
     "release": "release-it",
     "build": "vite build",
     "prepare": "git config core.hooksPath .git/hooks/ && npx simple-git-hooks",
-    "test-vue": "vite test/vue",
+    "test-vue": "vite test/vue --host",
     "test-vue:build": "vite build test/vue",
     "test-vue:preview": "vite preview test/vue",
     "test-vitepress": "vitepress dev test/vitepress --host",

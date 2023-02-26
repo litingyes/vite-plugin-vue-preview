@@ -1,5 +1,5 @@
 <template>
-  <Repl :store="store"></Repl>
+  <Repl :store="store" v-bind="$attrs"></Repl>
 </template>
 
 <script lang="ts" setup>

@@ -8,27 +8,26 @@ import { useClipboard } from '@vueuse/core'
 
 export interface Props {
   store?: Store
-  autoResize?: boolean
   clearConsole?: boolean
   sfcOptions?: SFCOptions
   ssr?: boolean
+  collapse?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
   store: () => new ReplStore(),
-  autoResize: true,
   clearConsole: true,
-  ssr: false
+  ssr: false,
+  collapse: true
 })
 
 props.sfcOptions && (props.store.options = props.sfcOptions)
 props.store.init()
 
 provide('store', props.store)
-provide('autoresize', props.autoResize)
 provide('clear-console', toRef(props, 'clearConsole'))
 
-const collapse = ref(false)
+const collapse = ref(props.collapse)
 
 const { copy, copied, isSupported, text } = useClipboard()
 

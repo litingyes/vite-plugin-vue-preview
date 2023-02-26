@@ -26,13 +26,26 @@ pnpm add vite-plugin-vue-preview
 - 支持 Vue/Vitepress 应用
 - 支持在线编辑
 
+## 组件属性
+
+### VuePreview
+
+```ts
+interface Props {
+  // 初始化代码字符串
+  code: string
+  // 组件挂载时是否折叠代码
+  collapse: boolean
+  // 是否开启 ssr
+  ssr: boolean
+}
+```
+
 ## 用法
 
 ### Vue 应用
 
 > 导入 VuePreview 组件及样式
->
-> VuePreview 组件支持 prop code, 可传入字符串初始化代码
 
 ```TS
 import { createApp } from 'vue'

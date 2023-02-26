@@ -26,13 +26,26 @@ pnpm add vite-plugin-vue-preview
 - Support for Vue/Vitepress applications
 - Support online editing
 
+## Props
+
+### VuePreview
+
+```ts
+interface Props {
+  // Initialization code string
+  code: string
+  // Whether to collapse the code when the component is mounted
+  collapse: boolean
+  // Whether to turn on ssr
+  ssr: boolean
+}
+```
+
 ## Usage
 
 ### Vue
 
 > Import the VuePreview component and style
->
-> The VuePreview component supports prop code, which can be passed in as a string initialization code
 
 ```TS
 import { createApp } from 'vue'
