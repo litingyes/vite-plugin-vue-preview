@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.5](https://github.com/liting-yes/vite-plugin-vue-preview/compare/0.3.4...0.3.5) (2023-02-26)
+
+
+### Features
+
+* **VuePreview:** set ssr to true when use with plugin ([7094ec8](https://github.com/liting-yes/vite-plugin-vue-preview/commit/7094ec83b9dd04aa682b7d1e6fec31f4da00f548))
+
 ## [0.3.4](https://github.com/liting-yes/vite-plugin-vue-preview/compare/0.3.3...0.3.4) (2023-02-26)
 
 ## [0.3.3](https://github.com/liting-yes/vite-plugin-vue-preview/compare/0.3.2...0.3.3) (2023-02-26)
