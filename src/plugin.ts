@@ -4,7 +4,7 @@ const end = '```'
 const getCode = (code: string) => {
   code = code.match(/(?<=(```vue preview))(.)*(?=(```))/gims)![0]
   const str = encodeURIComponent(code.trim())
-  return code.trim() ? `<VuePreview code="${str}" decode></VuePreview>\n` : '<VuePreview></VuePreview>\n'
+  return code.trim() ? `<VuePreview code="${str}" decode ssr></VuePreview>\n` : '<VuePreview ssr></VuePreview>\n'
 }
 
 export default function VuePreviewPlugin() {
