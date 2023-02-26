@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.3.3](https://github.com/liting-yes/vite-plugin-vue-preview/compare/0.3.2...0.3.3) (2023-02-26)
+
+
+### Features
+
+* **VuePreview:** support props srr & collapse ([584ca68](https://github.com/liting-yes/vite-plugin-vue-preview/commit/584ca687e314e7ce77b72c71164e9de0ba30efdc))
+
+
+### Bug Fixes
+
+* **VuePreview:** copy support with legacy ([7608dc2](https://github.com/liting-yes/vite-plugin-vue-preview/commit/7608dc2d84d5628478f646af6eef559db6ad64d0))
+
 ## [0.3.2](https://github.com/liting-yes/vite-plugin-vue-preview/compare/0.3.1...0.3.2) (2023-02-26)
 
 
