@@ -29,7 +29,7 @@ provide('clear-console', toRef(props, 'clearConsole'))
 
 const collapse = ref(props.collapse)
 
-const { copy, copied, isSupported, text } = useClipboard()
+const { copy, copied, isSupported, text } = useClipboard({ legacy: true })
 
 </script>
 
