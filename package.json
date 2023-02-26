@@ -3,7 +3,7 @@
   "type": "module",
   "version": "0.3.4",
   "private": false,
-  "description": "a vite plugin for vue preview",
+  "description": "a vite plugin for vue preview in markdown",
   "author": "liting <luz.liting@gmail.com>",
   "license": "MIT",
   "homepage": "https://vite-plugin-vue-preview.netlify.app",
@@ -22,7 +22,8 @@
     "preview",
     "editor",
     "demo",
-    "code-preview"
+    "code-preview",
+    "markdown"
   ],
   "exports": {
     ".": {
