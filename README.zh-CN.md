@@ -10,6 +10,8 @@
   <a href="./README.md">English</a>
 </p>
 
+一个为在 Markdown 中预览Vue组件而生的Vite插件，当然，也导出了一个 **VuePreview** 组件可以直接在 Vue 应用中使用
+
 ## 演示
 
 <p align="center">

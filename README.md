@@ -10,6 +10,8 @@
   <a href="./README.zh-CN.md">简体中文</a>
 </p>
 
+a vite plugin for code preview of vue component in markdown, of course, a **VuePreview** component is also exported for direct use in vue app.
+
 ## Demo
 
 <p align="center">

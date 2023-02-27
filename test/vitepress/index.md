@@ -7,6 +7,8 @@
   <a href="https://www.npmjs.com/package/vite-plugin-vue-preview"><img src="https://img.shields.io/npm/l/vite-plugin-vue-preview" alt="License"></a>
 </p>
 
+a vite plugin for code preview of vue component in markdown, of course, a **VuePreview** component is also exported for direct use in vue app.
+
 ## Demo
 
 ```vue preview
