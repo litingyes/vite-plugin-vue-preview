@@ -9,6 +9,7 @@ import { provide, watch, computed } from 'vue'
 export interface Props {
   code?: string,
   decode?: boolean
+  outputBgColor?: string
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -17,8 +18,10 @@ const props = withDefaults(defineProps<Props>(), {
       <div>Hi, vite-plugin-vue-preview !</div>  
     </template>
   `,
-  decode: false
+  decode: false,
+  outputBgColor: 'transparent'
 })
+provide('outputBgColor', props.outputBgColor)
 
 const code = computed(() => {
   if (props.decode) return decodeURIComponent(props.code)
