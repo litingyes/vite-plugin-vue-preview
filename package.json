@@ -66,6 +66,7 @@
     "@codemirror/autocomplete": "^6.4.2",
     "@codemirror/commands": "^6.2.1",
     "@codemirror/lang-vue": "^0.1.1",
+    "@codemirror/language": "^6.6.0",
     "@codemirror/state": "^6.2.0",
     "@codemirror/theme-one-dark": "^6.1.1",
     "@codemirror/view": "^6.9.1"
@@ -73,7 +74,6 @@
   "devDependencies": {
     "@antfu/eslint-config-ts": "^0.34.1",
     "@babel/types": "^7.20.7",
-    "@codemirror/language": "^6.6.0",
     "@commitlint/cli": "^17.4.2",
     "@commitlint/config-conventional": "^17.4.2",
     "@commitlint/cz-commitlint": "^17.4.2",
