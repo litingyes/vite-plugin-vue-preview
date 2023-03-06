@@ -17,7 +17,7 @@
 </template>
 ```
 
-## 下载
+## 安装
 
 ```bash
 pnpm add vite-plugin-vue-preview
@@ -40,6 +40,8 @@ interface Props {
   collapse: boolean
   // 是否开启 ssr
   ssr: boolean
+  // 预览部分背景颜色
+  outputBgColor: string
 }
 ```
 
@@ -85,6 +87,10 @@ export default {
   },
 }
 ```
+
+一旦你按照上述流程配置完成，你就可以在你的markdown文件中使用了：
+
+<<< @/index.md#demo
 
 ## 声明
 

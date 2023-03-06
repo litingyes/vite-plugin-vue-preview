@@ -11,11 +11,13 @@ a vite plugin for code preview of vue component in markdown, of course, a **VueP
 
 ## Demo
 
+<!-- #region demo -->
 ```vue preview
 <template>
     <div>Demo: vite-plugin-vue-preview</div>
 </template>
 ```
+<!-- #endregion demo -->
 
 ## Install
 
@@ -40,6 +42,8 @@ interface Props {
   collapse: boolean
   // Whether to turn on ssr
   ssr: boolean
+  // Background color of preview part
+  outputBgColor: string
 }
 ```
 
@@ -86,6 +90,10 @@ export default {
   },
 }
 ```
+
+Once you've set up the above, you're ready to use it in your markdown file:
+
+<<< @/index.md#demo
 
 ## Statement
 
