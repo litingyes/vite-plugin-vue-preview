@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.3.6](https://github.com/liting-yes/vite-plugin-vue-preview/compare/0.3.5...0.3.6) (2023-03-06)
+
+
+### Features
+
+* **plugin:** support pass props ([1826e59](https://github.com/liting-yes/vite-plugin-vue-preview/commit/1826e593575be7ec909a8961f13f6748cac92e96))
+* **VuePreview:** support prop of outputBgColor ([4efbb92](https://github.com/liting-yes/vite-plugin-vue-preview/commit/4efbb9260bd60e5507936d9407259cb2e7a422af))
+
 ## [0.3.5](https://github.com/liting-yes/vite-plugin-vue-preview/compare/0.3.4...0.3.5) (2023-02-26)
 
 
