@@ -18,7 +18,7 @@
   <img src="./public/demo.gif" />
 </p>
 
-## 下载
+## 安装
 
 ```bash
 pnpm add vite-plugin-vue-preview
@@ -28,6 +28,23 @@ pnpm add vite-plugin-vue-preview
 
 - 支持 Vue/Vitepress 应用
 - 支持在线编辑
+
+## 组件属性
+
+### VuePreview
+
+```ts
+interface Props {
+  // 初始化代码字符串
+  code: string
+  // 组件挂载时是否折叠代码
+  collapse: boolean
+  // 是否开启 ssr
+  ssr: boolean
+  // 预览部分背景颜色
+  outputBgColor: string
+}
+```
 
 ## 用法
 
@@ -70,6 +87,17 @@ export default {
     ctx.app.component('VuePreview', VuePreview)
   },
 }
+```
+
+一旦你按照上述流程配置完成，你就可以在你的markdown文件中使用了：
+
+```md
+
+\```vue preview
+<template>
+    <div>Demo: vite-plugin-vue-preview</div>
+</template>
+\```
 ```
 
 ## 声明

@@ -29,6 +29,23 @@ pnpm add vite-plugin-vue-preview
 - Support for Vue/Vitepress applications
 - Support online editing
 
+## Props
+
+### VuePreview
+
+```ts
+interface Props {
+  // Initialization code string
+  code: string
+  // Whether to collapse the code when the component is mounted
+  collapse: boolean
+  // Whether to turn on ssr
+  ssr: boolean
+  // Background color of preview part
+  outputBgColor: string
+}
+```
+
 ## Usage
 
 ### Vue
@@ -71,6 +88,17 @@ export default {
     ctx.app.component('VuePreview', VuePreview)
   },
 }
+```
+
+Once you've set up the above, you're ready to use it in your markdown file:
+
+```md
+
+\```vue preview
+<template>
+    <div>Demo: vite-plugin-vue-preview</div>
+</template>
+\```
 ```
 
 ## Statement
