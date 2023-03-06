@@ -20,6 +20,7 @@ const props = defineProps<{ show: boolean; ssr: boolean }>()
 
 const store = inject('store') as Store
 const clearConsole = inject('clear-console') as Ref<boolean>
+const bgColor = inject('outputBgColor') as string
 const container = ref()
 const runtimeError = ref()
 const runtimeWarning = ref()
@@ -66,6 +67,7 @@ function createSandbox() {
   }
 
   sandbox = document.createElement('iframe')
+  sandbox.setAttribute('height', '0')
   sandbox.setAttribute(
     'sandbox',
     [
@@ -213,6 +215,7 @@ async function updatePreview() {
       `if (window.__app__) window.__app__.unmount()\n` +
       (isSSR ? `` : `document.body.innerHTML = '<div id="app"></div>'`),
       ...modules,
+      `document.getElementById('__reset-styles').innerHTML =' body {background: ${bgColor}}'`,
       `document.getElementById('__sfc-styles').innerHTML = window.__css__`
     ]
 

@@ -2,8 +2,15 @@ const start = '```vue preview'
 const end = '```'
 
 const getCode = (code: string) => {
-  code = code.match(/(?<=(```vue preview))(.)*(?=(```))/gims)![0]
-  const str = encodeURIComponent(code.trim())
+  code = code.match(/(?<=(```vue preview))(.)*(?=(```))/gims)![0].trim()
+  if (!code.startsWith('<')) {
+    const index = code.indexOf('<')
+    const props = code.slice(0, index).trim()
+    code = code.slice(index)
+    const str = encodeURIComponent(code)
+    return code.trim() ? `<VuePreview code="${str}" decode ssr ${props}></VuePreview>\n` : '<VuePreview ssr></VuePreview>\n'
+  }
+  const str = encodeURIComponent(code)
   return code.trim() ? `<VuePreview code="${str}" decode ssr></VuePreview>\n` : '<VuePreview ssr></VuePreview>\n'
 }
 
