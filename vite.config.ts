@@ -21,6 +21,9 @@ export default defineConfig({
         '@codemirror/theme-one-dark',
         '@codemirror/view',
       ],
+      output: {
+        exports: 'named',
+      },
     },
   },
 })
