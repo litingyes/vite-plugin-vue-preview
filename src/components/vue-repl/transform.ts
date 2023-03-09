@@ -194,6 +194,7 @@ async function doCompileScript(
   id: string,
   ssr: boolean,
   isTS: boolean,
+  // @ts-expect-error return value
 ): Promise<[string, BindingMetadata] | undefined> {
   if (descriptor.script || descriptor.scriptSetup) {
     try {

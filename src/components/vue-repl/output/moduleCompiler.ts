@@ -15,7 +15,7 @@ export function compileModulesForPreview(store: Store, isSSR = false) {
   const processed: string[] = []
   processFile(
     store,
-    store.state.files[store.state.mainFile],
+    store.state.files[store.state.mainFile]!,
     processed,
     seen,
     isSSR
@@ -26,9 +26,9 @@ export function compileModulesForPreview(store: Store, isSSR = false) {
     for (const filename in store.state.files) {
       if (filename.endsWith('.css')) {
         const file = store.state.files[filename]
-        if (!seen.has(file)) {
+        if (!seen.has(file!)) {
           processed.push(
-            `\nwindow.__css__ += ${JSON.stringify(file.compiled.css)}`
+            `\nwindow.__css__ += ${JSON.stringify(file!.compiled.css)}`
           )
         }
       }
@@ -72,7 +72,7 @@ function processFile(
   // crawl child imports
   if (importedFiles.size) {
     for (const imported of importedFiles) {
-      processFile(store, store.state.files[imported], processed, seen, isSSR)
+      processFile(store, store.state.files[imported]!, processed, seen, isSSR)
     }
   }
   // push self
@@ -246,7 +246,7 @@ function processModule(
           declaredConst.add(id.name)
           // locate the top-most node containing the class declaration
           const topNode = parentStack[1]
-          s.prependRight(topNode.start!, `const ${id.name} = ${binding};\n`)
+          s.prependRight(topNode!.start!, `const ${id.name} = ${binding};\n`)
         }
       } else {
         s.overwrite(id.start!, id.end!, binding)
@@ -259,7 +259,7 @@ function processModule(
     enter(node: Node, parent: Node) {
       if (node.type === 'Import' && parent.type === 'CallExpression') {
         const arg = parent.arguments[0]
-        if (arg.type === 'StringLiteral' && arg.value.startsWith('./')) {
+        if (arg?.type === 'StringLiteral' && arg.value.startsWith('./')) {
           s.overwrite(node.start!, node.start! + 6, dynamicImportKey)
           s.overwrite(
             arg.start!,
@@ -292,7 +292,7 @@ function processHtmlFile(
       const [code, importedFiles] = processModule(store, content, filename)
       if (importedFiles.size) {
         for (const imported of importedFiles) {
-          processFile(store, store.state.files[imported], deps, seen, false)
+          processFile(store, store.state.files[imported]!, deps, seen, false)
         }
       }
       jsCode += '\n' + code
