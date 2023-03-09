@@ -34,25 +34,25 @@ const { copy, copied, isSupported, text } = useClipboard({ legacy: true })
 </script>
 
 <template>
-  <div class="vue-repl">
+  <div class="vue-preview">
     <Output showCompileOutput :ssr="!!props.ssr" />
-    <div class="vue-repl__btns">
-      <button class="vue-repl__btns-item" v-if="isSupported">
+    <div class="vue-preview__btns">
+      <button class="vue-preview__btns-item" v-if="isSupported">
         <Icon v-if="copied || text" icon="material-symbols:content-copy" />
         <Icon v-else icon="material-symbols:content-copy-outline" @click="copy(store!.state.activeFile.code)" />
       </button>
-      <button class="vue-repl__btns-item">
+      <button class="vue-preview__btns-item">
         <Icon v-if="collapse" icon="mdi:code-tags" @click="collapse = false" />
         <Icon v-else icon="mdi:xml" @click="collapse = true" />
       </button>
 
     </div>
-    <Editor class="vue-repl__editor" :class="{ collapse }" />
+    <Editor class="vue-preview__editor" :class="{ collapse }" />
   </div>
 </template>
 
 <style lang="scss" scoped>
-.vue-repl {
+.vue-preview {
   width: 100%;
   font-size: 14px;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
