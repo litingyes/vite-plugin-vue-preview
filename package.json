@@ -86,6 +86,7 @@
     "@vitejs/plugin-vue": "^4.0.0",
     "@vueuse/core": "^9.13.0",
     "commitizen": "^4.3.0",
+    "consola": "^2.15.3",
     "eslint": "^8.32.0",
     "hash-sum": "^2.0.0",
     "inquirer": "8",

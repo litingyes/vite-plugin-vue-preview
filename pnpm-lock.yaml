@@ -25,6 +25,7 @@ importers:
       '@vitejs/plugin-vue': ^4.0.0
       '@vueuse/core': ^9.13.0
       commitizen: ^4.3.0
+      consola: ^2.15.3
       eslint: ^8.32.0
       hash-sum: ^2.0.0
       inquirer: '8'
@@ -61,6 +62,7 @@ importers:
       '@vitejs/plugin-vue': 4.0.0_vite@4.1.2+vue@3.2.47
       '@vueuse/core': 9.13.0_vue@3.2.47
       commitizen: 4.3.0
+      consola: 2.15.3
       eslint: 8.32.0
       hash-sum: 2.0.0
       inquirer: 8.2.5
@@ -2288,6 +2290,10 @@ packages:
       unique-string: 3.0.0
       write-file-atomic: 3.0.3
       xdg-basedir: 5.1.0
+    dev: true
+
+  /consola/2.15.3:
+    resolution: {integrity: sha512-9vAdYbHj6x2fLKC4+oPH0kFzY/orMZyG2Aj+kNylHxKGJ/Ed4dpNyAQYwJOdqO4zdM7XpVHmyejQDcQHrnuXbw==}
     dev: true
 
   /conventional-changelog-angular/5.0.13:

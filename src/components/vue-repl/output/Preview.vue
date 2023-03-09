@@ -15,6 +15,7 @@ import srcdoc from './srcdoc.html?raw'
 import { PreviewProxy } from './PreviewProxy'
 import { compileModulesForPreview } from './moduleCompiler'
 import type { Store } from '../store'
+import consola from 'consola'
 
 const props = defineProps<{ show: boolean; ssr: boolean }>()
 
@@ -110,7 +111,7 @@ function createSandbox() {
           msg.replace(/\. Relative references must.*$/, '') +
           `.\nTip: edit the "Import Map" tab to specify import paths for dependencies.`
       } else {
-        runtimeError.value = event.value
+        consola.error(event)
       }
     },
     on_unhandled_rejection: (event: any) => {
