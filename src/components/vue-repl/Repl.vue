@@ -38,8 +38,9 @@ const { copy, copied, isSupported, text } = useClipboard({ legacy: true })
     <Output showCompileOutput :ssr="!!props.ssr" />
     <div class="vue-preview__btns">
       <button class="vue-preview__btns-item" v-if="isSupported">
-        <Icon v-if="copied || text" icon="material-symbols:content-copy" />
-        <Icon v-else icon="material-symbols:content-copy-outline" @click="copy(store!.state.activeFile.code)" />
+        <Icon v-if="copied || text" icon="material-symbols:content-copy" class="icon-copied" />
+        <Icon v-else icon="material-symbols:content-copy-outline" @click="copy(store!.state.activeFile.code)"
+          class="icon-copy" />
       </button>
       <button class="vue-preview__btns-item">
         <Icon v-if="collapse" icon="mdi:code-tags" @click="collapse = false" />
