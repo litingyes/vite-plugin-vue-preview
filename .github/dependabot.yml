@@ -13,5 +13,6 @@ updates:
       - dependency-name: "*"
       - dependency-type: "all"
     commit-message:
+      prefix: "chore"
       prefix-development: "chore"
       include: "scope"
