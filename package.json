@@ -73,7 +73,7 @@
     "@codemirror/view": "^6.9.1"
   },
   "devDependencies": {
-    "@antfu/eslint-config-ts": "^0.34.1",
+    "@antfu/eslint-config-ts": "^0.38.6",
     "@babel/types": "^7.20.7",
     "@commitlint/cli": "^17.4.2",
     "@commitlint/config-conventional": "^17.4.2",
