@@ -84,7 +84,7 @@
     "@tsconfig/node-lts-strictest": "^18.12.1",
     "@types/hash-sum": "^1.0.0",
     "@types/lodash-es": "^4.17.6",
-    "@types/node": "^18.14.0",
+    "@types/node": "^20.1.5",
     "@vitejs/plugin-vue": "^4.0.0",
     "@vue/compiler-dom": "^3.2.47",
     "@vueuse/core": "^9.13.0",
