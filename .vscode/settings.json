@@ -1,11 +1,17 @@
 {
   "prettier.enable": false,
-  "eslint.validate": ["javascript", "typescript", "markdown", "json"],
+  "eslint.validate": [
+    "javascript",
+    "typescript",
+    "markdown",
+    "json"
+  ],
   "editor.formatOnSave": true,
   "editor.formatOnPaste": false,
   "editor.formatOnSaveMode": "file",
   "editor.formatOnType": false,
   "editor.codeActionsOnSave": {
+    "source.fixAll": false,
     "source.fixAll.eslint": true
   },
   "eslint.format.enable": true,
