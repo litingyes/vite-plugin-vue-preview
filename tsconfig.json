@@ -13,6 +13,7 @@
     "module": "ESNext",
     "moduleResolution": "node",
     "strict": true,
-    "lib": ["ESNext", "DOM"]
+    "lib": ["ESNext", "DOM"],
+    "ignoreDeprecations": "5.0"
   }
 }
