@@ -87,7 +87,7 @@
     "@types/node": "^20.1.7",
     "@vitejs/plugin-vue": "^4.0.0",
     "@vue/compiler-dom": "^3.2.47",
-    "@vueuse/core": "^9.13.0",
+    "@vueuse/core": "^10.1.2",
     "commitizen": "^4.3.0",
     "consola": "^3.1.0",
     "eslint": "^8.32.0",
