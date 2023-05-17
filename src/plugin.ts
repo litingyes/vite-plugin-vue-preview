@@ -1,7 +1,7 @@
 const start = '```vue preview'
 const end = '```'
 
-const getCode = (code: string) => {
+function getCode(code: string) {
   code = code.match(/(?<=(```vue preview))(.)*(?=(```))/gims)![0].trim()
   if (!code.startsWith('<')) {
     const index = code.indexOf('<')
