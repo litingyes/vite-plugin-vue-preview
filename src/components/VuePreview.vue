@@ -10,6 +10,8 @@ export interface Props {
   code?: string,
   decode?: boolean
   outputBgColor?: string
+  justify?: 'start' | 'center' | 'end'
+  align?: 'start' | 'center' | 'end'
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -27,6 +29,19 @@ const code = computed(() => {
   if (props.decode) return decodeURIComponent(props.code)
   return props.code
 })
+
+const appStyle = computed(() => {
+  if (!props.justify && !props.align) {
+    return {}
+  }
+
+  return ({
+    display: 'flex',
+    'justify-content': props.justify ?? 'flex-start',
+    'align-items': props.align ?? 'flex-start'
+  })
+})
+provide('appStyle', appStyle)
 
 const store = new ReplStore({ code: code.value });
 provide('store', store)

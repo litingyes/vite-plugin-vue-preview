@@ -12,9 +12,9 @@ a vite plugin for code preview of vue component in markdown, of course, a **VueP
 ## Demo
 
 <!-- #region demo -->
-```vue preview
+```vue preview justify=center
 <template>
-    <div>Demo: vite-plugin-vue-preview</div>
+    <span>Demo: vite-plugin-vue-preview</span>
 </template>
 ```
 <!-- #endregion demo -->

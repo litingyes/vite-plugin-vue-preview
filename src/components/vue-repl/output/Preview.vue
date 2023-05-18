@@ -9,19 +9,22 @@ import {
   WatchStopHandle,
   inject,
   Ref,
-  nextTick
+  nextTick,
+  computed
 } from 'vue'
 import srcdoc from './srcdoc.html?raw'
 import { PreviewProxy } from './PreviewProxy'
 import { compileModulesForPreview } from './moduleCompiler'
 import type { Store } from '../store'
 import consola from 'consola'
+import type { ComputedRef } from 'vue'
 
 const props = defineProps<{ show: boolean; ssr: boolean }>()
 
 const store = inject('store') as Store
 const clearConsole = inject('clear-console') as Ref<boolean>
 const bgColor = inject('outputBgColor') as string
+const appStyle = inject<ComputedRef<object>>('appStyle')
 const container = ref()
 const runtimeError = ref()
 const runtimeWarning = ref()
@@ -29,6 +32,15 @@ const runtimeWarning = ref()
 let sandbox: HTMLIFrameElement
 let proxy: PreviewProxy
 let stopUpdateWatcher: WatchStopHandle | undefined
+
+const appStyleStr = computed(() => {
+  if (!appStyle) return ''
+  let str = ''
+  for (const [key, val] of Object.entries(appStyle.value)) {
+    str += `${key}:${val};`
+  }
+  return str
+})
 
 // create sandbox on mount
 onMounted(createSandbox)
@@ -216,7 +228,7 @@ async function updatePreview() {
       `if (window.__app__) window.__app__.unmount()\n` +
       (isSSR ? `` : `document.body.innerHTML = '<div id="app"></div>'`),
       ...modules,
-      `document.getElementById('__reset-styles').innerHTML =' body {background: ${bgColor}}'`,
+      `document.getElementById('__reset-styles').innerHTML =' body {background: ${bgColor}} #app { ${appStyleStr.value} }'`,
       `document.getElementById('__sfc-styles').innerHTML = window.__css__`
     ]
 
