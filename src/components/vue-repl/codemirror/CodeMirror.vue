@@ -69,7 +69,7 @@ onMounted(() => {
 })
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .editor {
   position: relative;
   overflow: hidden;
