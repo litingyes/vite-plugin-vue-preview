@@ -10,7 +10,7 @@ const bgColor = inject('outputBgColor') as string
 </script>
 
 <template>
-  <div class="output-container">
+  <div class="output-container" :data-ssr="props.ssr">
     <Preview show :ssr="props.ssr" />
   </div>
 </template>

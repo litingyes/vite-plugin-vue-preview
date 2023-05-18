@@ -5,7 +5,7 @@ import { VuePreview } from '../../../src/index'
 
 <template>
     <div class="demo-sfc">
-        <VuePreview outputBgColor="red" justify="center"></VuePreview>
+        <VuePreview></VuePreview>
     </div>
 </template>
 
