@@ -94,6 +94,10 @@ export default {
 }
 ```
 
+::: tip 在vitepress中传递组件 Props 的方法
+在 vue preview 后以 ${key}=${value} 的形式传递组件 Props
+:::
+
 一旦你按照上述流程配置完成，你就可以在你的markdown文件中使用了：
 
 <<< @/zh/index.md#demo

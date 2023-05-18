@@ -95,6 +95,10 @@ export default {
 }
 ```
 
+::: tip Methods for passing component Props in vitepress
+pass the component Props as ${key}=${value} after the vue preview
+:::
+
 Once you've set up the above, you're ready to use it in your markdown file:
 
 <<< @/index.md#demo
