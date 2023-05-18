@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.5.0](https://github.com/liting-yes/vite-plugin-vue-preview/compare/0.4.0...0.5.0) (2023-05-18)
+
+
+### Features
+
+* **props:** support pass justify & align which impact app instance in preview ([4d0f451](https://github.com/liting-yes/vite-plugin-vue-preview/commit/4d0f451c4f32b6978a3603955a05dfa4c34d9a63))
+
 ## [0.4.0](https://github.com/liting-yes/vite-plugin-vue-preview/compare/0.3.6...0.4.0) (2023-03-09)
 
 ## [0.3.6](https://github.com/liting-yes/vite-plugin-vue-preview/compare/0.3.5...0.3.6) (2023-03-06)
