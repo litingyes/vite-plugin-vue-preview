@@ -11,11 +11,13 @@
 
 ## 演示
 
-```vue preview
+<!-- #region demo -->
+```vue preview justify=center
 <template>
     <div>演示 vite-plugin-vue-preview</div>
 </template>
 ```
+<!-- #endregion demo -->
 
 ## 安装
 
@@ -42,6 +44,10 @@ interface Props {
   ssr: boolean
   // 预览部分背景颜色
   outputBgColor: string
+  // 预览组件实例在容器里的水平布局
+  justify: 'start' | 'center' | 'end'
+  // 预览组件实例在容器里的垂直布局
+  align: 'start' | 'center' | 'end'
 }
 ```
 
@@ -90,7 +96,7 @@ export default {
 
 一旦你按照上述流程配置完成，你就可以在你的markdown文件中使用了：
 
-<<< @/index.md#demo
+<<< @/zh/index.md#demo
 
 ## 声明
 

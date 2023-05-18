@@ -44,6 +44,10 @@ interface Props {
   ssr: boolean
   // Background color of preview part
   outputBgColor: string
+  // Preview the horizontal layout of the component instance in the container
+  justify: 'start' | 'center' | 'end'
+  // Previewing the vertical layout of the component instance in the container
+  align: 'start' | 'center' | 'end'
 }
 ```
 
