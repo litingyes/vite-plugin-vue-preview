@@ -1,6 +1,7 @@
 <h1 align="center">vite-plugin-vue-preview</h1>
 
 <p align="center">
+  <a href="https://github.com/liting-yes/vite-plugin-vue-preview"><img src="https://img.shields.io/github/stars/liting-yes/vite-plugin-vue-preview" alt="Downloads"></a>
   <a href="https://www.npmjs.com/package/vite-plugin-vue-preview"><img src="https://img.shields.io/npm/dm/vite-plugin-vue-preview" alt="Downloads"></a>
   <a href="https://www.npmjs.com/package/vite-plugin-vue-preview"><img src="https://img.shields.io/npm/v/vite-plugin-vue-preview" alt="Version"></a>
   <a href="https://www.npmjs.com/package/vite-plugin-vue-preview"><img src="https://img.shields.io/npm/l/vite-plugin-vue-preview" alt="License"></a>
@@ -43,6 +44,10 @@ interface Props {
   ssr: boolean
   // Background color of preview part
   outputBgColor: string
+  // Preview the horizontal layout of the component instance in the container
+  justify: 'start' | 'center' | 'end'
+  // Previewing the vertical layout of the component instance in the container
+  align: 'start' | 'center' | 'end'
 }
 ```
 

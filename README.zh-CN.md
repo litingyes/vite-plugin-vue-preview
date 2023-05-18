@@ -1,6 +1,7 @@
 <h1 align="center">vite-plugin-vue-preview</h1>
 
 <p align="center">
+  <a href="https://github.com/liting-yes/vite-plugin-vue-preview"><img src="https://img.shields.io/github/stars/liting-yes/vite-plugin-vue-preview" alt="Downloads"></a>
   <a href="https://www.npmjs.com/package/vite-plugin-vue-preview"><img src="https://img.shields.io/npm/dm/vite-plugin-vue-preview" alt="Downloads"></a>
   <a href="https://www.npmjs.com/package/vite-plugin-vue-preview"><img src="https://img.shields.io/npm/v/vite-plugin-vue-preview" alt="Version"></a>
   <a href="https://www.npmjs.com/package/vite-plugin-vue-preview"><img src="https://img.shields.io/npm/l/vite-plugin-vue-preview" alt="License"></a>
@@ -43,6 +44,10 @@ interface Props {
   ssr: boolean
   // 预览部分背景颜色
   outputBgColor: string
+  // 预览组件实例在容器里的水平布局
+  justify: 'start' | 'center' | 'end'
+  // 预览组件实例在容器里的垂直布局
+  align: 'start' | 'center' | 'end'
 }
 ```
 
