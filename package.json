@@ -46,7 +46,7 @@
   "scripts": {
     "lint": "eslint .",
     "format": "eslint --fix .",
-    "commit": "git-cz",
+    "commit": "git add . && git-cz",
     "release": "release-it",
     "build": "vite build",
     "prepare": "git config core.hooksPath .git/hooks/ && npx simple-git-hooks",
