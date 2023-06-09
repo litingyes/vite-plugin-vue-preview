@@ -97,14 +97,15 @@ export default {
 
 Once you've set up the above, you're ready to use it in your markdown file:
 
-```md
-
-\```vue preview
-<template>
-    <div>Demo: vite-plugin-vue-preview</div>
-</template>
-\```
-```
+<pre>
+  <code>
+&#96;&#96;&#96;vue preview
+&lt;template&gt;
+  &lt;div&gt;Demo: vite-plugin-vue-preview&lt;/div&gt;
+&lt;/template&gt;
+&#96;&#96;&#96;
+  </code>
+</pre>
 
 ## Statement
 

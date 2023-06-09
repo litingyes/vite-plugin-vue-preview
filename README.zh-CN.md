@@ -96,14 +96,15 @@ export default {
 
 一旦你按照上述流程配置完成，你就可以在你的markdown文件中使用了：
 
-```md
-
-\```vue preview
-<template>
-    <div>Demo: vite-plugin-vue-preview</div>
-</template>
-\```
-```
+<pre>
+  <code>
+&#96;&#96;&#96;vue preview
+&lt;template&gt;
+  &lt;div&gt;Demo: vite-plugin-vue-preview&lt;/div&gt;
+&lt;/template&gt;
+&#96;&#96;&#96;
+  </code>
+</pre>
 
 ## 声明
 
