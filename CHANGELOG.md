@@ -1,5 +1,7 @@
 # Changelog
 
+## [0.5.2](https://github.com/liting-yes/vite-plugin-vue-preview/compare/0.5.0...0.5.2) (2023-06-09)
+
 ## [0.5.1](https://github.com/liting-yes/vite-plugin-vue-preview/compare/0.5.0...0.5.1) (2023-05-18)
 
 ## [0.5.0](https://github.com/liting-yes/vite-plugin-vue-preview/compare/0.4.0...0.5.0) (2023-05-18)
