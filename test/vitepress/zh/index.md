@@ -14,7 +14,7 @@
 <!-- #region demo -->
 ```vue preview justify=center
 <template>
-    <div>演示 vite-plugin-vue-preview</div>
+  <div>演示 vite-plugin-vue-preview</div>
 </template>
 ```
 <!-- #endregion demo -->

@@ -10,18 +10,19 @@ watch(
   () => [props.err, props.warn],
   () => {
     dismissed.value = false
-  }
+  },
 )
 
 function formatMessage(err: string | Error): string {
   if (typeof err === 'string') {
     return err
-  } else {
+  }
+  else {
     let msg = err.message
     const loc = (err as CompilerError).loc
-    if (loc && loc.start) {
-      msg = `(${loc.start.line}:${loc.start.column}) ` + msg
-    }
+    if (loc && loc.start)
+      msg = `(${loc.start.line}:${loc.start.column}) ${msg}`
+
     return msg
   }
 }
@@ -31,7 +32,9 @@ function formatMessage(err: string | Error): string {
   <Transition name="fade">
     <div v-if="!dismissed && (err || warn)" class="msg" :class="err ? 'err' : 'warn'">
       <pre>{{ formatMessage(err || warn) }}</pre>
-      <button class="dismiss" @click="dismissed = true">✕</button>
+      <button class="dismiss" @click="dismissed = true">
+        ✕
+      </button>
     </div>
   </Transition>
 </template>

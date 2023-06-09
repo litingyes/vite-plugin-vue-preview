@@ -1,10 +1,11 @@
 <script setup lang="ts">
-import Editor from './editor/Editor.vue'
-import Output from './output/Output.vue'
-import { Store, ReplStore, SFCOptions } from './store'
-import { provide, toRef, ref } from 'vue'
+import { provide, ref, toRef } from 'vue'
 import { Icon } from '@iconify/vue'
 import { useClipboard } from '@vueuse/core'
+import Editor from './editor/Editor.vue'
+import Output from './output/Output.vue'
+import type { SFCOptions, Store } from './store'
+import { ReplStore } from './store'
 
 export interface Props {
   store?: Store
@@ -18,9 +19,10 @@ const props = withDefaults(defineProps<Props>(), {
   store: () => new ReplStore(),
   clearConsole: true,
   ssr: false,
-  collapse: true
+  collapse: true,
 })
 
+// eslint-disable-next-line vue/no-mutating-props
 props.sfcOptions && (props.store.options = props.sfcOptions)
 props.store.init()
 
@@ -30,23 +32,23 @@ provide('clear-console', toRef(props, 'clearConsole'))
 const collapse = ref(props.collapse)
 
 const { copy, copied, isSupported, text } = useClipboard({ legacy: true })
-
 </script>
 
 <template>
   <div class="vue-preview">
-    <Output showCompileOutput :ssr="!!props.ssr" />
+    <Output show-compile-output :ssr="!!props.ssr" />
     <div class="vue-preview__btns">
-      <button class="vue-preview__btns-item" v-if="isSupported" :title="(copied || text) ? 'copied' : 'copy'">
+      <button v-if="isSupported" class="vue-preview__btns-item" :title="(copied || text) ? 'copied' : 'copy'">
         <Icon v-show="copied || text" icon="material-symbols:content-copy" class="icon-copied" />
-        <Icon v-show="!copied && !text" icon="material-symbols:content-copy-outline" @click="copy(store!.state.activeFile.code)"
-          class="icon-copy" />
+        <Icon
+          v-show="!copied && !text" icon="material-symbols:content-copy-outline" class="icon-copy"
+          @click="copy(store!.state.activeFile.code)"
+        />
       </button>
       <button class="vue-preview__btns-item">
         <Icon v-show="collapse" icon="mdi:code-tags" @click="collapse = false" />
         <Icon v-show="!collapse" icon="mdi:xml" @click="collapse = true" />
       </button>
-
     </div>
     <Editor class="vue-preview__editor" :class="{ collapse }" />
   </div>
@@ -89,7 +91,6 @@ const { copy, copied, isSupported, text } = useClipboard({ legacy: true })
       }
     }
   }
-
 
   &__editor {
     max-height: 10000px;

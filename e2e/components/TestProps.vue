@@ -1,7 +1,3 @@
-<template>
-    <VuePreview :code="codeStr" :collapse="false" ssr outputBgColor="red" justify="center" align="center" />
-</template>
-
 <script setup lang="ts">
 import { VuePreview } from '../../src'
 
@@ -11,3 +7,7 @@ const codeStr = `
     </template>
 `
 </script>
+
+<template>
+  <VuePreview :code="codeStr" :collapse="false" ssr output-bg-color="red" justify="center" align="center" />
+</template>

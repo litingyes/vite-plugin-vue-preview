@@ -1,9 +1,9 @@
 <script setup lang="ts">
+import { inject } from 'vue'
+import { useDebounceFn } from '@vueuse/core'
 import CodeMirror from '../codemirror/CodeMirror.vue'
 import Message from '../Message.vue'
-import { inject } from 'vue'
 import type { Store } from '../store'
-import { useDebounceFn } from '@vueuse/core'
 
 const store = inject('store') as Store
 
@@ -14,7 +14,7 @@ const onChange = useDebounceFn((code: string) => {
 
 <template>
   <div class="editor-container">
-    <CodeMirror @change="onChange" :value="store.state.activeFile.code" />
+    <CodeMirror :value="store.state.activeFile.code" @change="onChange" />
     <Message :err="store.state.errors[0]" />
   </div>
 </template>

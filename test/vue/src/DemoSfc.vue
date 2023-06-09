@@ -4,9 +4,9 @@ import { VuePreview } from '../../../src/index'
 </script>
 
 <template>
-    <div class="demo-sfc">
-        <VuePreview></VuePreview>
-    </div>
+  <div class="demo-sfc">
+    <VuePreview />
+  </div>
 </template>
 
 <style lang="scss" scoped>
