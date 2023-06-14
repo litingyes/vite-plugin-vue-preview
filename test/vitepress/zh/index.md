@@ -12,7 +12,7 @@
 ## 演示
 
 <!-- #region demo -->
-```vue preview justify=center
+```vue preview
 <template>
   <div>演示 vite-plugin-vue-preview</div>
 </template>

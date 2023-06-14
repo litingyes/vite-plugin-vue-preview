@@ -81,8 +81,8 @@ const borderRadiusForBtnsContaniner = computed(() => isFold.value ? '0 0 var(--v
   <div class="vue-preview">
     <Preview show :ssr="props.ssr" />
     <div class="vue-preview__btns">
-      <button v-show="!copied" @click="copy(store.state.activeFile.code)">
-        <Copy title="copy code" />
+      <button v-show="!copied" title="copy code" @click="copy(store.state.activeFile.code)">
+        <Copy />
       </button>
       <button v-show="copied">
         <Copied />
