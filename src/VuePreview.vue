@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import '@liting-yes/vue-repl/style.css'
 import type { Store } from '@liting-yes/vue-repl'
-import { CodeMirror, Preview, ReplStore } from '@liting-yes/vue-repl'
+import { CodeMirror, Preview, ReplStore, defaultMainFile } from '@liting-yes/vue-repl'
 import { computed, provide, ref } from 'vue'
 import { debounce } from 'lodash-es'
 import { useClipboard } from '@vueuse/core'
@@ -15,6 +15,8 @@ export interface Props {
   autoResize?: boolean
   clearConsole?: boolean
   ssr?: boolean
+  code?: string
+  encode?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -24,9 +26,39 @@ const props = withDefaults(defineProps<Props>(), {
   showImportMap: true,
   clearConsole: true,
   ssr: false,
+  encode: false,
 })
 
 const { store } = props
+
+const welcomeCode = `
+<script setup>
+import { ref } from 'vue'
+
+const msg = ref('vite-plugin-vue-preview')
+<\/script>
+
+<template>
+  <h1>{{ msg }}</h1>
+  <input v-model="msg">
+</template>
+`.trim()
+
+if (!props.code) {
+  store.setFiles({
+    [defaultMainFile]: welcomeCode,
+  })
+}
+else if (props.encode) {
+  store.setFiles({
+    [defaultMainFile]: decodeURIComponent(props.code),
+  })
+}
+else {
+  store.setFiles({
+    [defaultMainFile]: props.code,
+  })
+}
 
 store.init()
 
