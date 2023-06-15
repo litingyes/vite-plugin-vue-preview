@@ -17,6 +17,14 @@ export interface Props {
   ssr?: boolean
   code?: string
   encode?: boolean
+  previewOptions?: {
+    headHTML?: string
+    bodyHTML?: string
+    customCode?: {
+      importCode?: string
+      useCode?: string
+    }
+  }
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -27,6 +35,14 @@ const props = withDefaults(defineProps<Props>(), {
   clearConsole: true,
   ssr: false,
   encode: false,
+  previewOptions: () => ({
+    headHTML: '',
+    bodyHTML: '',
+    customCode: {
+      importCode: '',
+      useCode: '',
+    },
+  }),
 })
 
 const { store } = props
@@ -69,6 +85,7 @@ const onChange = debounce((code: string) => {
 provide('store', store)
 provide('autoresize', props.autoResize)
 provide('clear-console', props.clearConsole)
+provide('preview-options', props.previewOptions)
 
 const { copy, copied } = useClipboard({ source: store.state.activeFile.code, legacy: true })
 
