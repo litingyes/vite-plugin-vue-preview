@@ -126,6 +126,7 @@ const previewAppStyle = computed<Partial<CSSStyleDeclaration>>(() => typeof prop
 :root {
   --vue-preview-radius: 8px;
   --vue-preview-color-border: hsla(220, 13%, 18%, 0.1);
+  --vue-preview-color-btns-bg: hsl(0, 0%, 100%);
   --vue-preview-color-icon: hsl(220, 13%, 18%);
   --vue-preview-color-icon-bg-hover: hsl(220, 95%, 95%);
 }
@@ -153,7 +154,7 @@ const previewAppStyle = computed<Partial<CSSStyleDeclaration>>(() => typeof prop
   box-sizing: border-box;
   border: 1px solid var(--vue-preview-color-border);
   border-top: none;
-  /* border-bottom: none; */
+  background-color: var(--vue-preview-color-btns-bg);
   display: flex;
   justify-content: flex-end;
   gap: 4px;
