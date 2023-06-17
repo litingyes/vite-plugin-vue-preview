@@ -7,14 +7,14 @@
   <a href="https://www.npmjs.com/package/vite-plugin-vue-preview"><img src="https://img.shields.io/npm/l/vite-plugin-vue-preview" alt="License"></a>
 </p>
 
-一个为在 Markdown 中预览Vue组件而生的Vite插件，当然，也导出了一个 **VuePreview** 组件可以直接在 Vue 应用中使用
+一个为在 Markdown 中预览和编辑Vue组件而生的Vite插件，当然，也导出了一个 **VuePreview** 组件可以直接在 Vue 应用中使用
 
 ## 演示
 
 <!-- #region demo -->
 ```vue preview
 <template>
-  <div>演示 vite-plugin-vue-preview</div>
+  <h1>演示： vite-plugin-vue-preview</h1>
 </template>
 ```
 <!-- #endregion demo -->
@@ -27,10 +27,11 @@ pnpm add vite-plugin-vue-preview
 
 ## 特征
 
-- 支持 Vue/Vitepress 应用
+- 支持 Vue3/Vitepress 应用
+- 支持代码预览
 - 支持在线编辑
 
-## 组件属性
+## Props
 
 ### VuePreview
 
@@ -42,13 +43,28 @@ interface Props {
   collapse: boolean
   // 是否开启 ssr
   ssr: boolean
-  // 预览部分背景颜色
-  outputBgColor: string
-  // 预览组件实例在容器里的水平布局
-  justify: 'start' | 'center' | 'end'
-  // 预览组件实例在容器里的垂直布局
-  align: 'start' | 'center' | 'end'
+  // 传入的 props 字符串是否被 encodeURIComponent 编码（主要在 vitepress 中很必要）
+  encode: boolean
+  // iframe 元素中的 body 样式
+  previewBodyStyle: Partial<CSSStyleDeclaration> | string
+  // iframe 元素中根组件的样式
+  previewAppStyle?: Partial<CSSStyleDeclaration> | string
 }
+```
+
+## CSS 样式
+
+```CSS
+/* VuePreview 外边框圆角 */
+--vue-preview-radius
+/* VuePreview 边框颜色 */
+--vue-preview-color-border
+/* VuePreview 按钮区背景颜色 */
+--vue-preview-color-btns-bg
+/* VuePreview 图标颜色 */
+--vue-preview-color-icon
+/* VuePreview 图标 hover 颜色 */
+--vue-preview-color-icon-bg-hover 
 ```
 
 ## 用法
@@ -62,22 +78,22 @@ import { createApp } from 'vue'
 import { VuePreview } from 'vite-plugin-vue-preview'
 import 'vite-plugin-vue-preview/dist/style.css'
 
-const app = createApp({})
+const app = createApp()
 
 app.component('VuePreview', VuePreview)
 ```
 
-### Vitepress 应用
+### VitePress 应用
 
 > 导入 VuePreview 组件及样式，同时配置插件设置
 
 ```TS
 // vite.config.ts
 import { defineConfig } from 'vite'
-import { VuePreviewPlugin } from 'vite-plugin-vue-preview'
+import { vuePreviewPlugin } from 'vite-plugin-vue-preview'
 
 export default defineConfig({
-  plugins: [VuePreviewPlugin()],
+  plugins: [vuePreviewPlugin()],
 })
 
 // .vitepress/theme/index.ts
@@ -94,14 +110,34 @@ export default {
 }
 ```
 
-::: tip 在vitepress中传递组件 Props 的方法
-在 vue preview 后以 ${key}=${value} 的形式传递组件 Props
-:::
-
 一旦你按照上述流程配置完成，你就可以在你的markdown文件中使用了：
 
 <<< @/zh/index.md#demo
 
-## 声明
+## 插件配置
 
-- 核心代码来源于 [@vue/repl](https://github.com/vuejs/repl)
+在 MarkDown 文件中，传递组件 **Props** 并没有太优雅的办法，故在插件配置中支持传入特定的组件 Props 进行全局配置
+
+```TS
+// vite.config.ts
+import { defineConfig } from 'vite'
+import { vuePreviewPlugin } from 'vite-plugin-vue-preview'
+
+export default defineConfig({
+  plugins: [vuePreviewPlugin({
+    props: {
+      previewBodyStyle: {
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+      },
+      previewAppStyle: {
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        flexDirection: 'column',
+      },
+    },
+  })],
+})
+```

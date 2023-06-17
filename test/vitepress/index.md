@@ -7,14 +7,14 @@
   <a href="https://www.npmjs.com/package/vite-plugin-vue-preview"><img src="https://img.shields.io/npm/l/vite-plugin-vue-preview" alt="License"></a>
 </p>
 
-a vite plugin for code preview of vue component in markdown, of course, a **VuePreview** component is also exported for direct use in vue app.
+A Vite plugin made for previewing and editing Vue components in Markdown and, of course, exporting a **VuePreview** component to be used directly in Vue applications.
 
 ## Demo
 
 <!-- #region demo -->
 ```vue preview
 <template>
-  <span>Demo: vite-plugin-vue-preview</span>
+  <h1>Demo: vite-plugin-vue-preview</h1>
 </template>
 ```
 <!-- #endregion demo -->
@@ -28,6 +28,7 @@ pnpm add vite-plugin-vue-preview
 ## Features
 
 - Support for Vue/Vitepress applications
+- Support code preview
 - Support online editing
 
 ## Props
@@ -42,13 +43,28 @@ interface Props {
   collapse: boolean
   // Whether to turn on ssr
   ssr: boolean
-  // Background color of preview part
-  outputBgColor: string
-  // Preview the horizontal layout of the component instance in the container
-  justify: 'start' | 'center' | 'end'
-  // Previewing the vertical layout of the component instance in the container
-  align: 'start' | 'center' | 'end'
+  // Whether the incoming props string is encoded by encodeURIComponent (necessary mainly in vitepress)
+  encode: boolean
+  // The body style in the iframe element
+  previewBodyStyle: Partial<CSSStyleDeclaration> | string
+  // Styling of the root component in the iframe element
+  previewAppStyle?: Partial<CSSStyleDeclaration> | string
 }
+```
+
+## CSS Styles
+
+```CSS
+/* VuePreview border-radius */
+--vue-preview-radius
+/* VuePreview border-color */
+--vue-preview-color-border
+/* VuePreview background-color */
+--vue-preview-color-btns-bg
+/* VuePreview color */
+--vue-preview-color-icon
+/* VuePreview hover:color */
+--vue-preview-color-icon-bg-hover 
 ```
 
 ## Usage
@@ -95,14 +111,34 @@ export default {
 }
 ```
 
-::: tip Methods for passing component Props in vitepress
-pass the component Props as ${key}=${value} after the vue preview
-:::
-
 Once you've set up the above, you're ready to use it in your markdown file:
 
 <<< @/index.md#demo
 
-## Statement
+## Plugin Configuration
 
-- Core code from [@vue/repl](https://github.com/vuejs/repl)
+There is no elegant way to pass component **Props** in a MarkDown file, so passing in specific component Props is supported in the plugin configuration for global configuration
+
+```TS
+// vite.config.ts
+import { defineConfig } from 'vite'
+import { vuePreviewPlugin } from 'vite-plugin-vue-preview'
+
+export default defineConfig({
+  plugins: [vuePreviewPlugin({
+    props: {
+      previewBodyStyle: {
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+      },
+      previewAppStyle: {
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        flexDirection: 'column',
+      },
+    },
+  })],
+})
+```
