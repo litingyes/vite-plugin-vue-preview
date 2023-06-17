@@ -17,6 +17,7 @@ export interface Props {
   ssr?: boolean
   code?: string
   encode?: boolean
+  collapse?: boolean
   previewBodyStyle?: Partial<CSSStyleDeclaration> | string
   previewAppStyle?: Partial<CSSStyleDeclaration> | string
   previewOptions?: {
@@ -37,6 +38,7 @@ const props = withDefaults(defineProps<Props>(), {
   clearConsole: true,
   ssr: false,
   encode: false,
+  collapse: false,
   previewOptions: () => ({
     headHTML: '',
     bodyHTML: '',
@@ -91,9 +93,9 @@ provide('preview-options', props.previewOptions)
 
 const { copy, copied } = useClipboard({ source: store.state.activeFile.code, legacy: true })
 
-const isFold = ref(false)
-const maxHeightForCode = computed(() => isFold.value ? '0' : '1000px')
-const borderRadiusForBtnsContaniner = computed(() => isFold.value ? '0 0 var(--vue-preview-radius) var(--vue-preview-radius)' : 'none')
+const isCollapse = ref(props.collapse)
+const maxHeightForCode = computed(() => isCollapse.value ? '0' : '1000px')
+const borderRadiusForBtnsContaniner = computed(() => isCollapse.value ? '0 0 var(--vue-preview-radius) var(--vue-preview-radius)' : 'none')
 
 const previewBodyStyle = computed<Partial<CSSStyleDeclaration>>(() => typeof props.previewBodyStyle === 'string' ? JSON.parse(decodeURIComponent(props.previewBodyStyle)) : props.previewBodyStyle)
 const previewAppStyle = computed<Partial<CSSStyleDeclaration>>(() => typeof props.previewAppStyle === 'string' ? JSON.parse(decodeURIComponent(props.previewAppStyle)) : props.previewAppStyle)
@@ -109,10 +111,10 @@ const previewAppStyle = computed<Partial<CSSStyleDeclaration>>(() => typeof prop
       <button v-show="copied">
         <Copied />
       </button>
-      <button v-show="!isFold" @click="isFold = true">
+      <button v-show="!isCollapse" @click="isCollapse = true">
         <UnfoldLess />
       </button>
-      <button v-show="isFold" @click="isFold = false">
+      <button v-show="isCollapse" @click="isCollapse = false">
         <UnfoldMore />
       </button>
     </div>
