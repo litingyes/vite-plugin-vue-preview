@@ -59,8 +59,8 @@ interface Props {
 --vue-preview-radius
 /* VuePreview border-color */
 --vue-preview-color-border
-/* VuePreview background-color */
---vue-preview-color-btns-bg
+/* VuePreview box-shadow */
+--vue-preview-box-shadow
 /* VuePreview color */
 --vue-preview-color-icon
 /* VuePreview hover:color */
