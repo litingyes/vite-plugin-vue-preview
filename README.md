@@ -11,7 +11,7 @@
   <a href="./README.zh-CN.md">简体中文</a>
 </p>
 
-a vite plugin for code preview of vue component in markdown, of course, a **VuePreview** component is also exported for direct use in vue app.
+A Vite plugin made for previewing and editing Vue components in Markdown and, of course, exporting a **VuePreview** component to be used directly in Vue applications.
 
 ## Demo
 
@@ -28,13 +28,14 @@ pnpm add vite-plugin-vue-preview
 ## Features
 
 - Support for Vue/Vitepress applications
+- Support code preview
 - Support online editing
 
 ## Props
 
 ### VuePreview
 
-```ts
+```TS
 interface Props {
   // Initialization code string
   code: string
@@ -42,13 +43,28 @@ interface Props {
   collapse: boolean
   // Whether to turn on ssr
   ssr: boolean
-  // Background color of preview part
-  outputBgColor: string
-  // Preview the horizontal layout of the component instance in the container
-  justify: 'start' | 'center' | 'end'
-  // Previewing the vertical layout of the component instance in the container
-  align: 'start' | 'center' | 'end'
+  // Whether the incoming props string is encoded by encodeURIComponent (necessary mainly in vitepress)
+  encode: boolean
+  // The body style in the iframe element
+  previewBodyStyle: Partial<CSSStyleDeclaration> | string
+  // Styling of the root component in the iframe element
+  previewAppStyle?: Partial<CSSStyleDeclaration> | string
 }
+```
+
+## CSS Styles
+
+```CSS
+/* VuePreview border-radius */
+--vue-preview-radius
+/* VuePreview border-color */
+--vue-preview-color-border
+/* VuePreview box-shadow */
+--vue-preview-box-shadow
+/* VuePreview color */
+--vue-preview-color-icon
+/* VuePreview hover:color */
+--vue-preview-color-icon-bg-hover 
 ```
 
 ## Usage
@@ -62,7 +78,7 @@ import { createApp } from 'vue'
 import { VuePreview } from 'vite-plugin-vue-preview'
 import 'vite-plugin-vue-preview/dist/style.css'
 
-const app = createApp({})
+const app = createApp()
 
 app.component('VuePreview', VuePreview)
 ```
@@ -101,12 +117,36 @@ Once you've set up the above, you're ready to use it in your markdown file:
   <code>
 &#96;&#96;&#96;vue preview
 &lt;template&gt;
-  &lt;div&gt;Demo: vite-plugin-vue-preview&lt;/div&gt;
+  &lt;h1&gt;Demo: vite-plugin-vue-preview&lt;/h1&gt;
 &lt;/template&gt;
 &#96;&#96;&#96;
   </code>
 </pre>
 
-## Statement
+## 插件配置
 
-- Core code from [@vue/repl](https://github.com/vuejs/repl)
+在 MarkDown 文件中，传递组件 **Props** 并没有太优雅的办法，故在插件配置中支持传入特定的组件 Props 进行全局配置
+
+```TS
+// vite.config.ts
+import { defineConfig } from 'vite'
+import { vuePreviewPlugin } from 'vite-plugin-vue-preview'
+
+export default defineConfig({
+  plugins: [vuePreviewPlugin({
+    props: {
+      previewBodyStyle: {
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+      },
+      previewAppStyle: {
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        flexDirection: 'column',
+      },
+    },
+  })],
+})
+```

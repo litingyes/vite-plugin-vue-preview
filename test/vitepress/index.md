@@ -35,7 +35,7 @@ pnpm add vite-plugin-vue-preview
 
 ### VuePreview
 
-```ts
+```TS
 interface Props {
   // Initialization code string
   code: string
@@ -78,7 +78,7 @@ import { createApp } from 'vue'
 import { VuePreview } from 'vite-plugin-vue-preview'
 import 'vite-plugin-vue-preview/dist/style.css'
 
-const app = createApp({})
+const app = createApp()
 
 app.component('VuePreview', VuePreview)
 ```

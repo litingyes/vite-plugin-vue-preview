@@ -35,7 +35,7 @@ pnpm add vite-plugin-vue-preview
 
 ### VuePreview
 
-```ts
+```TS
 interface Props {
   // 初始化代码字符串
   code: string

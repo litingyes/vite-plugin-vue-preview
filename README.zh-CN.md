@@ -11,7 +11,7 @@
   <a href="./README.md">English</a>
 </p>
 
-一个为在 Markdown 中预览Vue组件而生的Vite插件，当然，也导出了一个 **VuePreview** 组件可以直接在 Vue 应用中使用
+一个为在 Markdown 中预览和编辑Vue组件而生的Vite插件，当然，也导出了一个 **VuePreview** 组件可以直接在 Vue 应用中使用
 
 ## 演示
 
@@ -27,14 +27,15 @@ pnpm add vite-plugin-vue-preview
 
 ## 特征
 
-- 支持 Vue/Vitepress 应用
+- 支持 Vue3/Vitepress 应用
+- 支持代码预览
 - 支持在线编辑
 
-## 组件属性
+## Props
 
 ### VuePreview
 
-```ts
+```TS
 interface Props {
   // 初始化代码字符串
   code: string
@@ -42,13 +43,28 @@ interface Props {
   collapse: boolean
   // 是否开启 ssr
   ssr: boolean
-  // 预览部分背景颜色
-  outputBgColor: string
-  // 预览组件实例在容器里的水平布局
-  justify: 'start' | 'center' | 'end'
-  // 预览组件实例在容器里的垂直布局
-  align: 'start' | 'center' | 'end'
+  // 传入的 props 字符串是否被 encodeURIComponent 编码（主要在 vitepress 中很必要）
+  encode: boolean
+  // iframe 元素中的 body 样式
+  previewBodyStyle: Partial<CSSStyleDeclaration> | string
+  // iframe 元素中根组件的样式
+  previewAppStyle?: Partial<CSSStyleDeclaration> | string
 }
+```
+
+## CSS 样式
+
+```CSS
+/* VuePreview 外边框圆角 */
+--vue-preview-radius
+/* VuePreview 边框颜色 */
+--vue-preview-color-border
+/* VuePreview 盒子阴影 */
+--vue-preview-box-shadow
+/* VuePreview 图标颜色 */
+--vue-preview-color-icon
+/* VuePreview 图标 hover 颜色 */
+--vue-preview-color-icon-bg-hover 
 ```
 
 ## 用法
@@ -62,7 +78,7 @@ import { createApp } from 'vue'
 import { VuePreview } from 'vite-plugin-vue-preview'
 import 'vite-plugin-vue-preview/dist/style.css'
 
-const app = createApp({})
+const app = createApp()
 
 app.component('VuePreview', VuePreview)
 ```
@@ -100,12 +116,36 @@ export default {
   <code>
 &#96;&#96;&#96;vue preview
 &lt;template&gt;
-  &lt;div&gt;Demo: vite-plugin-vue-preview&lt;/div&gt;
+  &lt;h1&gt;Demo: vite-plugin-vue-preview&lt;/h1&gt;
 &lt;/template&gt;
 &#96;&#96;&#96;
   </code>
 </pre>
 
-## 声明
+## 插件配置
 
-- 核心代码来源于 [@vue/repl](https://github.com/vuejs/repl)
+在 MarkDown 文件中，传递组件 **Props** 并没有太优雅的办法，故在插件配置中支持传入特定的组件 Props 进行全局配置
+
+```TS
+// vite.config.ts
+import { defineConfig } from 'vite'
+import { vuePreviewPlugin } from 'vite-plugin-vue-preview'
+
+export default defineConfig({
+  plugins: [vuePreviewPlugin({
+    props: {
+      previewBodyStyle: {
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+      },
+      previewAppStyle: {
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        flexDirection: 'column',
+      },
+    },
+  })],
+})
+```
