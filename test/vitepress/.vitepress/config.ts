@@ -21,4 +21,13 @@ export default defineConfig({
       },
     },
   },
+  themeConfig: {
+    socialLinks: [
+      { icon: 'github', link: 'https://github.com/liting-yes/vite-plugin-vue-preview' },
+    ],
+    footer: {
+      message: 'Released under the MIT License.',
+      copyright: 'Copyright © 2023-present Liting',
+    },
+  },
 })
