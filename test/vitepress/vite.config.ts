@@ -1,6 +1,20 @@
 import { defineConfig } from 'vite'
-import vuePreview from '../../dist'
+import vuePreviewPlugin from '../../dist'
 
 export default defineConfig({
-  plugins: [vuePreview()],
+  plugins: [vuePreviewPlugin({
+    props: {
+      previewBodyStyle: {
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+      },
+      previewAppStyle: {
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        flexDirection: 'column',
+      },
+    },
+  })],
 })

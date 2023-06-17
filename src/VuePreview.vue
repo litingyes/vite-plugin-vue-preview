@@ -17,6 +17,8 @@ export interface Props {
   ssr?: boolean
   code?: string
   encode?: boolean
+  previewBodyStyle?: Partial<CSSStyleDeclaration> | string
+  previewAppStyle?: Partial<CSSStyleDeclaration> | string
   previewOptions?: {
     headHTML?: string
     bodyHTML?: string
@@ -92,11 +94,14 @@ const { copy, copied } = useClipboard({ source: store.state.activeFile.code, leg
 const isFold = ref(false)
 const maxHeightForCode = computed(() => isFold.value ? '0' : '1000px')
 const borderRadiusForBtnsContaniner = computed(() => isFold.value ? '0 0 var(--vue-preview-radius) var(--vue-preview-radius)' : 'none')
+
+const previewBodyStyle = computed<Partial<CSSStyleDeclaration>>(() => typeof props.previewBodyStyle === 'string' ? JSON.parse(decodeURIComponent(props.previewBodyStyle)) : props.previewBodyStyle)
+const previewAppStyle = computed<Partial<CSSStyleDeclaration>>(() => typeof props.previewAppStyle === 'string' ? JSON.parse(decodeURIComponent(props.previewAppStyle)) : props.previewAppStyle)
 </script>
 
 <template>
   <div class="vue-preview">
-    <Preview show :ssr="props.ssr" />
+    <Preview show :ssr="props.ssr" :body-style="previewBodyStyle" :app-style="previewAppStyle" />
     <div class="vue-preview__btns">
       <button v-show="!copied" title="copy code" @click="copy(store.state.activeFile.code)">
         <Copy />
