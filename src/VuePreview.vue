@@ -4,7 +4,7 @@ import type { Store } from '@liting-yes/vue-repl'
 import { CodeMirror, Preview, ReplStore, defaultMainFile } from '@liting-yes/vue-repl'
 import { computed, provide, ref } from 'vue'
 import { debounce } from 'lodash-es'
-import { useClipboard } from '@vueuse/core'
+import { useClipboard, useElementHover } from '@vueuse/core'
 import Copy from './icons/Copy.vue'
 import Copied from './icons/Copied.vue'
 import UnfoldLess from './icons/UnfoldLess.vue'
@@ -95,28 +95,34 @@ const { copy, copied } = useClipboard({ source: store.state.activeFile.code, leg
 
 const isCollapse = ref(props.collapse)
 const maxHeightForCode = computed(() => isCollapse.value ? '0' : '1000px')
-const borderRadiusForBtnsContaniner = computed(() => isCollapse.value ? '0 0 var(--vue-preview-radius) var(--vue-preview-radius)' : 'none')
 
 const previewBodyStyle = computed<Partial<CSSStyleDeclaration>>(() => typeof props.previewBodyStyle === 'string' ? JSON.parse(decodeURIComponent(props.previewBodyStyle)) : props.previewBodyStyle)
 const previewAppStyle = computed<Partial<CSSStyleDeclaration>>(() => typeof props.previewAppStyle === 'string' ? JSON.parse(decodeURIComponent(props.previewAppStyle)) : props.previewAppStyle)
+
+const vuePreviewContainerRef = ref()
+const isHover = useElementHover(vuePreviewContainerRef)
 </script>
 
 <template>
   <div class="vue-preview">
-    <Preview show :ssr="props.ssr" :body-style="previewBodyStyle" :app-style="previewAppStyle" />
-    <div class="vue-preview__btns">
-      <button v-show="!copied" title="copy code" @click="copy(store.state.activeFile.code)">
-        <Copy />
-      </button>
-      <button v-show="copied">
-        <Copied />
-      </button>
-      <button v-show="!isCollapse" @click="isCollapse = true">
-        <UnfoldLess />
-      </button>
-      <button v-show="isCollapse" @click="isCollapse = false">
-        <UnfoldMore />
-      </button>
+    <div ref="vuePreviewContainerRef" class="vue-preview__container">
+      <Preview show :ssr="props.ssr" :body-style="previewBodyStyle" :app-style="previewAppStyle" />
+      <Transition v-show="isHover" name="vue-preview-slide-down">
+        <div class="vue-preview__btns">
+          <button v-show="!copied" title="copy code" @click="copy(store.state.activeFile.code)">
+            <Copy />
+          </button>
+          <button v-show="copied">
+            <Copied />
+          </button>
+          <button v-show="!isCollapse" @click="isCollapse = true">
+            <UnfoldLess />
+          </button>
+          <button v-show="isCollapse" @click="isCollapse = false">
+            <UnfoldMore />
+          </button>
+        </div>
+      </Transition>
     </div>
     <CodeMirror :value="store.state.activeFile.code" @change="onChange" />
   </div>
@@ -126,7 +132,6 @@ const previewAppStyle = computed<Partial<CSSStyleDeclaration>>(() => typeof prop
 :root {
   --vue-preview-radius: 8px;
   --vue-preview-color-border: hsla(220, 13%, 18%, 0.1);
-  --vue-preview-color-btns-bg: hsl(0, 0%, 100%);
   --vue-preview-color-icon: hsl(220, 13%, 18%);
   --vue-preview-color-icon-bg-hover: hsl(220, 95%, 95%);
 }
@@ -138,7 +143,10 @@ const previewAppStyle = computed<Partial<CSSStyleDeclaration>>(() => typeof prop
   border-radius: var(--vue-preview-radius);
   overflow: hidden;
   box-shadow: 2px 4px 8px 4px hsla(0, 0%, 0%, 0.1);
+}
 
+.vue-preview__container {
+  position: relative;
 }
 
 :deep(.iframe-container) {
@@ -146,22 +154,19 @@ const previewAppStyle = computed<Partial<CSSStyleDeclaration>>(() => typeof prop
   overflow: hidden;
   height: auto;
   border: 1px solid var(--vue-preview-color-border);
-  border-bottom: none;
   border-radius: var(--vue-preview-radius) var(--vue-preview-radius) 0 0;
 }
 
 .vue-preview__btns {
+  position: absolute;
+  right: 0;
+  bottom: 0;
   box-sizing: border-box;
-  border: 1px solid var(--vue-preview-color-border);
-  border-top: none;
-  background-color: var(--vue-preview-color-btns-bg);
   display: flex;
   justify-content: flex-end;
   gap: 4px;
   padding: 4px;
   color: var(--vue-preview-color-icon);
-  border-radius: v-bind(borderRadiusForBtnsContaniner);
-  overflow: hidden;
 }
 
 .vue-preview__btns button {
@@ -179,6 +184,17 @@ const previewAppStyle = computed<Partial<CSSStyleDeclaration>>(() => typeof prop
 
 .vue-preview__btns button:hover {
   background-color: var(--vue-preview-color-icon-bg-hover);
+}
+
+.vue-preview-slide-down-enter-active,
+.vue-preview-slide-down-leave-active {
+  transition: all 0.3s ease;
+}
+
+.vue-preview-slide-down-enter-from,
+.vue-preview-slide-down-leave-to {
+  transform: translateY(48px);
+  opacity: 0;
 }
 
 :deep(.editor) {
