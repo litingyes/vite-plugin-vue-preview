@@ -132,6 +132,7 @@ const isHover = useElementHover(vuePreviewContainerRef)
 :root {
   --vue-preview-radius: 8px;
   --vue-preview-color-border: hsla(220, 13%, 18%, 0.1);
+  --vue-preview-box-shadow: 2px 4px 8px 4px hsla(0, 0%, 0%, 0.1);
   --vue-preview-color-icon: hsl(220, 13%, 18%);
   --vue-preview-color-icon-bg-hover: hsl(220, 95%, 95%);
 }
@@ -142,7 +143,7 @@ const isHover = useElementHover(vuePreviewContainerRef)
   width: 100%;
   border-radius: var(--vue-preview-radius);
   overflow: hidden;
-  box-shadow: 2px 4px 8px 4px hsla(0, 0%, 0%, 0.1);
+  box-shadow: var(--vue-preview-box-shadow);
 }
 
 .vue-preview__container {
