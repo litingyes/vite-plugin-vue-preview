@@ -1,5 +1,19 @@
 # Changelog
 
+## [1.0.0](https://github.com/liting-yes/vite-plugin-vue-preview/compare/0.5.2...1.0.0) (2023-06-17)
+
+
+### Features
+
+* **css var:** add --vue-preview-box-shadow ([edad029](https://github.com/liting-yes/vite-plugin-vue-preview/commit/edad02922908e9e6e66818bc26fa871d0f05781e))
+* **VuePreview:** support collapse ([5070d9c](https://github.com/liting-yes/vite-plugin-vue-preview/commit/5070d9c785fce2a2d521b4f3ad5d73ddc7a29822))
+* **VuePreview:** support config style in iframe ([9b65337](https://github.com/liting-yes/vite-plugin-vue-preview/commit/9b6533709aa7fee3e1b49f661fc647298f6e8f1d))
+
+
+### Bug Fixes
+
+* **VuePreivew:** inject previewOptions ([daca125](https://github.com/liting-yes/vite-plugin-vue-preview/commit/daca125b529c7b89b5a3e99e0aa54a3610d41a50))
+
 ## [0.5.2](https://github.com/liting-yes/vite-plugin-vue-preview/compare/0.5.0...0.5.2) (2023-06-09)
 
 ## [0.5.1](https://github.com/liting-yes/vite-plugin-vue-preview/compare/0.5.0...0.5.1) (2023-05-18)
