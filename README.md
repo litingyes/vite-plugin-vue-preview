@@ -123,9 +123,9 @@ Once you've set up the above, you're ready to use it in your markdown file:
   </code>
 </pre>
 
-## 插件配置
+## Plugin Configuration
 
-在 MarkDown 文件中，传递组件 **Props** 并没有太优雅的办法，故在插件配置中支持传入特定的组件 Props 进行全局配置
+There is no elegant way to pass component **Props** in a MarkDown file, so passing in specific component Props is supported in the plugin configuration for global configuration
 
 ```TS
 // vite.config.ts
