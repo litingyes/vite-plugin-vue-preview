@@ -2,7 +2,7 @@
 import '@liting-yes/vue-repl/style.css'
 import type { Store } from '@liting-yes/vue-repl'
 import { CodeMirror, Preview, ReplStore, defaultMainFile } from '@liting-yes/vue-repl'
-import { computed, provide, ref } from 'vue'
+import { computed, onMounted, provide, ref } from 'vue'
 import { useClipboard, useDebounceFn, useElementHover } from '@vueuse/core'
 import Copy from './icons/Copy.vue'
 import Copied from './icons/Copied.vue'
@@ -78,6 +78,12 @@ else {
     [defaultMainFile]: props.code,
   })
 }
+
+onMounted(() => {
+  if (props.clearConsole)
+    // eslint-disable-next-line no-console
+    console.clear()
+})
 
 store.init()
 
