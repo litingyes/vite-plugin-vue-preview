@@ -13,13 +13,6 @@ export default defineConfig({
     rollupOptions: {
       external: [
         'vue',
-        'vue/compiler-sfc',
-        '@codemirror/autocomplete',
-        '@codemirror/commands',
-        '@codemirror/lang-vue',
-        '@codemirror/state',
-        '@codemirror/theme-one-dark',
-        '@codemirror/view',
       ],
       output: {
         exports: 'named',
