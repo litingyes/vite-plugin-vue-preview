@@ -31,7 +31,7 @@ const previewAppStyle = encodeURIComponent(JSON.stringify({
   </div>
 </template>
 
-<style lang="scss" scoped>
+<style  scoped>
 .demo-sfc {
   margin: 0 auto;
   padding-top: 100px;
