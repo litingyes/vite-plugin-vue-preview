@@ -28,6 +28,7 @@ export default defineConfig({
     rollupOptions: {
       external: [
         'vue',
+        'vue/compiler-sfc',
       ],
       output: {
         exports: 'named',
