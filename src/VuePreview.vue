@@ -3,8 +3,7 @@ import '@liting-yes/vue-repl/style.css'
 import type { Store } from '@liting-yes/vue-repl'
 import { CodeMirror, Preview, ReplStore, defaultMainFile } from '@liting-yes/vue-repl'
 import { computed, provide, ref } from 'vue'
-import { debounce } from 'lodash-es'
-import { useClipboard, useElementHover } from '@vueuse/core'
+import { useClipboard, useDebounceFn, useElementHover } from '@vueuse/core'
 import Copy from './icons/Copy.vue'
 import Copied from './icons/Copied.vue'
 import UnfoldLess from './icons/UnfoldLess.vue'
@@ -82,7 +81,7 @@ else {
 
 store.init()
 
-const onChange = debounce((code: string) => {
+const onChange = useDebounceFn((code: string) => {
   store.state.activeFile.code = code
 }, 250)
 
