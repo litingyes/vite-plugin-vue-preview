@@ -3,6 +3,7 @@ import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import dts from 'vite-plugin-dts'
 import banner from 'vite-plugin-banner'
+import { visualizer } from 'rollup-plugin-visualizer'
 
 // @ts-expect-error fs-extra packag.json config
 import { readJSONSync } from 'fs-extra/esm'
@@ -17,7 +18,8 @@ export default defineConfig({
     }),
     banner({
       content: `/**\n * name: ${pkg.name}\n * version: v${pkg.version}\n * description: ${pkg.description}\n * author: ${pkg.author}\n * homepage: ${pkg.homepage}\n */`,
-    })],
+    }),
+    visualizer()],
   build: {
     lib: {
       entry: [resolve(__dirname, 'src/index.ts')],
