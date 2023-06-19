@@ -5,6 +5,7 @@
     "mattpocock.ts-error-translator",
     "stringham.move-ts",
     "vue.volar",
-    "vue.vscode-typescript-vue-plugin"
+    "vue.vscode-typescript-vue-plugin",
+    "ms-playwright.playwright"
   ]
 }
