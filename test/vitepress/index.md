@@ -64,7 +64,9 @@ interface Props {
 /* VuePreview color */
 --vue-preview-color-icon
 /* VuePreview hover:color */
---vue-preview-color-icon-bg-hover 
+--vue-preview-color-icon-bg-hover
+/* VuePreview background-color of loading model */
+--vue-preview-color-model-bg
 ```
 
 ## Usage
