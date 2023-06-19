@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import '@liting-yes/vue-repl/style.css'
-import type { Store } from '@liting-yes/vue-repl'
+import type { PreviewUpdateFlag, Store } from '@liting-yes/vue-repl'
 import { CodeMirror, Preview, ReplStore, defaultMainFile } from '@liting-yes/vue-repl'
 import { computed, onMounted, provide, ref } from 'vue'
 import { useClipboard, useDebounceFn, useElementHover } from '@vueuse/core'
@@ -8,6 +8,7 @@ import Copy from './icons/Copy.vue'
 import Copied from './icons/Copied.vue'
 import UnfoldLess from './icons/UnfoldLess.vue'
 import UnfoldMore from './icons/UnfoldMore.vue'
+import Loading from './icons/Loading.vue'
 
 export interface Props {
   store?: Store
@@ -85,6 +86,11 @@ onMounted(() => {
     console.clear()
 })
 
+const previewUpdateFlag = ref<PreviewUpdateFlag>('UPDATING')
+function onPreivewUpdatePreview(flag: PreviewUpdateFlag) {
+  previewUpdateFlag.value = flag
+}
+
 store.init()
 
 const onChange = useDebounceFn((code: string) => {
@@ -111,8 +117,8 @@ const isHover = useElementHover(vuePreviewContainerRef)
 <template>
   <div class="vue-preview">
     <div ref="vuePreviewContainerRef" class="vue-preview__container">
-      <Preview show :ssr="props.ssr" :body-style="previewBodyStyle" :app-style="previewAppStyle" />
-      <Transition v-show="isHover" name="vue-preview-slide-down">
+      <Preview show :ssr="props.ssr" :body-style="previewBodyStyle" :app-style="previewAppStyle" @update-preview="onPreivewUpdatePreview" />
+      <Transition v-show="previewUpdateFlag !== 'UPDATING' && isHover" name="vue-preview-slide-down">
         <div class="vue-preview__btns">
           <button v-show="!copied" title="copy code" @click="copy(store.state.activeFile.code)">
             <Copy />
@@ -128,6 +134,11 @@ const isHover = useElementHover(vuePreviewContainerRef)
           </button>
         </div>
       </Transition>
+      <Transition v-if="previewUpdateFlag === 'UPDATING'" name="fade">
+        <div class="vue-preview__loading-model">
+          <Loading />
+        </div>
+      </Transition>
     </div>
     <CodeMirror :value="store.state.activeFile.code" @change="onChange" />
   </div>
@@ -140,56 +151,86 @@ const isHover = useElementHover(vuePreviewContainerRef)
   --vue-preview-box-shadow: 2px 4px 8px 4px hsla(0, 0%, 0%, 0.1);
   --vue-preview-color-icon: hsl(220, 13%, 18%);
   --vue-preview-color-icon-bg-hover: hsl(220, 95%, 95%);
+  --vue-preview-color-model-bg: hsla(0, 0%, 80%, 0.1);
 }
 </style>
 
-<style scoped>
+<style lang="scss" scoped>
 .vue-preview {
   width: 100%;
   border-radius: var(--vue-preview-radius);
   overflow: hidden;
   box-shadow: var(--vue-preview-box-shadow);
-}
 
-.vue-preview__container {
-  position: relative;
-}
+  &__container {
+    position: relative;
+    min-height: 128px;
+  }
 
-:deep(.iframe-container) {
-  box-sizing: border-box;
-  overflow: hidden;
-  height: auto;
-  border: 1px solid var(--vue-preview-color-border);
-  border-radius: var(--vue-preview-radius) var(--vue-preview-radius) 0 0;
-}
+  :deep(.iframe-container) {
+    box-sizing: border-box;
+    overflow: hidden;
+    height: auto;
+    border: 1px solid var(--vue-preview-color-border);
+    border-radius: var(--vue-preview-radius) var(--vue-preview-radius) 0 0;
+  }
 
-.vue-preview__btns {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  box-sizing: border-box;
-  display: flex;
-  justify-content: flex-end;
-  gap: 4px;
-  padding: 4px;
-  color: var(--vue-preview-color-icon);
-}
+  &__btns {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: flex-end;
+    gap: 4px;
+    padding: 4px;
+    color: var(--vue-preview-color-icon);
 
-.vue-preview__btns button {
-  cursor: pointer;
-  border: none;
-  padding: 2px;
-  width: 20px;
-  height: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 4px;
-  background-color: transparent;
-}
+    button {
+      cursor: pointer;
+      border: none;
+      padding: 2px;
+      width: 20px;
+      height: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 4px;
+      background-color: transparent;
 
-.vue-preview__btns button:hover {
-  background-color: var(--vue-preview-color-icon-bg-hover);
+      &:hover {
+        background-color: var(--vue-preview-color-icon-bg-hover);
+      }
+    }
+  }
+
+  .fade-enter-active,
+  .fade-leave-active {
+    transition: opacity 0.6s ease;
+  }
+
+  .fade-enter-from,
+  .fade-leave-to {
+    opacity: 0;
+  }
+
+  &__loading-model {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--vue-preview-color-model-bg);
+  }
+
+  :deep(.editor) {
+    box-sizing: border-box;
+    overflow: hidden;
+    height: auto;
+    border-radius: 0 0 var(--vue-preview-radius) var(--vue-preview-radius);
+    max-height: v-bind('maxHeightForCode');
+    transition: max-height 0.3s;
+  }
 }
 
 .vue-preview-slide-down-enter-active,
@@ -201,14 +242,5 @@ const isHover = useElementHover(vuePreviewContainerRef)
 .vue-preview-slide-down-leave-to {
   transform: translateY(48px);
   opacity: 0;
-}
-
-:deep(.editor) {
-  box-sizing: border-box;
-  overflow: hidden;
-  height: auto;
-  border-radius: 0 0 var(--vue-preview-radius) var(--vue-preview-radius);
-  max-height: v-bind('maxHeightForCode');
-  transition: max-height 0.3s;
 }
 </style>

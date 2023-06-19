@@ -26,8 +26,10 @@ const previewAppStyle = encodeURIComponent(JSON.stringify({
 
 <template>
   <div class="demo-sfc">
-    <VuePreview collapse :code="encodeCode" encode :preview-body-style="previewBodyStyle"
-      :preview-app-style="previewAppStyle" />
+    <VuePreview
+      collapse :code="encodeCode" encode :preview-body-style="previewBodyStyle"
+      :preview-app-style="previewAppStyle"
+    />
   </div>
 </template>
 
