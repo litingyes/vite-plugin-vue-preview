@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.1.0](https://github.com/liting-yes/vite-plugin-vue-preview/compare/1.0.2...1.1.0) (2023-06-20)
+
+
+### Features
+
+* add loading status ([d4cb501](https://github.com/liting-yes/vite-plugin-vue-preview/commit/d4cb501998a60c518737b4bcf55cc8d71037143a))
+
+
+### Bug Fixes
+
+* **test:** install required deps ([8482c98](https://github.com/liting-yes/vite-plugin-vue-preview/commit/8482c986d9c2d4a1943efda021432210c77c65b0))
+
 ## [1.0.2](https://github.com/liting-yes/vite-plugin-vue-preview/compare/1.0.1...1.0.2) (2023-06-18)
 
 ## [1.0.1](https://github.com/liting-yes/vite-plugin-vue-preview/compare/1.0.0...1.0.1) (2023-06-18)
