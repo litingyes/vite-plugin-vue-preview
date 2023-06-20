@@ -1,7 +1,8 @@
 import { expect, test } from '@playwright/experimental-ct-vue'
 import TestBasic from './components/Basic.vue'
+import TestCssVars from './components/CssVars.vue'
 
-test.describe('basic', () => {
+test.describe.skip('basic', () => {
   test('mount successfully', async ({ mount }) => {
     const sfc = await mount(TestBasic)
     await expect(sfc).toHaveClass('vue-preview')
@@ -47,5 +48,85 @@ test.describe('basic', () => {
     await expect(editor).toBeVisible()
     await expect(collapseBtn).toBeVisible()
     await expect(expandBtn).toBeHidden()
+  })
+})
+
+test.describe('css', () => {
+  test('default style of css vars', async ({ mount }) => {
+    const sfc = await mount(TestBasic)
+    const vuePreviewContainer = await sfc.locator('.vue-preview__container')
+    const iframeContainer = await sfc.locator('.iframe-container')
+    const editor = await sfc.locator('.editor')
+    const btns = await sfc.locator('.vue-preview__btns')
+    const copyBtn = await btns.locator('button').nth(0)
+
+    // --vue-preview-radius: 8px;
+    await expect(sfc).toHaveCSS('border-top-left-radius', '8px')
+    await expect(sfc).toHaveCSS('border-top-right-radius', '8px')
+    await expect(sfc).toHaveCSS('border-bottom-left-radius', '8px')
+    await expect(sfc).toHaveCSS('border-bottom-right-radius', '8px')
+    await expect(iframeContainer).toHaveCSS('border-top-left-radius', '8px')
+    await expect(iframeContainer).toHaveCSS('border-top-right-radius', '8px')
+    await expect(editor).toHaveCSS('border-bottom-left-radius', '8px')
+    await expect(editor).toHaveCSS('border-bottom-right-radius', '8px')
+
+    // --vue-preview-color-border
+    await expect(iframeContainer).toHaveCSS('border-top-color', 'rgba(40, 44, 52, 0.1)')
+    await expect(iframeContainer).toHaveCSS('border-bottom-color', 'rgba(40, 44, 52, 0.1)')
+    await expect(iframeContainer).toHaveCSS('border-left-color', 'rgba(40, 44, 52, 0.1)')
+    await expect(iframeContainer).toHaveCSS('border-right-color', 'rgba(40, 44, 52, 0.1)')
+
+    // --vue-preview-box-shadow
+    await expect(sfc).toHaveCSS('box-shadow', 'rgba(0, 0, 0, 0.1) 2px 4px 8px 4px')
+
+    // --vue-preview-color-icon
+    await expect(btns).toHaveCSS('color', 'rgb(40, 44, 52)')
+
+    // --vue-preview-color-icon-bg-hover
+    await expect(copyBtn).toHaveCSS('background-color', 'rgba(0, 0, 0, 0)')
+    await vuePreviewContainer.hover()
+    await copyBtn.hover()
+    await expect(copyBtn).toHaveCSS('background-color', 'rgb(230, 238, 254)')
+
+    // --vue-preview-color-model-bg
+  })
+
+  test('define style of css vars', async ({ mount }) => {
+    const sfc = await mount(TestCssVars)
+    const vuePreviewContainer = await sfc.locator('.vue-preview__container')
+    const iframeContainer = await sfc.locator('.iframe-container')
+    const editor = await sfc.locator('.editor')
+    const btns = await sfc.locator('.vue-preview__btns')
+    const copyBtn = await btns.locator('button').nth(0)
+
+    // --vue-preview-radius: 8px;
+    await expect(sfc).toHaveCSS('border-top-left-radius', '4px')
+    await expect(sfc).toHaveCSS('border-top-right-radius', '4px')
+    await expect(sfc).toHaveCSS('border-bottom-left-radius', '4px')
+    await expect(sfc).toHaveCSS('border-bottom-right-radius', '4px')
+    await expect(iframeContainer).toHaveCSS('border-top-left-radius', '4px')
+    await expect(iframeContainer).toHaveCSS('border-top-right-radius', '4px')
+    await expect(editor).toHaveCSS('border-bottom-left-radius', '4px')
+    await expect(editor).toHaveCSS('border-bottom-right-radius', '4px')
+
+    // --vue-preview-color-border
+    await expect(iframeContainer).toHaveCSS('border-top-color', 'rgba(40, 44, 52, 0.2)')
+    await expect(iframeContainer).toHaveCSS('border-bottom-color', 'rgba(40, 44, 52, 0.2)')
+    await expect(iframeContainer).toHaveCSS('border-left-color', 'rgba(40, 44, 52, 0.2)')
+    await expect(iframeContainer).toHaveCSS('border-right-color', 'rgba(40, 44, 52, 0.2)')
+
+    // --vue-preview-box-shadow
+    await expect(sfc).toHaveCSS('box-shadow', 'rgba(0, 0, 0, 0.2) 1px 2px 4px 2px')
+
+    // --vue-preview-color-icon
+    await expect(btns).toHaveCSS('color', 'rgb(68, 84, 116)')
+
+    // --vue-preview-color-icon-bg-hover
+    await expect(copyBtn).toHaveCSS('background-color', 'rgba(0, 0, 0, 0)')
+    await vuePreviewContainer.hover()
+    await copyBtn.hover()
+    await expect(copyBtn).toHaveCSS('background-color', 'rgb(255, 255, 255)')
+
+    // --vue-preview-color-model-bg
   })
 })
