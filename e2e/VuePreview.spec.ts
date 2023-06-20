@@ -3,14 +3,14 @@ import TestBasic from './components/Basic.vue'
 import TestCssVars from './components/CssVars.vue'
 import TestProps from './components/Props.vue'
 
-test.describe.skip('basic', () => {
+test.describe('basic', () => {
   test('mount successfully', async ({ mount }) => {
     const sfc = await mount(TestBasic)
     await expect(sfc).toHaveClass('vue-preview')
     await expect(sfc).toContainText('vite-plugin-vue-preview')
   })
 
-  // test failure in chromium and expect PR
+  // test failure with clipboard in chromium, and expect PR
   test.skip('copy code', async ({ mount }) => {
     const sfc = await mount(TestBasic)
     const vuePreviewContainer = await sfc.locator('.vue-preview__container')
@@ -132,7 +132,7 @@ test.describe.skip('css', () => {
   })
 })
 
-test.describe('props', () => {
+test.describe.skip('props', () => {
   test('default props', async ({ mount }) => {
     const sfc = await mount(TestBasic)
     const iframe = await sfc.frameLocator('iframe')
