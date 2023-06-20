@@ -33,8 +33,6 @@ export interface Props {
 const props = withDefaults(defineProps<Props>(), {
   store: () => new ReplStore(),
   autoResize: true,
-  showCompileOutput: true,
-  showImportMap: true,
   clearConsole: true,
   ssr: false,
   encode: false,
