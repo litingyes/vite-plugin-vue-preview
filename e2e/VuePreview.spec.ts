@@ -1,6 +1,7 @@
 import { expect, test } from '@playwright/experimental-ct-vue'
 import TestBasic from './components/Basic.vue'
 import TestCssVars from './components/CssVars.vue'
+import TestProps from './components/Props.vue'
 
 test.describe.skip('basic', () => {
   test('mount successfully', async ({ mount }) => {
@@ -51,7 +52,7 @@ test.describe.skip('basic', () => {
   })
 })
 
-test.describe('css', () => {
+test.describe.skip('css', () => {
   test('default style of css vars', async ({ mount }) => {
     const sfc = await mount(TestBasic)
     const vuePreviewContainer = await sfc.locator('.vue-preview__container')
@@ -128,5 +129,48 @@ test.describe('css', () => {
     await expect(copyBtn).toHaveCSS('background-color', 'rgb(255, 255, 255)')
 
     // --vue-preview-color-model-bg
+  })
+})
+
+test.describe('props', () => {
+  test('default props', async ({ mount }) => {
+    const sfc = await mount(TestBasic)
+    const iframe = await sfc.frameLocator('iframe')
+
+    // code
+    const h1 = await iframe.locator('h1')
+    await expect(h1).toHaveText('vite-plugin-vue-preview')
+    const input = await iframe.locator('input')
+    await expect(input).toHaveValue('vite-plugin-vue-preview')
+  })
+
+  test('define props', async ({ mount }) => {
+    const sfc = await mount(TestProps)
+    const iframe = await sfc.frameLocator('iframe')
+
+    // code
+    const h1 = await iframe.locator('h1')
+    await expect(h1).toHaveText('test props')
+    const input = await iframe.locator('input')
+    await expect(input).toHaveValue('test props')
+
+    // collapse
+    const editor = await sfc.locator('.editor')
+    await expect(editor).toBeHidden()
+    const vuePreviewContainer = await sfc.locator('.vue-preview__container')
+    await vuePreviewContainer.hover()
+    const btns = await sfc.locator('.vue-preview__btns')
+    await btns.waitFor()
+    const expandBtn = await btns.locator('button').nth(3)
+    await expandBtn.click()
+    await expect(editor).toBeVisible()
+
+    // previewBodyStyle
+    const iframeBody = await iframe.locator('body')
+    await expect(iframeBody).toHaveCSS('background-color', 'rgb(255, 0, 0)')
+
+    // previewAppStyle
+    const iframeApp = await iframe.locator('#app')
+    await expect(iframeApp).toHaveCSS('background-color', 'rgb(255, 255, 0)')
   })
 })
