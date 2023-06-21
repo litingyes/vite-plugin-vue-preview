@@ -1,9 +1,5 @@
 lockfileVersion: '6.0'
 
-settings:
-  autoInstallPeers: true
-  excludeLinksFromLockfile: false
-
 devDependencies:
   '@antfu/eslint-config':
     specifier: ^0.39.5
@@ -1336,8 +1332,8 @@ packages:
       graceful-fs: 4.2.10
     dev: true
 
-  /@pnpm/npm-conf@2.2.0:
-    resolution: {integrity: sha512-roLI1ul/GwzwcfcVpZYPdrgW2W/drLriObl1h+yLF5syc8/5ULWw2ALbCHUWF+4YltIqA3xFSbG4IwyJz37e9g==}
+  /@pnpm/npm-conf@2.2.2:
+    resolution: {integrity: sha512-UA91GwWPhFExt3IizW6bOeY/pQ0BkuNwKjk9iQW9KqxluGCrg4VenZ0/L+2Y0+ZOtme72EVvg6v0zo3AMQRCeA==}
     engines: {node: '>=12'}
     dependencies:
       '@pnpm/config.env-replace': 1.1.0
@@ -6041,7 +6037,7 @@ packages:
     resolution: {integrity: sha512-o/3ikDxtXaA59BmZuZrJZDJv8NMDGSj+6j6XaeBmHw8eY1i1qd9+6H+LjVvQXx3HN6aRCGa1cUdJ9RaJZUugnQ==}
     engines: {node: '>=14'}
     dependencies:
-      '@pnpm/npm-conf': 2.2.0
+      '@pnpm/npm-conf': 2.2.2
     dev: true
 
   /registry-url@6.0.1:
@@ -7399,3 +7395,7 @@ packages:
     optionalDependencies:
       commander: 9.5.0
     dev: true
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
