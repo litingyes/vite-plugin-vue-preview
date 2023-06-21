@@ -1,9 +1,5 @@
 lockfileVersion: '6.0'
 
-settings:
-  autoInstallPeers: true
-  excludeLinksFromLockfile: false
-
 devDependencies:
   '@antfu/eslint-config':
     specifier: ^0.39.5
@@ -22,7 +18,7 @@ devDependencies:
     version: 0.6.1(vue@3.2.47)
   '@playwright/experimental-ct-vue':
     specifier: ^1.35.1
-    version: 1.35.1(@types/node@20.1.7)(sass@1.63.4)(vite@4.1.2)(vue@3.2.47)
+    version: 1.35.1(@types/node@20.1.7)(sass@1.63.5)(vite@4.1.2)(vue@3.2.47)
   '@release-it/conventional-changelog':
     specifier: ^5.1.1
     version: 5.1.1(release-it@15.6.0)
@@ -76,7 +72,7 @@ devDependencies:
     version: 5.9.2
   sass:
     specifier: ^1.63.4
-    version: 1.63.4
+    version: 1.63.5
   simple-git-hooks:
     specifier: ^2.8.1
     version: 2.8.1
@@ -85,7 +81,7 @@ devDependencies:
     version: 5.0.4
   vite:
     specifier: ^4.1.2
-    version: 4.1.2(@types/node@20.1.7)(sass@1.63.4)
+    version: 4.1.2(@types/node@20.1.7)(sass@1.63.5)
   vite-plugin-banner:
     specifier: ^0.7.0
     version: 0.7.0
@@ -94,7 +90,7 @@ devDependencies:
     version: 2.3.0(@types/node@20.1.7)(vite@4.1.2)
   vitepress:
     specifier: 1.0.0-beta.1
-    version: 1.0.0-beta.1(@algolia/client-search@4.17.2)(@types/node@20.1.7)(react@18.2.0)(sass@1.63.4)(search-insights@2.6.0)
+    version: 1.0.0-beta.1(@algolia/client-search@4.17.2)(@types/node@20.1.7)(react@18.2.0)(sass@1.63.5)(search-insights@2.6.0)
   vue:
     specifier: ^3.2.47
     version: 3.2.47
@@ -1279,13 +1275,13 @@ packages:
       '@octokit/openapi-types': 17.2.0
     dev: true
 
-  /@playwright/experimental-ct-core@1.35.1(@types/node@20.1.7)(sass@1.63.4):
+  /@playwright/experimental-ct-core@1.35.1(@types/node@20.1.7)(sass@1.63.5):
     resolution: {integrity: sha512-NSoUf6JDLeZFy0HiENwA1GkIwZHvg5KrygnZknwWs7O8yksYLsmiuMb09sf2zsZmfYgVen401SNgf3KfekbweA==}
     engines: {node: '>=16'}
     hasBin: true
     dependencies:
       '@playwright/test': 1.35.1
-      vite: 4.3.9(@types/node@20.1.7)(sass@1.63.4)
+      vite: 4.3.9(@types/node@20.1.7)(sass@1.63.5)
     transitivePeerDependencies:
       - '@types/node'
       - less
@@ -1295,12 +1291,12 @@ packages:
       - terser
     dev: true
 
-  /@playwright/experimental-ct-vue@1.35.1(@types/node@20.1.7)(sass@1.63.4)(vite@4.1.2)(vue@3.2.47):
+  /@playwright/experimental-ct-vue@1.35.1(@types/node@20.1.7)(sass@1.63.5)(vite@4.1.2)(vue@3.2.47):
     resolution: {integrity: sha512-rGD9z+uMcLrWCUnDlFJI5HkNuB/ceF6l7H8JQ8FCq9qllMsAdITcsdIkj4kuMOtpkcDPUfRnrcDcoeqq7dbLUw==}
     engines: {node: '>=16'}
     hasBin: true
     dependencies:
-      '@playwright/experimental-ct-core': 1.35.1(@types/node@20.1.7)(sass@1.63.4)
+      '@playwright/experimental-ct-core': 1.35.1(@types/node@20.1.7)(sass@1.63.5)
       '@vitejs/plugin-vue': 4.2.3(vite@4.1.2)(vue@3.2.47)
     transitivePeerDependencies:
       - '@types/node'
@@ -1653,7 +1649,7 @@ packages:
       vite: ^4.0.0
       vue: ^3.2.25
     dependencies:
-      vite: 4.1.2(@types/node@20.1.7)(sass@1.63.4)
+      vite: 4.1.2(@types/node@20.1.7)(sass@1.63.5)
       vue: 3.2.47
     dev: true
 
@@ -1664,7 +1660,7 @@ packages:
       vite: ^4.0.0
       vue: ^3.2.25
     dependencies:
-      vite: 4.1.2(@types/node@20.1.7)(sass@1.63.4)
+      vite: 4.1.2(@types/node@20.1.7)(sass@1.63.5)
       vue: 3.2.47
     dev: true
 
@@ -1675,7 +1671,7 @@ packages:
       vite: ^4.0.0
       vue: ^3.2.25
     dependencies:
-      vite: 4.3.9(@types/node@20.1.7)(sass@1.63.4)
+      vite: 4.3.9(@types/node@20.1.7)(sass@1.63.5)
       vue: 3.3.4
     dev: true
 
@@ -6267,8 +6263,8 @@ packages:
     resolution: {integrity: sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==}
     dev: true
 
-  /sass@1.63.4:
-    resolution: {integrity: sha512-Sx/+weUmK+oiIlI+9sdD0wZHsqpbgQg8wSwSnGBjwb5GwqFhYNwwnI+UWZtLjKvKyFlKkatRK235qQ3mokyPoQ==}
+  /sass@1.63.5:
+    resolution: {integrity: sha512-Q6c5gs482oezdAp+0fWF9cRisvpy7yfYb64knID0OE8AnMgtkluRPfpGMFjeD4/+M4+6QpJZCU6JRSxbjiktkg==}
     engines: {node: '>=14.0.0'}
     hasBin: true
     dependencies:
@@ -6966,14 +6962,14 @@ packages:
       kolorist: 1.8.0
       magic-string: 0.29.0
       ts-morph: 18.0.0
-      vite: 4.1.2(@types/node@20.1.7)(sass@1.63.4)
+      vite: 4.1.2(@types/node@20.1.7)(sass@1.63.5)
     transitivePeerDependencies:
       - '@types/node'
       - rollup
       - supports-color
     dev: true
 
-  /vite@4.1.2(@types/node@20.1.7)(sass@1.63.4):
+  /vite@4.1.2(@types/node@20.1.7)(sass@1.63.5):
     resolution: {integrity: sha512-MWDb9Rfy3DI8omDQySbMK93nQqStwbsQWejXRY2EBzEWKmLAXWb1mkI9Yw2IJrc+oCvPCI1Os5xSSIBYY6DEAw==}
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
@@ -7003,12 +6999,12 @@ packages:
       postcss: 8.4.24
       resolve: 1.22.2
       rollup: 3.24.0
-      sass: 1.63.4
+      sass: 1.63.5
     optionalDependencies:
       fsevents: 2.3.2
     dev: true
 
-  /vite@4.3.9(@types/node@20.1.7)(sass@1.63.4):
+  /vite@4.3.9(@types/node@20.1.7)(sass@1.63.5):
     resolution: {integrity: sha512-qsTNZjO9NoJNW7KnOrgYwczm0WctJ8m/yqYAMAK9Lxt4SoySUfS5S8ia9K7JHpa3KEeMfyF8LoJ3c5NeBJy6pg==}
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
@@ -7037,12 +7033,12 @@ packages:
       esbuild: 0.17.19
       postcss: 8.4.24
       rollup: 3.24.0
-      sass: 1.63.4
+      sass: 1.63.5
     optionalDependencies:
       fsevents: 2.3.2
     dev: true
 
-  /vitepress@1.0.0-beta.1(@algolia/client-search@4.17.2)(@types/node@20.1.7)(react@18.2.0)(sass@1.63.4)(search-insights@2.6.0):
+  /vitepress@1.0.0-beta.1(@algolia/client-search@4.17.2)(@types/node@20.1.7)(react@18.2.0)(sass@1.63.5)(search-insights@2.6.0):
     resolution: {integrity: sha512-V2yyCwQ+v9fh7rbnGDLp8M7vHa9sLElexXf/JHtBOsOwv7ed9wt1QI4WUagYgKR3TeoJT9v2s6f0UaQSne0EvQ==}
     hasBin: true
     dependencies:
@@ -7057,7 +7053,7 @@ packages:
       mark.js: 8.11.1
       minisearch: 6.1.0
       shiki: 0.14.2
-      vite: 4.3.9(@types/node@20.1.7)(sass@1.63.4)
+      vite: 4.3.9(@types/node@20.1.7)(sass@1.63.5)
       vue: 3.3.4
     transitivePeerDependencies:
       - '@algolia/client-search'
@@ -7399,3 +7395,7 @@ packages:
     optionalDependencies:
       commander: 9.5.0
     dev: true
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
