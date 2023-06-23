@@ -89,8 +89,8 @@ devDependencies:
     specifier: 2.3.0
     version: 2.3.0(@types/node@20.1.7)(vite@4.1.2)
   vitepress:
-    specifier: 1.0.0-beta.1
-    version: 1.0.0-beta.1(@algolia/client-search@4.17.2)(@types/node@20.1.7)(react@18.2.0)(sass@1.63.6)(search-insights@2.6.0)
+    specifier: 1.0.0-beta.3
+    version: 1.0.0-beta.3(@algolia/client-search@4.17.2)(@types/node@20.1.7)(react@18.2.0)(sass@1.63.6)(search-insights@2.6.0)
   vue:
     specifier: ^3.2.47
     version: 3.2.47
@@ -241,7 +241,7 @@ packages:
       eslint-plugin-eslint-comments: 3.2.0(eslint@8.32.0)
       eslint-plugin-html: 7.1.0
       eslint-plugin-import: 2.27.5(@typescript-eslint/parser@5.59.9)(eslint@8.32.0)
-      eslint-plugin-jsonc: 2.8.0(eslint@8.32.0)
+      eslint-plugin-jsonc: 2.9.0(eslint@8.32.0)
       eslint-plugin-markdown: 3.0.0(eslint@8.32.0)
       eslint-plugin-n: 16.0.0(eslint@8.32.0)
       eslint-plugin-no-only-tests: 3.1.0
@@ -311,7 +311,7 @@ packages:
       eslint-plugin-eslint-comments: 3.2.0(eslint@8.32.0)
       eslint-plugin-html: 7.1.0
       eslint-plugin-import: 2.27.5(@typescript-eslint/parser@5.59.9)(eslint@8.32.0)
-      eslint-plugin-jsonc: 2.8.0(eslint@8.32.0)
+      eslint-plugin-jsonc: 2.9.0(eslint@8.32.0)
       eslint-plugin-n: 16.0.0(eslint@8.32.0)
       eslint-plugin-promise: 6.1.1(eslint@8.32.0)
       eslint-plugin-unicorn: 47.0.0(eslint@8.32.0)
@@ -1846,18 +1846,6 @@ packages:
       - vue
     dev: true
 
-  /@vueuse/core@10.1.2(vue@3.3.4):
-    resolution: {integrity: sha512-roNn8WuerI56A5uiTyF/TEYX0Y+VKlhZAF94unUfdhbDUI+NfwQMn4FUnUscIRUhv3344qvAghopU4bzLPNFlA==}
-    dependencies:
-      '@types/web-bluetooth': 0.0.17
-      '@vueuse/metadata': 10.1.2
-      '@vueuse/shared': 10.1.2(vue@3.3.4)
-      vue-demi: 0.14.5(vue@3.3.4)
-    transitivePeerDependencies:
-      - '@vue/composition-api'
-      - vue
-    dev: true
-
   /@vueuse/core@10.2.0(vue@3.3.4):
     resolution: {integrity: sha512-aHBnoCteIS3hFu7ZZkVB93SanVDY6t4TIb7XDLxJT/HQdAZz+2RdIEJ8rj5LUoEJr7Damb5+sJmtpCwGez5ozQ==}
     dependencies:
@@ -1932,15 +1920,6 @@ packages:
     resolution: {integrity: sha512-1uoUTPBlgyscK9v6ScGeVYDDzlPSFXBlxuK7SfrDGyUTBiznb3mNceqhwvZHjtDRELZEN79V5uWPTF1VDV8svA==}
     dependencies:
       vue-demi: 0.14.5(vue@3.2.47)
-    transitivePeerDependencies:
-      - '@vue/composition-api'
-      - vue
-    dev: true
-
-  /@vueuse/shared@10.1.2(vue@3.3.4):
-    resolution: {integrity: sha512-1uoUTPBlgyscK9v6ScGeVYDDzlPSFXBlxuK7SfrDGyUTBiznb3mNceqhwvZHjtDRELZEN79V5uWPTF1VDV8svA==}
-    dependencies:
-      vue-demi: 0.14.5(vue@3.3.4)
     transitivePeerDependencies:
       - '@vue/composition-api'
       - vue
@@ -3415,8 +3394,8 @@ packages:
       - typescript
     dev: true
 
-  /eslint-plugin-jsonc@2.8.0(eslint@8.32.0):
-    resolution: {integrity: sha512-K4VsnztnNwpm+V49CcCu5laq8VjclJpuhfI9LFkOrOyK+BKdQHMzkWo43B4X4rYaVrChm4U9kw/tTU5RHh5Wtg==}
+  /eslint-plugin-jsonc@2.9.0(eslint@8.32.0):
+    resolution: {integrity: sha512-RK+LeONVukbLwT2+t7/OY54NJRccTXh/QbnXzPuTLpFMVZhPuq1C9E07+qWenGx7rrQl0kAalAWl7EmB+RjpGA==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     peerDependencies:
       eslint: '>=6.0.0'
@@ -5396,7 +5375,7 @@ packages:
     dependencies:
       hosted-git-info: 4.1.0
       is-core-module: 2.12.1
-      semver: 7.3.8
+      semver: 7.5.1
       validate-npm-package-license: 3.0.4
     dev: true
 
@@ -5651,7 +5630,7 @@ packages:
       got: 12.5.3
       registry-auth-token: 5.0.2
       registry-url: 6.0.1
-      semver: 7.3.8
+      semver: 7.5.1
     dev: true
 
   /parent-module@1.0.1:
@@ -6270,7 +6249,7 @@ packages:
     resolution: {integrity: sha512-0Ju4+6A8iOnpL/Thra7dZsSlOHYAHIeMxfhWQRI1/VLcT3WDBZKKtQt/QkBOsiIN9ZpuvHE6cGZ0x4glCMmfiA==}
     engines: {node: '>=12'}
     dependencies:
-      semver: 7.3.8
+      semver: 7.5.1
     dev: true
 
   /semver@5.7.1:
@@ -6894,7 +6873,7 @@ packages:
       is-yarn-global: 0.4.1
       latest-version: 7.0.0
       pupa: 3.1.0
-      semver: 7.3.8
+      semver: 7.5.1
       semver-diff: 4.0.0
       xdg-basedir: 5.1.0
     dev: true
@@ -7026,15 +7005,15 @@ packages:
       fsevents: 2.3.2
     dev: true
 
-  /vitepress@1.0.0-beta.1(@algolia/client-search@4.17.2)(@types/node@20.1.7)(react@18.2.0)(sass@1.63.6)(search-insights@2.6.0):
-    resolution: {integrity: sha512-V2yyCwQ+v9fh7rbnGDLp8M7vHa9sLElexXf/JHtBOsOwv7ed9wt1QI4WUagYgKR3TeoJT9v2s6f0UaQSne0EvQ==}
+  /vitepress@1.0.0-beta.3(@algolia/client-search@4.17.2)(@types/node@20.1.7)(react@18.2.0)(sass@1.63.6)(search-insights@2.6.0):
+    resolution: {integrity: sha512-GR5Pvr/o343NN1M4Na1shhDYZRrQbjmLq7WE0lla0H8iDPAsHE8agTHLWfu3FWx+3q2KA29sv16+0O9RQKGjlA==}
     hasBin: true
     dependencies:
       '@docsearch/css': 3.5.0
       '@docsearch/js': 3.5.0(@algolia/client-search@4.17.2)(react@18.2.0)(search-insights@2.6.0)
       '@vitejs/plugin-vue': 4.2.3(vite@4.3.9)(vue@3.3.4)
       '@vue/devtools-api': 6.5.0
-      '@vueuse/core': 10.1.2(vue@3.3.4)
+      '@vueuse/core': 10.2.0(vue@3.3.4)
       '@vueuse/integrations': 10.2.0(focus-trap@7.4.3)(vue@3.3.4)
       body-scroll-lock: 4.0.0-beta.0
       focus-trap: 7.4.3
