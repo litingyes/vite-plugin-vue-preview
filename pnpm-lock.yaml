@@ -12,7 +12,7 @@ devDependencies:
     version: 17.6.6
   '@commitlint/cz-commitlint':
     specifier: ^17.4.2
-    version: 17.4.2(commitizen@4.3.0)(inquirer@8.2.5)
+    version: 17.5.0(commitizen@4.3.0)(inquirer@8.2.5)
   '@liting-yes/vue-repl':
     specifier: ^0.6.1
     version: 0.6.1(vue@3.3.4)
@@ -405,8 +405,8 @@ packages:
       ajv: 8.12.0
     dev: true
 
-  /@commitlint/cz-commitlint@17.4.2(commitizen@4.3.0)(inquirer@8.2.5):
-    resolution: {integrity: sha512-KNNuY6pQq5alnyJjzXyoQ7eeymRe5KXfSn/QTh6wto1p9gEBPxkrTZE2rX4S6pCpZh8jEFEm0KEqgYDb4KGLxg==}
+  /@commitlint/cz-commitlint@17.5.0(commitizen@4.3.0)(inquirer@8.2.5):
+    resolution: {integrity: sha512-zW68IvFPuejgbwvWG5SZFkf6g/cniiCsvcphp1WCoA9fn65nnl6kE3VvwbyNRTFpO1Pczpa4OTsaWigQ1jdk7A==}
     engines: {node: '>=v14'}
     peerDependencies:
       commitizen: ^4.0.3
