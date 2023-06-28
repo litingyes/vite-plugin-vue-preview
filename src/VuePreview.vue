@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import '@liting-yes/vue-repl/style.css'
 import type { PreviewUpdateFlag, Store } from '@liting-yes/vue-repl'
-import { CodeMirror, Preview, ReplStore, defaultMainFile } from '@liting-yes/vue-repl'
+import { CodeMirror, Preview, ReplStore, defaultMainFile, importMapFile } from '@liting-yes/vue-repl'
 import { computed, onMounted, provide, ref } from 'vue'
 import { useClipboard, useDebounceFn, useElementHover } from '@vueuse/core'
 import Copy from './icons/Copy.vue'
@@ -28,6 +28,7 @@ export interface Props {
       useCode?: string
     }
   }
+  importMap: Record<string, string>
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -76,6 +77,22 @@ else {
   store.setFiles({
     [defaultMainFile]: props.code,
   })
+}
+
+if (props.importMap) {
+  const files = store.getFiles()
+  const importMapCode = files[importMapFile]
+
+  if (importMapCode) {
+    const importMapObj: { imports: Record<string, string> } = JSON.parse(importMapCode!)
+    Object.assign(importMapObj.imports, props.importMap)
+    files[importMapFile] = JSON.stringify(importMapObj, null, 2)
+  }
+  else {
+    files[importMapFile] = JSON.stringify({ imports: props.importMap }, null, 2)
+  }
+
+  store.setFiles(files)
 }
 
 onMounted(() => {

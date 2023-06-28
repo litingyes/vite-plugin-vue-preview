@@ -68,7 +68,7 @@
     "@commitlint/cli": "^17.4.2",
     "@commitlint/config-conventional": "^17.4.2",
     "@commitlint/cz-commitlint": "^17.4.2",
-    "@liting-yes/vue-repl": "^0.6.1",
+    "@liting-yes/vue-repl": "^0.7.2",
     "@playwright/experimental-ct-vue": "^1.35.1",
     "@release-it/conventional-changelog": "^5.1.1",
     "@tsconfig/node-lts-strictest": "^18.12.1",
