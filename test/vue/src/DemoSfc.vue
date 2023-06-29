@@ -4,14 +4,14 @@ import { VuePreview } from '../../../src'
 
 const code = encodeURIComponent(`
 <script setup>
-import { ref } from 'vue'
+import { isString } from '@vue/shared'
 
-const msg = ref('test props')
+const res = isString('@vue/shared')
 <\/script>
 
 <template>
-  <h1>{{ msg }}</h1>
-  <input v-model="msg">
+  <h1>Test ImportMap</h1>
+  <div>Result: {{res}}</div>
 </template>
 `.trim(),
 )
@@ -19,7 +19,7 @@ const msg = ref('test props')
 
 <template>
   <div class="demo-sfc">
-    <VuePreview :code="code" encode :preview-body-style="{ background: 'red' }" :preview-app-style="{ background: 'yellow' }" />
+    <VuePreview :code="code" :clear-console="false" encode :import-map="{ '@vue/shared': 'https://unpkg.com/@vue/shared@latest/dist/shared.esm-bundler.js' }" />
   </div>
 </template>
 

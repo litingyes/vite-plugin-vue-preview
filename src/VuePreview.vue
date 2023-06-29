@@ -28,7 +28,7 @@ export interface Props {
       useCode?: string
     }
   }
-  importMap: Record<string, string>
+  importMap?: Record<string, string> | string
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -63,37 +63,21 @@ const msg = ref('vite-plugin-vue-preview')
 </template>
 `.trim()
 
-if (!props.code) {
-  store.setFiles({
-    [defaultMainFile]: welcomeCode,
-  })
-}
-else if (props.encode) {
-  store.setFiles({
-    [defaultMainFile]: decodeURIComponent(props.code),
-  })
-}
-else {
-  store.setFiles({
-    [defaultMainFile]: props.code,
-  })
-}
+const files: Record<string, string> = {}
+
+if (!props.code)
+  files[defaultMainFile] = welcomeCode
+else if (props.encode)
+  files[defaultMainFile] = decodeURIComponent(props.code)
+else
+  files[defaultMainFile] = props.code
 
 if (props.importMap) {
-  const files = store.getFiles()
-  const importMapCode = files[importMapFile]
-
-  if (importMapCode) {
-    const importMapObj: { imports: Record<string, string> } = JSON.parse(importMapCode!)
-    Object.assign(importMapObj.imports, props.importMap)
-    files[importMapFile] = JSON.stringify(importMapObj, null, 2)
-  }
-  else {
-    files[importMapFile] = JSON.stringify({ imports: props.importMap }, null, 2)
-  }
-
-  store.setFiles(files)
+  const importMap = typeof props.importMap === 'string' ? JSON.parse(decodeURIComponent(props.importMap)) : props.importMap
+  files[importMapFile] = JSON.stringify({ imports: importMap }, null, 2)
 }
+
+store.setFiles(files)
 
 onMounted(() => {
   if (props.clearConsole)
