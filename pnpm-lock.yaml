@@ -49,7 +49,7 @@ devDependencies:
     version: 4.3.0
   consola:
     specifier: ^3.1.0
-    version: 3.1.0
+    version: 3.2.2
   eslint:
     specifier: ^8.32.0
     version: 8.43.0
@@ -2355,8 +2355,9 @@ packages:
       xdg-basedir: 5.1.0
     dev: true
 
-  /consola@3.1.0:
-    resolution: {integrity: sha512-rrrJE6rP0qzl/Srg+C9x/AE5Kxfux7reVm1Wh0wCjuXvih6DqZgqDZe8auTD28fzJ9TF0mHlSDrPpWlujQRo1Q==}
+  /consola@3.2.2:
+    resolution: {integrity: sha512-r921u0vbF4lQsoIqYvSSER+yZLPQGijOHrYcWoCNVNBZmn/bRR+xT/DgerTze/nLD9TTGzdDa378TVhx7RDOYg==}
+    engines: {node: ^14.18.0 || >=16.10.0}
     dev: true
 
   /conventional-changelog-angular@5.0.13:
