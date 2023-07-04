@@ -107,7 +107,7 @@
     "commit-msg": "npx commitlint  --edit ''"
   },
   "lint-staged": {
-    "*.{js,jsx,ts,tsx,md,json}": "eslint --fix"
+    "*.{js,jsx,ts,tsx,md,json,yml}": "eslint --fix"
   },
   "commitlint": {
     "extends": [
