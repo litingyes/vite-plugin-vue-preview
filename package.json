@@ -47,7 +47,7 @@
     "lint": "eslint .",
     "format": "eslint --fix .",
     "commit": "git add . && git-cz",
-    "release": "release-it",
+    "release": "bumpp -r",
     "build": "vite build",
     "prepare": "git config core.hooksPath .git/hooks/ && npx simple-git-hooks",
     "test-vue": "vite test/vue --host",
@@ -70,13 +70,13 @@
     "@commitlint/cz-commitlint": "^17.4.2",
     "@liting-yes/vue-repl": "^0.7.2",
     "@playwright/experimental-ct-vue": "^1.35.1",
-    "@release-it/conventional-changelog": "^5.1.1",
     "@tsconfig/node-lts-strictest": "^18.12.1",
     "@types/fs-extra": "^11.0.1",
     "@types/node": "^20.1.7",
     "@vitejs/plugin-vue": "^4.0.0",
     "@vue/compiler-dom": "^3.3.4",
     "@vueuse/core": "^10.1.2",
+    "bumpp": "^9.1.1",
     "commitizen": "^4.3.0",
     "consola": "^3.1.0",
     "eslint": "^8.32.0",
@@ -112,63 +112,5 @@
     "extends": [
       "@commitlint/config-conventional"
     ]
-  },
-  "release-it": {
-    "git": {
-      "commitMessage": "chore: release v${version}",
-      "requireBranch": "1.x"
-    },
-    "github": {
-      "release": true
-    },
-    "plugins": {
-      "@release-it/conventional-changelog": {
-        "preset": {
-          "name": "conventionalcommits",
-          "types": [
-            {
-              "type": "feat",
-              "section": "Features"
-            },
-            {
-              "type": "fix",
-              "section": "Bug Fixes"
-            },
-            {
-              "type": "chore",
-              "hidden": true
-            },
-            {
-              "type": "docs",
-              "hidden": true
-            },
-            {
-              "type": "style",
-              "hidden": true
-            },
-            {
-              "type": "refactor",
-              "hidden": true
-            },
-            {
-              "type": "perf",
-              "hidden": true
-            },
-            {
-              "type": "test",
-              "hidden": true
-            }
-          ]
-        },
-        "infile": "CHANGELOG.md",
-        "header": "# Changelog",
-        "ignoreRecommendedBump": true,
-        "strictSemVer": false
-      }
-    },
-    "hooks": {
-      "after:bump": "npx vite build",
-      "after:git:release": "git push origin HEAD"
-    }
   }
 }
