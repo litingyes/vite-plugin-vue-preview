@@ -13,8 +13,13 @@
 
 <!-- #region demo -->
 ```vue preview
+<script lang="ts" setup>
+import { isSpecialBooleanAttr } from '@vue/shared'
+</script>
+
 <template>
   <h1>演示： vite-plugin-vue-preview</h1>
+  <span>readonly is special boolean attr: {{ isSpecialBooleanAttr('readonly') }}</span>
 </template>
 ```
 <!-- #endregion demo -->
@@ -49,6 +54,8 @@ interface Props {
   previewBodyStyle: Partial<CSSStyleDeclaration> | string
   // iframe 元素中根组件的样式
   previewAppStyle?: Partial<CSSStyleDeclaration> | string
+  // demo 组件可引入的第三方依赖（CDN）
+  importMap?: Record<string, string> | string
 }
 ```
 
@@ -78,7 +85,7 @@ interface Props {
 ```TS
 import { createApp } from 'vue'
 import { VuePreview } from 'vite-plugin-vue-preview'
-import 'vite-plugin-vue-preview/dist/style.css'
+import 'vite-plugin-vue-preview/style.css'
 
 const app = createApp()
 
@@ -101,7 +108,7 @@ export default defineConfig({
 // .vitepress/theme/index.ts
 import DefaultTheme from 'vitepress/theme'
 import { VuePreview } from 'vite-plugin-vue-preview'
-import 'vite-plugin-vue-preview/dist/style.css'
+import 'vite-plugin-vue-preview/style.css'
 
 export default {
   ...DefaultTheme,
@@ -138,6 +145,9 @@ export default defineConfig({
         justifyContent: 'center',
         alignItems: 'center',
         flexDirection: 'column',
+      },
+      importMap: {
+        '@vue/shared': 'https://unpkg.com/@vue/shared@latest/dist/shared.esm-bundler.js',
       },
     },
   })],

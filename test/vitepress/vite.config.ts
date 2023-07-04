@@ -15,6 +15,9 @@ export default defineConfig({
         alignItems: 'center',
         flexDirection: 'column',
       },
+      importMap: {
+        '@vue/shared': 'https://unpkg.com/@vue/shared@latest/dist/shared.esm-bundler.js',
+      },
     },
   })],
 })
