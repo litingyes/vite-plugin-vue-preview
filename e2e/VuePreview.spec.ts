@@ -52,7 +52,7 @@ test.describe('basic', () => {
   })
 })
 
-test.describe.skip('css', () => {
+test.describe('css', () => {
   test('default style of css vars', async ({ mount }) => {
     const sfc = await mount(TestBasic)
     const vuePreviewContainer = await sfc.locator('.vue-preview__container')
@@ -132,7 +132,7 @@ test.describe.skip('css', () => {
   })
 })
 
-test.describe.skip('props', () => {
+test.describe('props', () => {
   test('default props', async ({ mount }) => {
     const sfc = await mount(TestBasic)
     const iframe = await sfc.frameLocator('iframe')
@@ -150,9 +150,9 @@ test.describe.skip('props', () => {
 
     // code
     const h1 = await iframe.locator('h1')
-    await expect(h1).toHaveText('test props')
-    const input = await iframe.locator('input')
-    await expect(input).toHaveValue('test props')
+    await expect(h1).toHaveText('Test')
+    const span = await iframe.locator('span')
+    await expect(span).toHaveText('true')
 
     // collapse
     const editor = await sfc.locator('.editor')
