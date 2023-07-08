@@ -18,8 +18,8 @@ devDependencies:
     specifier: ^17.4.2
     version: 17.5.0(commitizen@4.3.0)(inquirer@8.2.5)
   '@liting-yes/vue-repl':
-    specifier: ^0.7.2
-    version: 0.7.2(vue@3.3.4)
+    specifier: ^1.5.0
+    version: 1.5.0
   '@playwright/experimental-ct-vue':
     specifier: ^1.35.1
     version: 1.35.1(@types/node@20.3.3)(sass@1.63.6)(vite@4.3.9)(vue@3.3.4)
@@ -1133,12 +1133,8 @@ packages:
       type-detect: 4.0.8
     dev: true
 
-  /@liting-yes/vue-repl@0.7.2(vue@3.3.4):
-    resolution: {integrity: sha512-+gchyLgLtX61wlzfKedZ8ob9MllIPkSWsO16NQm8301opST0F2ptMa/6QTx/Xc617U2vAXVlxFAU+cKOMg2UNA==}
-    peerDependencies:
-      vue: ^3.2.13
-    dependencies:
-      vue: 3.3.4
+  /@liting-yes/vue-repl@1.5.0:
+    resolution: {integrity: sha512-m+8efv08YQlFLpIwL88oGugK26DTqAUXdRh9zJwcLTd7EtBhbxhP3G9V7k/Xo0HFiEGrFhdnGB0yh24pscbSLw==}
     dev: true
 
   /@microsoft/api-extractor-model@7.27.3(@types/node@20.3.3):
@@ -3134,7 +3130,7 @@ packages:
     dependencies:
       debug: 3.2.7
       is-core-module: 2.12.1
-      resolve: 1.22.2
+      resolve: 1.22.3
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -5467,7 +5463,7 @@ packages:
       got: 12.6.1
       registry-auth-token: 5.0.2
       registry-url: 6.0.1
-      semver: 7.5.3
+      semver: 7.5.1
     dev: true
 
   /parent-module@1.0.1:
@@ -6061,7 +6057,7 @@ packages:
     resolution: {integrity: sha512-0Ju4+6A8iOnpL/Thra7dZsSlOHYAHIeMxfhWQRI1/VLcT3WDBZKKtQt/QkBOsiIN9ZpuvHE6cGZ0x4glCMmfiA==}
     engines: {node: '>=12'}
     dependencies:
-      semver: 7.5.3
+      semver: 7.5.1
     dev: true
 
   /semver@5.7.1:
@@ -6663,7 +6659,7 @@ packages:
       is-yarn-global: 0.4.1
       latest-version: 7.0.0
       pupa: 3.1.0
-      semver: 7.5.3
+      semver: 7.5.1
       semver-diff: 4.0.0
       xdg-basedir: 5.1.0
     dev: true
