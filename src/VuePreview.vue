@@ -2,8 +2,8 @@
 import '@liting-yes/vue-repl/style.css'
 import type { PreviewUpdateFlag, Store } from '@liting-yes/vue-repl'
 import { ExtendEditorContainer, Preview, ReplStore, defaultMainFile, importMapFile } from '@liting-yes/vue-repl'
-import { computed, onMounted, provide, ref, toRef } from 'vue'
-import { useClipboard, useElementHover } from '@vueuse/core'
+import { computed, onMounted, provide, ref } from 'vue'
+import { useClipboard, useElementHover, useMutationObserver } from '@vueuse/core'
 import Copy from './icons/Copy.vue'
 import Copied from './icons/Copied.vue'
 import UnfoldLess from './icons/UnfoldLess.vue'
@@ -49,7 +49,6 @@ const props = withDefaults(defineProps<Props>(), {
       useCode: '',
     },
   }),
-  theme: 'light',
   hideMessageToggle: true,
   hideMessage: false,
 })
@@ -85,10 +84,24 @@ if (props.importMap) {
 
 store.setFiles(files)
 
+const theme = ref<'dark' | 'light'>()
+const themeComputed = computed(() => props.theme ?? theme.value)
 onMounted(() => {
   if (props.clearConsole)
     // eslint-disable-next-line no-console
     console.clear()
+
+  const rootEl = document?.querySelector('html')
+  if (rootEl) {
+    useMutationObserver(rootEl, (mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.attributeName === 'class')
+          theme.value = rootEl.classList?.contains('dark') ? 'dark' : 'light'
+      })
+    }, {
+      attributes: true,
+    })
+  }
 })
 
 const previewUpdateFlag = ref<PreviewUpdateFlag>('UPDATING')
@@ -102,7 +115,7 @@ provide('store', store)
 provide('autoresize', props.autoResize)
 provide('clear-console', props.clearConsole)
 provide('preview-options', props.previewOptions)
-provide('theme', toRef(props, 'theme'))
+provide('theme', themeComputed)
 
 const { copy, copied } = useClipboard({ source: store.state.activeFile.code, legacy: true })
 
