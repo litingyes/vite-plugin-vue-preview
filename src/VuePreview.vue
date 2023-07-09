@@ -120,6 +120,7 @@ provide('theme', themeComputed)
 const { copy, copied } = useClipboard({ source: store.state.activeFile.code, legacy: true })
 
 const isCollapse = ref(props.collapse)
+const minHeightForCode = computed(() => isCollapse.value ? '0' : 'var(--vue-preview-editor-min-height)')
 const maxHeightForCode = computed(() => isCollapse.value ? '0' : 'var(--vue-preview-editor-max-height)')
 
 const previewBodyStyle = computed<Partial<CSSStyleDeclaration>>(() => typeof props.previewBodyStyle === 'string' ? JSON.parse(decodeURIComponent(props.previewBodyStyle)) : props.previewBodyStyle)
@@ -168,6 +169,7 @@ const isHover = useElementHover(vuePreviewContainerRef)
   --vue-preview-color-icon-bg-hover: hsl(220, 95%, 95%);
   --vue-preview-color-model-bg: hsla(0, 0%, 80%, 0.1);
   --vue-preview-editor-max-height: 50vh;
+  --vue-preview-editor-min-height: 200px;
 }
 </style>
 
@@ -253,6 +255,7 @@ const isHover = useElementHover(vuePreviewContainerRef)
     box-sizing: border-box;
     overflow-y: scroll;
     border-radius: 0 0 var(--vue-preview-radius) var(--vue-preview-radius);
+    min-height: v-bind('minHeightForCode');
     max-height: v-bind('maxHeightForCode');
     transition: max-height 0.3s;
   }
