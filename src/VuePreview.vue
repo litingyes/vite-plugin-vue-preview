@@ -170,17 +170,25 @@ const isHover = useElementHover(vuePreviewContainerRef)
   --vue-preview-color-model-bg: hsla(0, 0%, 80%, 0.1);
   --vue-preview-editor-max-height: 50vh;
   --vue-preview-editor-min-height: 200px;
-}
-</style>
 
-<style lang="scss" scoped>
-.vue-preview {
   --bg: #fff;
   --border: #ddd;
   --text-light: #888;
   --font-code: Menlo, Monaco, Consolas, 'Courier New', monospace;
   --color-branding: #42b883;
+}
 
+.dark {
+  --bg: #1a1a1a;
+  --border: #383838;
+  --text-light: #aaa;
+  --color-branding: #42d392;
+  --color-branding-dark: #89ddff;
+}
+</style>
+
+<style lang="scss" scoped>
+.vue-preview {
   width: 100%;
   border-radius: var(--vue-preview-radius);
   overflow: hidden;
@@ -259,14 +267,6 @@ const isHover = useElementHover(vuePreviewContainerRef)
     max-height: v-bind('maxHeightForCode');
     transition: max-height 0.3s;
   }
-}
-
-.dark .vue-preview {
-  --bg: #1a1a1a;
-  --border: #383838;
-  --text-light: #aaa;
-  --color-branding: #42d392;
-  --color-branding-dark: #89ddff;
 }
 
 .vue-preview-slide-down-enter-active,
