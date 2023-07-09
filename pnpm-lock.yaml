@@ -18,8 +18,8 @@ devDependencies:
     specifier: ^17.4.2
     version: 17.5.0(commitizen@4.3.0)(inquirer@8.2.5)
   '@liting-yes/vue-repl':
-    specifier: ^1.5.0
-    version: 1.5.0
+    specifier: ^1.6.0
+    version: 1.6.0
   '@playwright/experimental-ct-vue':
     specifier: ^1.35.1
     version: 1.35.1(@types/node@20.3.3)(sass@1.63.6)(vite@4.3.9)(vue@3.3.4)
@@ -1133,8 +1133,8 @@ packages:
       type-detect: 4.0.8
     dev: true
 
-  /@liting-yes/vue-repl@1.5.0:
-    resolution: {integrity: sha512-m+8efv08YQlFLpIwL88oGugK26DTqAUXdRh9zJwcLTd7EtBhbxhP3G9V7k/Xo0HFiEGrFhdnGB0yh24pscbSLw==}
+  /@liting-yes/vue-repl@1.6.0:
+    resolution: {integrity: sha512-qJGLsn7rBaIX/1y08enTgFxgpFYkfFqeFk4Si3mtRMArFkJEdhcx0v4Wn6ZaLhTLHiOLUcmsSh3nG9FoZpUk5A==}
     dev: true
 
   /@microsoft/api-extractor-model@7.27.3(@types/node@20.3.3):

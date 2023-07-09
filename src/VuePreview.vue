@@ -30,7 +30,8 @@ export interface Props {
   }
   importMap?: Record<string, string> | string
   theme?: 'dark' | 'light'
-
+  hideMessageToggle?: boolean
+  hideMessage?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -49,6 +50,8 @@ const props = withDefaults(defineProps<Props>(), {
     },
   }),
   theme: 'light',
+  hideMessageToggle: true,
+  hideMessage: false,
 })
 
 const { store } = props
@@ -139,7 +142,7 @@ const isHover = useElementHover(vuePreviewContainerRef)
         </div>
       </Transition>
     </div>
-    <ExtendEditorContainer />
+    <ExtendEditorContainer :hide-message-toggle="props.hideMessageToggle" :hide-message="props.hideMessage" />
   </div>
 </template>
 
