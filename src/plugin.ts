@@ -14,8 +14,10 @@ function getCode(code: string, options?: VuePreviewPluginOptions) {
     expandProps += ` previewAppStyle="${encodeURIComponent(JSON.stringify(options.props.previewAppStyle))}"`
   if (options?.props?.importMap)
     expandProps += ` importMap="${encodeURIComponent(JSON.stringify(options.props.importMap))}"`
+  if (options?.props?.ssr)
+    expandProps += ' ssr'
 
-  return code.trim() ? `<VuePreview code="${str}" ${expandProps} encode ssr></VuePreview>\n` : '<VuePreview ssr></VuePreview>\n'
+  return code.trim() ? `<VuePreview code="${str}" ${expandProps} encode />\n` : '<VuePreview />\n'
 }
 
 interface VuePreviewPluginOptions {
@@ -23,6 +25,7 @@ interface VuePreviewPluginOptions {
     previewBodyStyle?: Props['previewBodyStyle']
     previewAppStyle?: Props['previewAppStyle']
     importMap?: Record<string, string>
+    ssr?: boolean
   }
 }
 
