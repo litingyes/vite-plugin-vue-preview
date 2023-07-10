@@ -169,7 +169,7 @@ const isHover = useElementHover(vuePreviewContainerRef)
   --vue-preview-color-icon-bg-hover: hsl(220, 95%, 95%);
   --vue-preview-color-model-bg: hsla(0, 0%, 80%, 0.1);
   --vue-preview-editor-max-height: 50vh;
-  --vue-preview-editor-min-height: 200px;
+  --vue-preview-editor-min-height: 128px;
 
   --bg: #fff;
   --border: #ddd;
