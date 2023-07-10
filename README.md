@@ -30,6 +30,7 @@ pnpm add vite-plugin-vue-preview
 - Support for Vue/Vitepress applications
 - Support code preview
 - Support online editing
+- Integrating VSCode tips
 
 ## Props
 
@@ -51,24 +52,41 @@ interface Props {
   previewAppStyle?: Partial<CSSStyleDeclaration> | string
   // Third-party dependencies (CDN) that can be introduced by the demo component
   importMap?: Record<string, string> | string
+  // Editor theme color, when not provided, automatically switch according to whether the html element has class name 'dark' or not.
+  theme?: 'dark' | 'light'
+  // Whether to hide the switch that controls whether compilation error messages are displayed or not
+  hideMessageToggle?: boolean
+  // Whether to hide compilation error messages
+  hideMessage?: boolean
 }
 ```
 
 ## CSS Styles
 
 ```CSS
-/* VuePreview border-radius */
+/* border-radius */
 --vue-preview-radius
-/* VuePreview border-color */
+/* border-color */
 --vue-preview-color-border
-/* VuePreview box-shadow */
+/* box-shadow */
 --vue-preview-box-shadow
-/* VuePreview color */
+/* color */
 --vue-preview-color-icon
-/* VuePreview hover:color */
+/* hover:color */
 --vue-preview-color-icon-bg-hover
-/* VuePreview background-color of loading model */
+/* background-color of loading model */
 --vue-preview-color-model-bg
+/* maximum height of the edit container */
+--vue-preview-editor-max-height
+/* minimum height of the edit container */
+--vue-preview-editor-min-height
+
+/* the following CSS variables are inherited from vuejs/repl, go to its code repository for more details */
+--bg
+--border
+--text-light
+--font-code
+--color-branding
 ```
 
 ## Usage
@@ -157,3 +175,7 @@ export default defineConfig({
   })],
 })
 ```
+
+## Acknowledgement
+
+- [vuejs/repl](https://github.com/vuejs/repl)

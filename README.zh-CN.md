@@ -30,6 +30,7 @@ pnpm add vite-plugin-vue-preview
 - 支持 Vue3/Vitepress 应用
 - 支持代码预览
 - 支持在线编辑
+- 集成 VSCode 提示
 
 ## Props
 
@@ -51,6 +52,12 @@ interface Props {
   previewAppStyle?: Partial<CSSStyleDeclaration> | string
   // demo 组件可引入的第三方依赖（CDN）
   importMap?: Record<string, string> | string
+  // 编辑器主题色，不提供时根据 html 元素是否有类名 'dark' 来自动切换
+  theme?: 'dark' | 'light'
+  // 是否隐藏控制编译错误信息是否显示的开关
+  hideMessageToggle?: boolean
+  // 是否隐藏编译错误信息
+  hideMessage?: boolean
 }
 ```
 
@@ -65,10 +72,21 @@ interface Props {
 --vue-preview-box-shadow
 /* VuePreview 图标颜色 */
 --vue-preview-color-icon
-/* VuePreview 图标 hover 颜色 */
+/* VuePreview 图标 hover 背景色 */
 --vue-preview-color-icon-bg-hover
 /* VuePreview 加载区域背景色 */
 --vue-preview-color-model-bg
+/* VuePreview 编辑容器的最大高度 */
+--vue-preview-editor-max-height
+/* VuePreview 编辑容器的最小高度 */
+--vue-preview-editor-min-height
+
+/* 以下 CSS 变量继承自 vuejs/repl，详情请移步其代码仓库 */
+--bg
+--border
+--text-light
+--font-code
+--color-branding
 ```
 
 ## 用法
@@ -156,3 +174,7 @@ export default defineConfig({
   })],
 })
 ```
+
+## 致谢
+
+- [vuejs/repl](https://github.com/vuejs/repl)
