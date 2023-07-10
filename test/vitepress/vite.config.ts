@@ -1,6 +1,6 @@
 import { defineConfig } from 'vite'
 
-import vuePreviewPlugin from '../../src/plugin'
+import vuePreviewPlugin from '../../dist/plugin'
 
 export default defineConfig({
   plugins: [vuePreviewPlugin({

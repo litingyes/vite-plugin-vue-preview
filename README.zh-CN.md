@@ -97,7 +97,7 @@ interface Props {
 
 ```TS
 import { createApp } from 'vue'
-import { VuePreview } from 'vite-plugin-vue-preview'
+import VuePreview from 'vite-plugin-vue-preview'
 import 'vite-plugin-vue-preview/style.css'
 
 const app = createApp()
@@ -112,7 +112,7 @@ app.component('VuePreview', VuePreview)
 ```TS
 // vite.config.ts
 import { defineConfig } from 'vite'
-import { VuePreviewPlugin } from 'vite-plugin-vue-preview'
+import VuePreviewPlugin from 'vite-plugin-vue-preview/plugin'
 
 export default defineConfig({
   plugins: [VuePreviewPlugin()],
@@ -120,7 +120,7 @@ export default defineConfig({
 
 // .vitepress/theme/index.ts
 import DefaultTheme from 'vitepress/theme'
-import { VuePreview } from 'vite-plugin-vue-preview'
+import VuePreview from 'vite-plugin-vue-preview'
 import 'vite-plugin-vue-preview/style.css'
 
 export default {
@@ -151,10 +151,10 @@ export default {
 ```TS
 // vite.config.ts
 import { defineConfig } from 'vite'
-import { vuePreviewPlugin } from 'vite-plugin-vue-preview'
+import VuePreviewPlugin from 'vite-plugin-vue-preview/plugin'
 
 export default defineConfig({
-  plugins: [vuePreviewPlugin({
+  plugins: [VuePreviewPlugin({
     props: {
       previewBodyStyle: {
         display: 'flex',

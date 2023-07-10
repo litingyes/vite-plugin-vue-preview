@@ -1,4 +1,3 @@
-import { resolve } from 'node:path'
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import dts from 'vite-plugin-dts'
@@ -21,9 +20,14 @@ export default defineConfig({
     }),
     visualizer()],
   build: {
+    target: 'esnext',
+    minify: false,
     lib: {
-      entry: [resolve(__dirname, 'src/index.ts')],
-      formats: ['es', 'cjs'],
+      entry: {
+        sfc: './src/VuePreview.vue',
+        plugin: './src/plugin.ts',
+      },
+      formats: ['es'],
     },
     rollupOptions: {
       external: [
@@ -31,7 +35,7 @@ export default defineConfig({
         'vue/compiler-sfc',
       ],
       output: {
-        exports: 'named',
+        chunkFileNames: 'chunks/[name]-[hash].js',
       },
     },
   },

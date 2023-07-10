@@ -28,9 +28,16 @@
   ],
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
-      "require": "./dist/index.cjs",
-      "import": "./dist/index.js"
+      "types": "./dist/sfc.d.ts",
+      "import": "./dist/sfc.js"
+    },
+    "./sfc": {
+      "types": "./dist/sfc.d.ts",
+      "import": "./dist/sfc.js"
+    },
+    "./plugin": {
+      "types": "./dist/plugin.d.ts",
+      "import": "./dist/plugin.js"
     },
     "./style.css": "./dist/style.css"
   },
