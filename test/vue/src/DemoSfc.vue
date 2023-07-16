@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import '../../../dist/style.css'
-import { VuePreview } from '../../../dist'
+import VuePreview from '../../../dist/sfc'
 </script>
 
 <template>

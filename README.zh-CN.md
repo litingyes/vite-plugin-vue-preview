@@ -11,6 +11,8 @@
   <a href="./README.md">English</a>
 </p>
 
+> 2.x版本在vitepress中使用时构建失败，请暂时使用1.x版本（欢迎pr）
+
 一个为在 Markdown 中预览和编辑Vue组件而生的Vite插件，当然，也导出了一个 **VuePreview** 组件可以直接在 Vue 应用中使用
 
 ## 演示
@@ -22,7 +24,7 @@
 ## 安装
 
 ```bash
-pnpm add vite-plugin-vue-preview
+pnpm add vite-plugin-vue-preview@1
 ```
 
 ## 特征

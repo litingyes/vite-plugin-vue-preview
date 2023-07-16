@@ -11,6 +11,8 @@
   <a href="./README.zh-CN.md">简体中文</a>
 </p>
 
+> Version 2.x fails to build when used in vitepress, please use version 1.x for now (PR welcome)
+
 A Vite plugin made for previewing and editing Vue components in Markdown and, of course, exporting a **VuePreview** component to be used directly in Vue applications.
 
 ## Demo
@@ -22,7 +24,7 @@ A Vite plugin made for previewing and editing Vue components in Markdown and, of
 ## Install
 
 ```bash
-pnpm add vite-plugin-vue-preview
+pnpm add vite-plugin-vue-preview@1
 ```
 
 ## Features
