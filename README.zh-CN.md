@@ -22,7 +22,7 @@
 ## 安装
 
 ```bash
-pnpm add vite-plugin-vue-preview
+pnpm add vite-plugin-vue-preview@1
 ```
 
 ## 特征

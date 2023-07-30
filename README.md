@@ -22,7 +22,7 @@ A Vite plugin made for previewing and editing Vue components in Markdown and, of
 ## Install
 
 ```bash
-pnpm add vite-plugin-vue-preview
+pnpm add vite-plugin-vue-preview@1
 ```
 
 ## Features

@@ -27,7 +27,7 @@ import { isSpecialBooleanAttr } from '@vue/shared'
 ## Install
 
 ```bash
-pnpm add vite-plugin-vue-preview
+pnpm add vite-plugin-vue-preview@1
 ```
 
 ## Features
