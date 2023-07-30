@@ -15,6 +15,10 @@
   "bugs": {
     "url": "https://github.com/liting-yes/vite-plugin-vue-preview/issues"
   },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
   "keywords": [
     "vite",
     "plugin",
