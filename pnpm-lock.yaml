@@ -49,7 +49,7 @@ devDependencies:
     version: 4.3.0
   consola:
     specifier: ^3.1.0
-    version: 3.2.2
+    version: 3.2.3
   eslint:
     specifier: ^8.32.0
     version: 8.46.0
@@ -2400,8 +2400,8 @@ packages:
       xdg-basedir: 5.1.0
     dev: true
 
-  /consola@3.2.2:
-    resolution: {integrity: sha512-r921u0vbF4lQsoIqYvSSER+yZLPQGijOHrYcWoCNVNBZmn/bRR+xT/DgerTze/nLD9TTGzdDa378TVhx7RDOYg==}
+  /consola@3.2.3:
+    resolution: {integrity: sha512-I5qxpzLv+sJhTVEoLYNcTW+bThDCPsit0vLNKShZx6rLtpilNpmmeTPaeqJb9ZE9dV3DGaeby6Vuhrw38WjeyQ==}
     engines: {node: ^14.18.0 || >=16.10.0}
     dev: true
 
