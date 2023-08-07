@@ -69,6 +69,8 @@ interface Props {
 --vue-preview-color-icon-bg-hover
 /* VuePreview 加载区域背景色 */
 --vue-preview-color-model-bg
+/* VuePreview 加载区域图标颜色 */
+--vue-preview-color-loading
 ```
 
 ## 用法
