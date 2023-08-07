@@ -135,7 +135,7 @@ const isHover = useElementHover(vuePreviewContainerRef)
       </Transition>
       <Transition v-if="previewUpdateFlag === 'UPDATING'" name="fade">
         <div class="vue-preview__loading-model">
-          <Loading />
+          <Loading class="vue-preview__loading-icon" />
         </div>
       </Transition>
     </div>
@@ -220,6 +220,10 @@ const isHover = useElementHover(vuePreviewContainerRef)
     justify-content: center;
     align-items: center;
     background-color: var(--vue-preview-color-model-bg);
+  }
+
+  &__loading-icon {
+    color: var(--vue-preview-color-loading, black);
   }
 
   :deep(.editor) {
