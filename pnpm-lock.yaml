@@ -22,7 +22,7 @@ devDependencies:
     version: 0.7.2(vue@3.3.9)
   '@playwright/experimental-ct-vue':
     specifier: ^1.35.1
-    version: 1.40.1(@types/node@20.5.1)(sass@1.69.5)(vite@4.5.0)(vue@3.3.9)
+    version: 1.40.1(@types/node@20.5.1)(sass@1.69.5)(vite@4.5.1)(vue@3.3.9)
   '@tsconfig/node-lts-strictest':
     specifier: ^18.12.1
     version: 18.12.1
@@ -34,7 +34,7 @@ devDependencies:
     version: 20.5.1
   '@vitejs/plugin-vue':
     specifier: ^4.0.0
-    version: 4.5.1(vite@4.5.0)(vue@3.3.9)
+    version: 4.5.1(vite@4.5.1)(vue@3.3.9)
   '@vue/compiler-dom':
     specifier: ^3.3.4
     version: 3.3.7
@@ -85,13 +85,13 @@ devDependencies:
     version: 5.0.4
   vite:
     specifier: ^4.1.2
-    version: 4.5.0(@types/node@20.5.1)(sass@1.69.5)
+    version: 4.5.1(@types/node@20.5.1)(sass@1.69.5)
   vite-plugin-banner:
     specifier: ^0.7.0
     version: 0.7.1
   vite-plugin-dts:
     specifier: 2.3.0
-    version: 2.3.0(@types/node@20.5.1)(vite@4.5.0)
+    version: 2.3.0(@types/node@20.5.1)(vite@4.5.1)
   vitepress:
     specifier: 1.0.0-rc.31
     version: 1.0.0-rc.31(@algolia/client-search@4.19.1)(@types/node@20.5.1)(react@18.2.0)(sass@1.69.5)(search-insights@2.6.0)(typescript@5.0.4)
@@ -1324,7 +1324,7 @@ packages:
     dependencies:
       playwright: 1.40.1
       playwright-core: 1.40.1
-      vite: 4.5.0(@types/node@20.5.1)(sass@1.69.5)
+      vite: 4.5.1(@types/node@20.5.1)(sass@1.69.5)
     transitivePeerDependencies:
       - '@types/node'
       - less
@@ -1335,13 +1335,13 @@ packages:
       - terser
     dev: true
 
-  /@playwright/experimental-ct-vue@1.40.1(@types/node@20.5.1)(sass@1.69.5)(vite@4.5.0)(vue@3.3.9):
+  /@playwright/experimental-ct-vue@1.40.1(@types/node@20.5.1)(sass@1.69.5)(vite@4.5.1)(vue@3.3.9):
     resolution: {integrity: sha512-JyhExIPIDP3X9IN4iGvvy9eRxNo5kceViDhM9HdIu8anLUrYB7qyTHbM3N3RMCkj9E+EdbtVEYBceilI0Y7EyA==}
     engines: {node: '>=16'}
     hasBin: true
     dependencies:
       '@playwright/experimental-ct-core': 1.40.1(@types/node@20.5.1)(sass@1.69.5)
-      '@vitejs/plugin-vue': 4.5.1(vite@4.5.0)(vue@3.3.9)
+      '@vitejs/plugin-vue': 4.5.1(vite@4.5.1)(vue@3.3.9)
     transitivePeerDependencies:
       - '@types/node'
       - less
@@ -1900,14 +1900,14 @@ packages:
     resolution: {integrity: sha512-zuVdFrMJiuCDQUMCzQaD6KL28MjnqqN8XnAqiEq9PNm/hCPTSGfrXCOfwj1ow4LFb/tNymJPwsNbVePc1xFqrQ==}
     dev: true
 
-  /@vitejs/plugin-vue@4.5.1(vite@4.5.0)(vue@3.3.9):
+  /@vitejs/plugin-vue@4.5.1(vite@4.5.1)(vue@3.3.9):
     resolution: {integrity: sha512-DaUzYFr+2UGDG7VSSdShKa9sIWYBa1LL8KC0MNOf2H5LjcTPjob0x8LbkqXWmAtbANJCkpiQTj66UVcQkN2s3g==}
     engines: {node: ^14.18.0 || >=16.0.0}
     peerDependencies:
       vite: ^4.0.0 || ^5.0.0
       vue: ^3.2.25
     dependencies:
-      vite: 4.5.0(@types/node@20.5.1)(sass@1.69.5)
+      vite: 4.5.1(@types/node@20.5.1)(sass@1.69.5)
       vue: 3.3.9(typescript@5.0.4)
     dev: true
 
@@ -7142,7 +7142,7 @@ packages:
     resolution: {integrity: sha512-Bww2Xd5tOGsZ1yZ9rQiGneryvsL1u86znPrqeQjCsXPsG72pnSdV5lcQA+cy8UNDguMqyTJiCevlNUbLnT85UA==}
     dev: true
 
-  /vite-plugin-dts@2.3.0(@types/node@20.5.1)(vite@4.5.0):
+  /vite-plugin-dts@2.3.0(@types/node@20.5.1)(vite@4.5.1):
     resolution: {integrity: sha512-WbJgGtsStgQhdm3EosYmIdTGbag5YQpZ3HXWUAPCDyoXI5qN6EY0V7NXq0lAmnv9hVQsvh0htbYcg0Or5Db9JQ==}
     engines: {node: ^14.18.0 || >=16.0.0}
     peerDependencies:
@@ -7158,15 +7158,15 @@ packages:
       kolorist: 1.8.0
       magic-string: 0.29.0
       ts-morph: 18.0.0
-      vite: 4.5.0(@types/node@20.5.1)(sass@1.69.5)
+      vite: 4.5.1(@types/node@20.5.1)(sass@1.69.5)
     transitivePeerDependencies:
       - '@types/node'
       - rollup
       - supports-color
     dev: true
 
-  /vite@4.5.0(@types/node@20.5.1)(sass@1.69.5):
-    resolution: {integrity: sha512-ulr8rNLA6rkyFAlVWw2q5YJ91v098AFQ2R0PRFwPzREXOUJQPtFUG0t+/ZikhaOCDqFoDhN6/v8Sq0o4araFAw==}
+  /vite@4.5.1(@types/node@20.5.1)(sass@1.69.5):
+    resolution: {integrity: sha512-AXXFaAJ8yebyqzoNB9fu2pHoo/nWX+xZlaRwoeYUxEqBO+Zj4msE5G+BhGBll9lYEKv9Hfks52PAF2X7qDYXQA==}
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
     peerDependencies:
