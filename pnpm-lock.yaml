@@ -34,7 +34,7 @@ devDependencies:
     version: 20.5.1
   '@vitejs/plugin-vue':
     specifier: ^4.0.0
-    version: 4.5.1(vite@4.5.1)(vue@3.4.3)
+    version: 4.6.2(vite@4.5.1)(vue@3.4.3)
   '@vue/compiler-dom':
     specifier: ^3.3.4
     version: 3.3.7
@@ -1341,7 +1341,7 @@ packages:
     hasBin: true
     dependencies:
       '@playwright/experimental-ct-core': 1.40.1(@types/node@20.5.1)(sass@1.69.6)
-      '@vitejs/plugin-vue': 4.5.1(vite@4.5.1)(vue@3.4.3)
+      '@vitejs/plugin-vue': 4.6.2(vite@4.5.1)(vue@3.4.3)
     transitivePeerDependencies:
       - '@types/node'
       - less
@@ -1888,8 +1888,8 @@ packages:
     resolution: {integrity: sha512-zuVdFrMJiuCDQUMCzQaD6KL28MjnqqN8XnAqiEq9PNm/hCPTSGfrXCOfwj1ow4LFb/tNymJPwsNbVePc1xFqrQ==}
     dev: true
 
-  /@vitejs/plugin-vue@4.5.1(vite@4.5.1)(vue@3.4.3):
-    resolution: {integrity: sha512-DaUzYFr+2UGDG7VSSdShKa9sIWYBa1LL8KC0MNOf2H5LjcTPjob0x8LbkqXWmAtbANJCkpiQTj66UVcQkN2s3g==}
+  /@vitejs/plugin-vue@4.6.2(vite@4.5.1)(vue@3.4.3):
+    resolution: {integrity: sha512-kqf7SGFoG+80aZG6Pf+gsZIVvGSCKE98JbiWqcCV9cThtg91Jav0yvYFC9Zb+jKetNGF6ZKeoaxgZfND21fWKw==}
     engines: {node: ^14.18.0 || >=16.0.0}
     peerDependencies:
       vite: ^4.0.0 || ^5.0.0
