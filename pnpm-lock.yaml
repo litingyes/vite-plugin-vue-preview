@@ -22,7 +22,7 @@ devDependencies:
     version: 0.7.2(vue@3.4.3)
   '@playwright/experimental-ct-vue':
     specifier: ^1.35.1
-    version: 1.40.1(@types/node@20.5.1)(sass@1.69.6)(vite@4.5.2)(vue@3.4.3)
+    version: 1.40.1(@types/node@20.5.1)(sass@1.70.0)(vite@4.5.2)(vue@3.4.3)
   '@tsconfig/node-lts-strictest':
     specifier: ^18.12.1
     version: 18.12.1
@@ -76,7 +76,7 @@ devDependencies:
     version: 5.12.0
   sass:
     specifier: ^1.63.4
-    version: 1.69.6
+    version: 1.70.0
   simple-git-hooks:
     specifier: ^2.8.1
     version: 2.9.0
@@ -85,7 +85,7 @@ devDependencies:
     version: 5.0.4
   vite:
     specifier: ^4.1.2
-    version: 4.5.2(@types/node@20.5.1)(sass@1.69.6)
+    version: 4.5.2(@types/node@20.5.1)(sass@1.70.0)
   vite-plugin-banner:
     specifier: ^0.7.0
     version: 0.7.1
@@ -94,7 +94,7 @@ devDependencies:
     version: 2.3.0(@types/node@20.5.1)(vite@4.5.2)
   vitepress:
     specifier: 1.0.0-rc.34
-    version: 1.0.0-rc.34(@algolia/client-search@4.19.1)(@types/node@20.5.1)(react@18.2.0)(sass@1.69.6)(search-insights@2.6.0)(typescript@5.0.4)
+    version: 1.0.0-rc.34(@algolia/client-search@4.19.1)(@types/node@20.5.1)(react@18.2.0)(sass@1.70.0)(search-insights@2.6.0)(typescript@5.0.4)
   vue:
     specifier: ^3.2.47
     version: 3.4.3(typescript@5.0.4)
@@ -1317,14 +1317,14 @@ packages:
       '@octokit/openapi-types': 18.0.0
     dev: true
 
-  /@playwright/experimental-ct-core@1.40.1(@types/node@20.5.1)(sass@1.69.6):
+  /@playwright/experimental-ct-core@1.40.1(@types/node@20.5.1)(sass@1.70.0):
     resolution: {integrity: sha512-FjYQP74I2xVAO6W52+Yn2t48FDs+IhOHcWAwZHqAX+lHVHidz4f/b0FY3Qnq8+ZIt5TgqucEzGXbw/TdqJYDtA==}
     engines: {node: '>=16'}
     hasBin: true
     dependencies:
       playwright: 1.40.1
       playwright-core: 1.40.1
-      vite: 4.5.2(@types/node@20.5.1)(sass@1.69.6)
+      vite: 4.5.2(@types/node@20.5.1)(sass@1.70.0)
     transitivePeerDependencies:
       - '@types/node'
       - less
@@ -1335,12 +1335,12 @@ packages:
       - terser
     dev: true
 
-  /@playwright/experimental-ct-vue@1.40.1(@types/node@20.5.1)(sass@1.69.6)(vite@4.5.2)(vue@3.4.3):
+  /@playwright/experimental-ct-vue@1.40.1(@types/node@20.5.1)(sass@1.70.0)(vite@4.5.2)(vue@3.4.3):
     resolution: {integrity: sha512-JyhExIPIDP3X9IN4iGvvy9eRxNo5kceViDhM9HdIu8anLUrYB7qyTHbM3N3RMCkj9E+EdbtVEYBceilI0Y7EyA==}
     engines: {node: '>=16'}
     hasBin: true
     dependencies:
-      '@playwright/experimental-ct-core': 1.40.1(@types/node@20.5.1)(sass@1.69.6)
+      '@playwright/experimental-ct-core': 1.40.1(@types/node@20.5.1)(sass@1.70.0)
       '@vitejs/plugin-vue': 4.6.2(vite@4.5.2)(vue@3.4.3)
     transitivePeerDependencies:
       - '@types/node'
@@ -1895,7 +1895,7 @@ packages:
       vite: ^4.0.0 || ^5.0.0
       vue: ^3.2.25
     dependencies:
-      vite: 4.5.2(@types/node@20.5.1)(sass@1.69.6)
+      vite: 4.5.2(@types/node@20.5.1)(sass@1.70.0)
       vue: 3.4.3(typescript@5.0.4)
     dev: true
 
@@ -1906,7 +1906,7 @@ packages:
       vite: ^5.0.0
       vue: ^3.2.25
     dependencies:
-      vite: 5.0.10(@types/node@20.5.1)(sass@1.69.6)
+      vite: 5.0.10(@types/node@20.5.1)(sass@1.70.0)
       vue: 3.4.3(typescript@5.0.4)
     dev: true
 
@@ -6234,8 +6234,8 @@ packages:
     resolution: {integrity: sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==}
     dev: true
 
-  /sass@1.69.6:
-    resolution: {integrity: sha512-qbRr3k9JGHWXCvZU77SD2OTwUlC+gNT+61JOLcmLm+XqH4h/5D+p4IIsxvpkB89S9AwJOyb5+rWNpIucaFxSFQ==}
+  /sass@1.70.0:
+    resolution: {integrity: sha512-uUxNQ3zAHeAx5nRFskBnrWzDUJrrvpCPD5FNAoRvTi0WwremlheES3tg+56PaVtCs5QDRX5CBLxxKMDJMEa1WQ==}
     engines: {node: '>=14.0.0'}
     hasBin: true
     dependencies:
@@ -6905,14 +6905,14 @@ packages:
       kolorist: 1.8.0
       magic-string: 0.29.0
       ts-morph: 18.0.0
-      vite: 4.5.2(@types/node@20.5.1)(sass@1.69.6)
+      vite: 4.5.2(@types/node@20.5.1)(sass@1.70.0)
     transitivePeerDependencies:
       - '@types/node'
       - rollup
       - supports-color
     dev: true
 
-  /vite@4.5.2(@types/node@20.5.1)(sass@1.69.6):
+  /vite@4.5.2(@types/node@20.5.1)(sass@1.70.0):
     resolution: {integrity: sha512-tBCZBNSBbHQkaGyhGCDUGqeo2ph8Fstyp6FMSvTtsXeZSPpSMGlviAOav2hxVTqFcx8Hj/twtWKsMJXNY0xI8w==}
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
@@ -6944,12 +6944,12 @@ packages:
       esbuild: 0.18.11
       postcss: 8.4.32
       rollup: 3.27.2
-      sass: 1.69.6
+      sass: 1.70.0
     optionalDependencies:
       fsevents: 2.3.3
     dev: true
 
-  /vite@5.0.10(@types/node@20.5.1)(sass@1.69.6):
+  /vite@5.0.10(@types/node@20.5.1)(sass@1.70.0):
     resolution: {integrity: sha512-2P8J7WWgmc355HUMlFrwofacvr98DAjoE52BfdbwQtyLH06XKwaL/FMnmKM2crF0iX4MpmMKoDlNCB1ok7zHCw==}
     engines: {node: ^18.0.0 || >=20.0.0}
     hasBin: true
@@ -6981,12 +6981,12 @@ packages:
       esbuild: 0.19.8
       postcss: 8.4.32
       rollup: 4.6.1
-      sass: 1.69.6
+      sass: 1.70.0
     optionalDependencies:
       fsevents: 2.3.3
     dev: true
 
-  /vitepress@1.0.0-rc.34(@algolia/client-search@4.19.1)(@types/node@20.5.1)(react@18.2.0)(sass@1.69.6)(search-insights@2.6.0)(typescript@5.0.4):
+  /vitepress@1.0.0-rc.34(@algolia/client-search@4.19.1)(@types/node@20.5.1)(react@18.2.0)(sass@1.70.0)(search-insights@2.6.0)(typescript@5.0.4):
     resolution: {integrity: sha512-TUbTiSdAZFni2XlHlpx61KikgkQ5uG4Wtmw2R0SXhIOG6qGqzDJczAFjkMc4i45I9c3KyatwOYe8oEfCnzVYwQ==}
     hasBin: true
     peerDependencies:
@@ -7012,7 +7012,7 @@ packages:
       shikiji: 0.9.16
       shikiji-core: 0.9.16
       shikiji-transformers: 0.9.16
-      vite: 5.0.10(@types/node@20.5.1)(sass@1.69.6)
+      vite: 5.0.10(@types/node@20.5.1)(sass@1.70.0)
       vue: 3.4.3(typescript@5.0.4)
     transitivePeerDependencies:
       - '@algolia/client-search'
