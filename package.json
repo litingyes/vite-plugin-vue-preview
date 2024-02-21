@@ -94,7 +94,7 @@
     "vite": "^4.1.2",
     "vite-plugin-banner": "^0.7.0",
     "vite-plugin-dts": "2.3.0",
-    "vitepress": "1.0.0-rc.34",
+    "vitepress": "1.0.0-rc.44",
     "vue": "^3.2.47"
   },
   "config": {
