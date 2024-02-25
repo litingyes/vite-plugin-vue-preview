@@ -1,5 +1,6 @@
 {
   "name": "test-vitepress",
+  "type": "module",
   "private": true,
   "description": "",
   "author": "liting <luz.liting@gmail.com>",

@@ -9,6 +9,9 @@
 
 一个为在 Markdown 中预览和编辑Vue组件而生的Vite插件，当然，也导出了一个 **VuePreview** 组件可以直接在 Vue 应用中使用
 
+> [!TIP]
+> 对于绝大部分简单的、不强绑定vue组件的代码预览场景，更加推荐使用 [sandboxrun](https://github.com/liting-yes/sandboxrun.git)
+
 ## 演示
 
 <!-- #region demo -->

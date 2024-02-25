@@ -13,6 +13,9 @@
 
 A Vite plugin made for previewing and editing Vue components in Markdown and, of course, exporting a **VuePreview** component to be used directly in Vue applications.
 
+> [!TIP]
+> For most simple code preview scenarios that don't strongly bind to a vue component, it's even more recommended to use the [sandboxrun](https://github.com/liting-yes/sandboxrun.git)
+
 ## Demo
 
 <p align="center">
