@@ -37,7 +37,7 @@ devDependencies:
     version: 4.6.2(vite@4.5.3)(vue@3.4.26)
   '@vue/compiler-dom':
     specifier: ^3.3.4
-    version: 3.4.15
+    version: 3.4.26
   '@vueuse/core':
     specifier: ^10.1.2
     version: 10.8.0(vue@3.4.26)
@@ -1961,16 +1961,6 @@ packages:
       vue: 3.4.26(typescript@5.0.4)
     dev: true
 
-  /@vue/compiler-core@3.4.15:
-    resolution: {integrity: sha512-XcJQVOaxTKCnth1vCxEChteGuwG6wqnUHxAm1DO3gCz0+uXKaJNx8/digSz4dLALCy8n2lKq24jSUs8segoqIw==}
-    dependencies:
-      '@babel/parser': 7.24.5
-      '@vue/shared': 3.4.15
-      entities: 4.5.0
-      estree-walker: 2.0.2
-      source-map-js: 1.2.0
-    dev: true
-
   /@vue/compiler-core@3.4.26:
     resolution: {integrity: sha512-N9Vil6Hvw7NaiyFUFBPXrAyETIGlQ8KcFMkyk6hW1Cl6NvoqvP+Y8p1Eqvx+UdqsnrnI9+HMUEJegzia3mhXmQ==}
     dependencies:
@@ -1979,13 +1969,6 @@ packages:
       entities: 4.5.0
       estree-walker: 2.0.2
       source-map-js: 1.2.0
-    dev: true
-
-  /@vue/compiler-dom@3.4.15:
-    resolution: {integrity: sha512-wox0aasVV74zoXyblarOM3AZQz/Z+OunYcIHe1OsGclCHt8RsRm04DObjefaI82u6XDzv+qGWZ24tIsRAIi5MQ==}
-    dependencies:
-      '@vue/compiler-core': 3.4.15
-      '@vue/shared': 3.4.15
     dev: true
 
   /@vue/compiler-dom@3.4.26:
@@ -2072,10 +2055,6 @@ packages:
       '@vue/compiler-ssr': 3.4.26
       '@vue/shared': 3.4.26
       vue: 3.4.26(typescript@5.0.4)
-    dev: true
-
-  /@vue/shared@3.4.15:
-    resolution: {integrity: sha512-KzfPTxVaWfB+eGcGdbSf4CWdaXcGDqckoeXUh7SB3fZdEtzPCK2Vq9B/lRRL3yutax/LWITz+SwvgyOxz5V75g==}
     dev: true
 
   /@vue/shared@3.4.26:
