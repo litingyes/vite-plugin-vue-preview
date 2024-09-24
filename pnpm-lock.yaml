@@ -6314,8 +6314,8 @@ packages:
       yargs: 17.7.2
     dev: true
 
-  /rollup@3.27.2:
-    resolution: {integrity: sha512-YGwmHf7h2oUHkVBT248x0yt6vZkYQ3/rvE5iQuVBh3WO8GcJ6BNeOkpoX1yMHIiBm18EMLjBPIoUDkhgnyxGOQ==}
+  /rollup@3.29.5:
+    resolution: {integrity: sha512-GVsDdsbJzzy4S/v3dqWPJ7EfvZJfCHiDqe80IyrF59LYuP+e6U1LJoUqeuqRbwAWoMNoXivMNeNAOf5E22VA1w==}
     engines: {node: '>=14.18.0', npm: '>=8.0.0'}
     hasBin: true
     optionalDependencies:
@@ -7111,7 +7111,7 @@ packages:
       '@types/node': 20.5.1
       esbuild: 0.18.11
       postcss: 8.4.42
-      rollup: 3.27.2
+      rollup: 3.29.5
       sass: 1.77.8
     optionalDependencies:
       fsevents: 2.3.3
