@@ -87,8 +87,8 @@ devDependencies:
     specifier: ^4.1.2
     version: 4.5.5(@types/node@20.5.1)(sass@1.77.8)
   vite-plugin-banner:
-    specifier: ^0.7.0
-    version: 0.7.1
+    specifier: ^0.8.0
+    version: 0.8.0
   vite-plugin-dts:
     specifier: 2.3.0
     version: 2.3.0(@types/node@20.5.1)(vite@4.5.5)
@@ -7053,8 +7053,8 @@ packages:
     engines: {node: '>= 0.10'}
     dev: true
 
-  /vite-plugin-banner@0.7.1:
-    resolution: {integrity: sha512-Bww2Xd5tOGsZ1yZ9rQiGneryvsL1u86znPrqeQjCsXPsG72pnSdV5lcQA+cy8UNDguMqyTJiCevlNUbLnT85UA==}
+  /vite-plugin-banner@0.8.0:
+    resolution: {integrity: sha512-JpDWDYxtrsytuvUOJCgJcTkBb6XM8yPOidjRtB6F5SW1JSzDd/Y+PD/44wR6ovWKXhSUiyDRqPvx7mMf8+8ELg==}
     dev: true
 
   /vite-plugin-dts@2.3.0(@types/node@20.5.1)(vite@4.5.5):
