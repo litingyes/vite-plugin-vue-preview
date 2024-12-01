@@ -43,7 +43,7 @@ devDependencies:
     version: 10.11.1(vue@3.5.12)
   bumpp:
     specifier: ^9.1.1
-    version: 9.8.0
+    version: 9.8.1
   commitizen:
     specifier: ^4.3.0
     version: 4.3.1
@@ -2695,8 +2695,8 @@ packages:
       semver: 7.6.3
     dev: true
 
-  /bumpp@9.8.0:
-    resolution: {integrity: sha512-RKHjvOpN6RGhh7LNXGQCRRTPJ99PvVJRcX7EvKKpgj+3nKV8DWDM+8O1TMK0UvcGWhE74PRrQpISqFTcq8wPSg==}
+  /bumpp@9.8.1:
+    resolution: {integrity: sha512-25W55DZI/rq6FboM0Q5y8eHbUk9eNn9oZ4bg/I5kiWn8/rdZCw6iqML076akQiUOQGhrm6QDvSSn4PgQ48bS4A==}
     engines: {node: '>=10'}
     hasBin: true
     dependencies:
