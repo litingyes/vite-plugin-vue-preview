@@ -49,7 +49,7 @@ devDependencies:
     version: 4.3.1(@types/node@20.5.1)(typescript@5.0.4)
   consola:
     specifier: ^3.1.0
-    version: 3.3.3
+    version: 3.4.0
   eslint:
     specifier: ^8.32.0
     version: 8.57.1
@@ -2992,7 +2992,7 @@ packages:
   /citty@0.1.6:
     resolution: {integrity: sha512-tskPPKEs8D2KPafUypv2gxwJP8h/OaJmC82QQGGDQcHvXX43xF2VDACcJVmZ0EuSxkpO9Kc4MlrA3q0+FG58AQ==}
     dependencies:
-      consola: 3.3.3
+      consola: 3.4.0
     dev: true
 
   /clean-regexp@1.0.0:
@@ -3170,8 +3170,8 @@ packages:
       xdg-basedir: 5.1.0
     dev: true
 
-  /consola@3.3.3:
-    resolution: {integrity: sha512-Qil5KwghMzlqd51UXM0b6fyaGHtOC22scxrwrz4A2882LyUMwQjnvaedN1HAeXzphspQ6CpHkzMAWxBTUruDLg==}
+  /consola@3.4.0:
+    resolution: {integrity: sha512-EiPU8G6dQG0GFHNR8ljnZFki/8a+cQwEQ+7wpxdChl02Q8HXlwEZWD5lqAF8vC2sEC3Tehr8hy7vErz88LHyUA==}
     engines: {node: ^14.18.0 || >=16.10.0}
     dev: true
 
@@ -4569,7 +4569,7 @@ packages:
     hasBin: true
     dependencies:
       citty: 0.1.6
-      consola: 3.3.3
+      consola: 3.4.0
       defu: 6.1.4
       node-fetch-native: 1.6.4
       nypm: 0.3.11
@@ -6121,7 +6121,7 @@ packages:
     hasBin: true
     dependencies:
       citty: 0.1.6
-      consola: 3.3.3
+      consola: 3.4.0
       execa: 8.0.1
       pathe: 1.1.2
       pkg-types: 1.2.1
